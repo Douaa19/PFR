@@ -1,1 +1,2 @@
 # Projet_file_rouge
+Dans ce projet je vais profiter mes compétences pour développer une application web réel pour un jeune photographer. L'application contient des pages présentent les réalisations de ce photographer et une page pour présenter lui-même. Pour réaliser ces pages je vais utiliser les technologies suivante: HTML5, CSS, Bootstrap, PHP, MySQL, AJAX, JSON et JavaScript.
