@@ -6,12 +6,7 @@ class VisiteurController extends Controller {
     }
 
     public function index() {
-
-        
-
+        $this->view('visiteur/index');
     }
-
-    
-
-  
+        
 }

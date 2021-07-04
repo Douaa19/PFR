@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-class Visiteur
+class admin
 
 {
     private $database;
@@ -9,10 +9,8 @@ class Visiteur
         $this->database = new Database;
     }
 
-
-    public function getUser() {
+    public function getAdmin()
+    {
         
     }
-
-
 }
