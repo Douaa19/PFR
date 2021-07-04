@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Sail:400');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F3ECEC;
+}
+
+header .header .logo img {
+    width: 275px;
+}
