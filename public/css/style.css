@@ -1,0 +1,18 @@
+header .header .navbar {
+    background-color: black;
+}
+
+.container .row .card {
+    background-color: #e5e5e5;
+}
+
+footer {
+    background-color: black;
+    display:flex; 
+    flex-wrap: wrap;
+}
+
+
+
+
+
