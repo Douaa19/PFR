@@ -9,10 +9,8 @@ class Visiteur
         $this->database = new Database;
     }
 
-
     public function getUser() {
         
     }
-
 
 }
