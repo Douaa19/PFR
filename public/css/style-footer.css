@@ -1,3 +1,7 @@
+footer {
+    margin-top: 4rem;
+}
+
 footer .head_footer {
     background-color: black;
     display: grid;
