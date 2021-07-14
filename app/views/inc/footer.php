@@ -37,3 +37,5 @@
             <span>© copy right STUDYOU</span>
         </div>
     </small>
+
+    <script src="./public/js/script-index.js"></script>

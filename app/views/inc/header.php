@@ -12,17 +12,18 @@
     <link rel="stylesheet" href="./public/css/style-v-index.css">
     <link rel="stylesheet" href="./public/css/style-footer.css">
     
+    
     <title>Header</title>
 </head>
 <body>
     <header>
-        <div class="header row bg-dark text-light pt-3">
+        <div class="header bg-dark text-light pt-3">
             <div class="head">
                 <div class="vide col-1"></div>
-                <div class="logo col-5">
+                <div class="logo col-4">
                     <a href="#"><img src="./img/white-logo.png" alt="STUDYOU"></a>
                 </div>
-                <nav class="stroke col-5">
+                <nav class="stroke col-6">
                     <ul class="row">
                         <li class="col-2"><a href="#" class="hov text-light">Accueil</a></li>
                         <li class="col-2"><a href="#" class="hov text-light">Photos</a></li>

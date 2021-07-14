@@ -11,11 +11,15 @@ body {
 }
 
 header .header {
-    background-image: url('../img/header-img.jpg');
-    width: 1531px; 
-    height: 1032px; 
-    background-repeat: no-repeat; 
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    background: url('../img/header-img.jpg') no-repeat center; 
     background-size: cover;
+    position: relative;
+    height: 1029px;
+    overflow: hidden;
 }
 
 header .header .head {
@@ -37,6 +41,7 @@ header .header nav ul li {
     cursor: pointer;
     list-style: none;
     font-size: 18px;
+    text-align: center;
 }
 
 header .header nav ul li a {
@@ -122,6 +127,8 @@ header .header .slogon {
     font-family: Brush Script MT;
 }
 
+
+
 /* MAIN */
 
 main {
@@ -131,6 +138,8 @@ main {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
+
+/* Gallery images */
 
 main .photos {
     grid-area: 1 / 2 / 2 / 12;
@@ -174,6 +183,132 @@ main .photos .galery h3 {
 
 main .photos .galery .img:hover h3 {
   opacity: 0.5;
+}
+
+
+
+/* Slid Videos */
+
+main .videos {
+    grid-area: 2 / 2 / 3 / 12;
+    text-transform: uppercase;
+}
+
+
+
+
+/* About section */
+
+main .about {
+  grid-area: 3 / 2 / 4 / 12;
+  height: max-content;
+}
+
+main .about h1 {
+  text-transform: uppercase;
+}
+
+main .about .content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+}
+
+main .about .content p {
+  padding: 0 1.5rem;
+  margin-bottom: 0;
+  width: max-content;
+  font-size: 24px;
+}
+
+main .about .content img {
+  width: 45%;
+  height: 45%;
+}
+
+
+
+main .date h1 {
+  text-transform: uppercase;
+}
+
+main .date {
+  grid-area: 4 / 2 / 5 /12;
+}
+
+/* main .date form {
+
+} */
+
+main .date form {
+  font-size: 24px;
+}
+
+main .date form .email {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+
+main .date form .phone {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+main .date form .gender {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+main .date form .event {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Header */
+@media screen and (max-width:1412px){
+  header .header nav ul li {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width:1296px){
+  header .header nav ul li {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width:1237px){
+  header .header nav ul li {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width:906px){
+  header .header nav ul li {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:425px){
+  
+}
+
+@media screen and (max-width:375px){
+  
 }
 
 /* Responsive Photos */
@@ -223,39 +358,6 @@ main .photos .galery .img:hover h3 {
   }
 }
 
-main .videos {
-  grid-area: 2 / 2 / 3 / 12;
-  text-transform: uppercase;
-}
-
-main .about {
-  grid-area: 3 / 2 / 4 / 12;
-  height: max-content;
-}
-
-main .about h1 {
-  text-transform: uppercase;
-}
-
-main .about .content {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 2rem;
-}
-
-main .about .content p {
-  padding: 0 1.5rem;
-  margin-bottom: 0;
-  width: max-content;
-  font-size: 24px;
-}
-
-main .about .content img {
-  width: 45%;
-  height: 45%;
-}
-
 /* Responsive ABOUT */
 
 @media screen and (max-width:1024px){
@@ -267,6 +369,7 @@ main .about .content img {
   main .about .content p {
     font-size: 24px;
     padding: 0 1rem;
+    line-height: 1.5rem;
   }
 }
 
@@ -282,8 +385,8 @@ main .about .content img {
 
   main .about .content p {
     padding: 0 1rem;
-    font-size: 12px;
-    line-height: 0.8rem;
+    font-size: 16px;
+    line-height: 1.2rem;
   }
 }
 
@@ -303,8 +406,9 @@ main .about .content img {
   
   main .about .content p {
     padding: 0 0.5rem;
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
+    line-height: 1.5rem;
   }
 }
 
@@ -323,28 +427,8 @@ main .about .content img {
   
   main .about .content p {
     padding: 0 0.2rem;
-    font-size: 8px;
+    font-size: 12px;
     text-align: center;
+    line-height: 1.5rem;
   }
 }
-
-main .date h1 {
-  text-transform: uppercase;
-}
-
-main .date {
-  grid-area: 4 / 2 / 5 /12;
-}
-
-main .date form {
-
-}
-
-main .date form .email {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-
-}
-
-
-
