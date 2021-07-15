@@ -9,6 +9,12 @@ class PostController extends Controller
         $this->postModel = $this->model('post');
     }
 
+    public function index() {
+        return view('admin/accueil');
+    }
+
+    
+
 
 
     
