@@ -13,6 +13,10 @@ class AdminController extends Controller
         $this->adminModel = $this->model('admin');
     }
 
+    public function accueil() {
+        $this->view('admin/accueil');
+    }
+
 
 
     public function index()
@@ -32,23 +36,29 @@ class AdminController extends Controller
                     'password' => $_POST['password']
                 ];
 
-            } else {
+            } elseif (empty($_POST['email']) || empty($_POST['password'])) {
                 $errors = [
-                    'error_email' => "Saisez votre adresse email",
-                    'error_password' => "Saisez votre mot de passe"
+                    'empty_email' => "Saisez votre adresse email",
+                    'empty_password' => "Saisez votre mot de passe"
                 ];
 
-                $this->view('admin/index', [], $errors);
-            }
+                header('location: ' . URLROOT);
+                // $this->view('admin/index', [], $errors);
+             }
 
             if (isset($data)) {
                 $logged = $this->adminModel->getAdmin($data);
+                $email = $data['email'];
+                $password = $data['password'];
+                $dbEmail = $logged->email;
+                $dbPassword = $logged->password;
 
-                if (!$logged) {
-                    $this->view('admin/index');
+                if ($email === $dbEmail && $password === $dbPassword) {
+                    
+                    $this->createSession($logged);
+                    $this->view('admin/accueil');
                 } else {
-                    $this->creatSession($logged);
-                    header('Location:' . URLROOT . '/' . 'AdminController/index');
+                    $this->view('admin/index');
                 }
             } else {
                 $this->view('admin/index');
@@ -56,5 +66,23 @@ class AdminController extends Controller
 
         }
 
+    }
+
+    // Create session for login
+    public function createSession($admin) {
+        // session_start();
+        $_SESSION['id'] = $admin->id;
+        $_SESSION['email'] = $admin->email;
+        $_SESSION['password'] = $admin->password;
+
+    }
+
+    // Kill session for logout
+    public function killSession() {
+
+            session_unset();
+            session_destroy();
+
+        header('Location: ' . URLROOT);
     }
 }
