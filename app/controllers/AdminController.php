@@ -58,7 +58,7 @@ class AdminController extends Controller
                     $this->createSession($logged);
                     $this->view('admin/accueil');
                 } else {
-                    $this->view('admin/index');
+                    header('Location: ' . URLROOT);
                 }
             } else {
                 $this->view('admin/index');
