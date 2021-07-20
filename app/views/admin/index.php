@@ -23,7 +23,7 @@
             <span><?php if(isset($data1['empty_password'])) { echo $data1['empty_password']; } ?></span>
         </div>
         <div class="button">
-            <input type="submit" name="submit_login" value="Entrer">
+            <input type="submit" name="submit_login" value="Entrer" class="custom-btn btn-3">
         </div>
     </form>
     </div>
