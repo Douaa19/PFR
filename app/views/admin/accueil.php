@@ -41,12 +41,14 @@
         <div id="carouselExampleControls" class="carousel slide" >
             <div class="carousel-inner">
               <div class="carousel-item active">
-              <img src="../public/img/kenny-leys-j27SKDa-vBg-unsplash.jpg" alt="" class="d-block w-100">
-              <!-- <video src="./public/vid/Nature Beautiful short video 720p HD.mp4" class="d-block w-100">Second video</video> -->
+
+                <video controls="controls" src="../public/vid/Creative short film- Wonderful little world.mp4" video="web/mp4" class="d-block w-100"></video>
+
               </div>
               <div class="carousel-item">
-              <img src="../public/img/annie-spratt-ceMXSBfPoBs-unsplash.jpg" alt="" class="d-block w-100">
-              <!-- <video src="./public/vid/Nature Beautiful short video 720p HD.mp4" class="d-block w-100">First video</video> -->
+
+              <video controls="controls" src="../public/vid/Nature Beautiful short video 720p HD.mp4" video="web/mp4" class="d-block w-100"></video>
+              
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
