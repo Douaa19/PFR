@@ -41,6 +41,7 @@ main .login form .email, .password{
 
 main .login form .email label {
     padding: 2.5rem 0 1rem 0;
+    font-weight: bold;
 }
 
 main .login form input[type="text"] {
@@ -50,10 +51,12 @@ main .login form input[type="text"] {
     padding: 5px;
     margin: 0rem 3rem;
     width: 13rem;
+    outline: none;
 }
 
 main .login form .password label {
     margin: 2rem 0 1rem 0;
+    font-weight: bold;
 }
 
 main .login form input[type="password"] {
@@ -63,13 +66,28 @@ main .login form input[type="password"] {
     padding: 5px;
     margin: 0rem 3rem;
     width: 13rem;
+    outline: none;
 }
 
 main .login form .button input[type="submit"] {
-    border: black 1px solid;
+    font-weight: bold;
+    border: none;
     border-radius: 5px;
     background-color: #F3ECEC;
     outline: none;
     padding: 4px 22px;
     margin: 4.5rem 0;
 }
+
+main .login form .button input[type="submit"]:hover{
+    font-weight: bold;
+    background-color: white;
+    border-radius: 0;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    position: relative;
+  -webkit-transition: all 200ms ease-in-out;
+          transition: all 200ms ease-in-out;
+}
+
+

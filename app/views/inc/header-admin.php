@@ -18,7 +18,7 @@
 <body>
     <header>
         <div class="header bg-dark text-light pt-3">
-            <div class="head">
+            <div class="head row m-0">
                 <div class="vide col-1"></div>
                 <div class="logo col-4">
                     <a href="#"><img src="./img/white-logo.png" alt="STUDYOU"></a>
