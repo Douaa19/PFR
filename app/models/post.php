@@ -59,8 +59,6 @@ class post {
         $result = $this->db->single();
 
         $id_folder = $result->id_folder;
-        echo $id_folder;
-        die();
 
         $this->db->query("INSERT INTO `images`(`title`, `image`, `description`, `tag`, `id_folder`) VALUES (:title, :image, :description, :tag, :id_folder)");
         
@@ -68,7 +66,7 @@ class post {
         $this->db->bind(':image', $data['image']);
         $this->db->bind(':description', $data['description']);
         $this->db->bind(':tag', $data['tag']);
-        $this->db->bind(':id_folder', 2);
+        $this->db->bind(':id_folder', $id_folder);
 
         if ($this->db->execute()) {
             return true;
@@ -81,6 +79,14 @@ class post {
     // Add videos to database
     public function addVideo() {
         echo 'addVideo function';
+    }
+
+    // Get photos
+    public function getPhotos() {
+        $this->db->query("SELECT * FROM images");
+        $result = $this->db->resultSet();
+
+        return $result;
     }
 
     

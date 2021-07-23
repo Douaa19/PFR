@@ -28,7 +28,7 @@ class PostController extends Controller
     }
 
     public function uploadPhoto($image)
-   { 
+    { 
      $dir = "C:\\xampp\htdocs\PFR\public\uploads";
     //  $time = time();
       $name = str_replace(' ','-',strtolower($_FILES["image"]["name"]));
@@ -39,7 +39,7 @@ class PostController extends Controller
       else{
         return false;
        }
-     }
+    }
 
     public function addPhoto() {
         if (isset($_POST['submit'])) {
@@ -73,12 +73,4 @@ class PostController extends Controller
         $this->view('admin/photos');
         
     }
-
-    
-
-    
-    
-
-
-    
 }

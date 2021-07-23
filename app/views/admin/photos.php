@@ -46,20 +46,30 @@
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Titre</th>
+                <th scope="col">Image</th>
                 <th scope="col">Description</th>
                 <th scope="col">Tags</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
+            
               <tr>
-                <th scope="row">1</th>
-                <td>Nature</td>
-                <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</td>
-                <td>#nature #vert #révière #calme</td>
+            <?php foreach ($data as $row) :?>
+                <th scope="row"><?php echo $row->id ?></th>
+                <td><?php echo $row->title; ?></td>
+                <td><?php echo $row->image; ?></td>
+                <td><?php echo $row->description; ?></td>
+                <td><?php echo $row->tag; ?></td>
+                <td><a href="<?php URLROOT; ?>/PostController/edit?id=<?php echo $row->id; ?>" class="btn btn-info">Edit</a>
+                <a href="<?php URLROOT; ?>/PostController/delete?id=<?php echo $row->id; ?>" class="btn btn-danger">Delete</a></td>
+            <?php endforeach ?>
               </tr>
+            
             </tbody>
         </table>
         </div>
+
 
 
 
