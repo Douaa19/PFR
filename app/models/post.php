@@ -2,17 +2,17 @@
 
 class post {
 
-    private $database;
+    private $db;
 
     public function __construct()
     {
-        $this->database = new Database;
+        $this->db = new Database;
     }
 
     // Get photos from database
     public function getPhoto() {
         echo 'getPhoto function';
-        // $this->database->query("SELECT * FROM photos");
+        // $this->db->query("SELECT * FROM photos");
         // $result = $this->database->resultSet();
 
         // return $result;
@@ -21,7 +21,7 @@ class post {
     // Get videos from database
     public function getVideo() {
         echo 'getVideo function';
-        // $this->database->query("SELECT * FROM videos");
+        // $this->db->query("SELECT * FROM videos");
         // $result = $this->database->resultSet();
 
         // return $result;
@@ -30,15 +30,52 @@ class post {
     // Get folder from database
     public function getFolder() {
         echo 'getFolder function';
-        // $this->database->query("SELECT * FROM folders");
+        // $this->db->query("SELECT * FROM folders");
         // $result = $this->database->resultSet();
 
         // return $result;
     }
 
+
+    // public function addPhoto($data)
+
+    // {
+    //     $this->db->query("INSERT INTO `images`( `title`, `image`, `description`, `tag`) VALUES (:title, :image, :description, :tag)");
+    //     $this->db->bind(':title', $data['title']);
+    //     $this->db->bind(':image', $data['image']);
+    //     $this->db->bind(':description', $data['description']);
+    //     $this->db->bind(':tag', $data['tag']);
+    //     $exucute_data=$this->db->execute();
+
+    //     return $exucute_data;
+    // }
+
+
     // Add photos to database
-    public function addPhoto() {
-        echo 'addPhoto function';
+    public function addPhoto($data) {
+        
+        $this->db->query("SELECT * FROM folders WHERE name = :folder");
+        $this->db->bind(':folder', $data['folder']);
+        $result = $this->db->single();
+
+        $id_folder = $result->id_folder;
+        echo $id_folder;
+        die();
+
+        $this->db->query("INSERT INTO `images`(`title`, `image`, `description`, `tag`, `id_folder`) VALUES (:title, :image, :description, :tag, :id_folder)");
+        
+        $this->db->bind(':title', $data['title']);
+        $this->db->bind(':image', $data['image']);
+        $this->db->bind(':description', $data['description']);
+        $this->db->bind(':tag', $data['tag']);
+        $this->db->bind(':id_folder', 2);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     // Add videos to database

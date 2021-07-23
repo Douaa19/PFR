@@ -8,8 +8,8 @@
 
 class Core
 {
-  protected $currentController = 'AdminController';
-  protected $currentMethod = 'index';
+  protected $currentController = 'PostController';
+  protected $currentMethod = 'photos';
   protected $params = [];
 
   public function __construct()

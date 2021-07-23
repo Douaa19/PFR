@@ -18,7 +18,6 @@ class AdminController extends Controller
     }
 
 
-
     public function index()
     {
         $this->view('admin/index');
@@ -85,4 +84,6 @@ class AdminController extends Controller
 
         header('Location: ' . URLROOT);
     }
+
+    
 }
