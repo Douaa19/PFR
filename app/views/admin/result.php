@@ -1,18 +1,15 @@
-<<<<<<< Updated upstream
+<?php
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Result</title>
 </head>
 <body>
-=======
-<?php include_once APPROOT . '../views/inc/normal-header.php'; ?>
->>>>>>> Stashed changes
-    
-    <form action="" method="post"></form>
-
+    <h1>Hello from result page</h1>
 </body>
 </html>

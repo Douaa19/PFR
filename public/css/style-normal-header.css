@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Sail:400');
+
 
 *{
     margin: 0;
@@ -15,11 +15,10 @@ header .header {
     margin: 0;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
-    background: url('../img/header-img.jpg') no-repeat center; 
+    grid-template-rows: repeat(1, 1fr);
     background-size: cover;
     position: relative;
-    height: 1029px;
+    height: max-content;
     overflow: hidden;
 }
 
@@ -126,31 +125,6 @@ header .header .head nav ul form input {
     padding-left: 5px;
 }
 
-/* header .header .head nav ul form button:hover{
-    border: none; 
-} */
-
-header .header .container .paragraphe p {
-  position: absolute; 
-  top: 50%; 
-  left:10%; 
-  font-size:3rem; 
-  text-transform: uppercase; 
-  font-family:'Courier New', Courier, monospace; 
-  color: #EDE3A1;
-  background-image: -webkit-linear-gradient(180deg, #f1e69b, #E7E3CE);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-header .header .slogon {
-    text-transform: capitalize;
-    text-align: center;
-    font-size: 58px;
-    height: max-content;
-    font-family: Brush Script MT;
-}
-
 
 
 /* MAIN */
@@ -163,15 +137,39 @@ main {
     grid-row-gap: 0px;
 }
 
+/* Form */
+main .container {
+    grid-area: 1 / 2 / 2 / 11;
+}
+
+main .container form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+main .container form .title {
+    display: flex;
+
+}
+
+main .container form .description {
+    display: flex;
+}
+
+main .container form .tags {
+    display: flex;
+}
+
+/* Table */
+main .table-photos {
+    grid-area: 2 / 2 / 3 / 11;
+}
 /* Gallery images */
 
 main .photos {
-    grid-area: 1 / 2 / 2 / 12;
+    grid-area: 3 / 2 / 4 / 11;
     text-transform: uppercase;
-}
-
-main .photos h1 {
-  cursor: pointer;
 }
 
 main .photos a {
@@ -221,7 +219,7 @@ main .photos .galery .img:hover h3 {
 
 
 /* Slid Videos */
-
+/* 
 main .videos {
     grid-area: 2 / 2 / 3 / 12;
     text-transform: uppercase;
@@ -235,11 +233,11 @@ main .videos a {
 #carouselExampleControls {
     width: 95%;
     margin-left: 2rem;
-}
+}*/
 
 /* About section */
 
-main .about {
+/* main .about {
   grid-area: 3 / 2 / 4 / 12;
   height: max-content;
 }
@@ -275,8 +273,7 @@ main .date h1 {
 
 main .date {
   grid-area: 4 / 2 / 5 /12;
-}
-
+} */
 
 
 
@@ -370,7 +367,7 @@ main .date {
   }
 }
 
-/* Responsive ABOUT */
+/* Responsive ABOUT
 
 @media screen and (max-width:1024px){
   main .about .content img {
@@ -443,4 +440,4 @@ main .date {
     text-align: center;
     line-height: 1.5rem;
   }
-}
+} */

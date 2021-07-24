@@ -3,33 +3,15 @@
 <main>
 
     <!-- Photos section -->
-    <div class="photos">
-        <a href=""><h1>photos</h1></a>
+    <div class="photos mt-5">
+        <h1><a href="">photos</a></h1>
         <div class="galery">
+        <?php foreach($data as $row) : ?>
             <div class="img">
-                <h3>Titre</h3>
-                <img src="../public/img/alexander-andrews-lMpoDibrEmY-unsplash.jpg" alt="">
+                <h3><?php echo $row->title; ?></h3>
+                <img src="../public/uploads/<?php echo $row->image ?>">
             </div>
-            <div class="img">
-                <h3>Titre</h3>
-                <img src="../public/img/alexander-andrews-sNPfZxrBYdQ-unsplash.jpg" alt="">
-            </div>
-            <div class="img">
-                <h3>Titre</h3>
-                <img src="../public/img/alexander-andrews-VLGWE_SumrA-unsplash.jpg" alt="">
-            </div>
-            <div class="img">
-                <h3>Titre</h3>
-                <img src="../public/img/paul-gaudriault-cwy9yVBBPxg-unsplash.jpg" alt="">
-            </div>
-            <div class="img">
-                <h3>Titre</h3>
-                <img src="../public/img/portuguese-gravity-PjlbfW1mvWE-unsplash.jpg" alt="">
-            </div>
-            <div class="img">
-                <h3>Titre</h3>
-                <img src="../public/img/alexander-andrews-sNPfZxrBYdQ-unsplash.jpg" alt="">
-            </div>
+        <?php endforeach; ?>
         </div>
     </div>
 

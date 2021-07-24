@@ -6,11 +6,15 @@ class Visiteur
     private $database;
     public function __construct()
     {
-        $this->database = new Database;
+        $this->db = new Database;
     }
 
-    public function getUser() {
-        
+    // Get photos
+    public function getPhotos() {
+        $this->db->query("SELECT * FROM images");
+        $result = $this->db->resultSet();
+
+        return $result;
     }
 
 }
