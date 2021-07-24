@@ -72,6 +72,12 @@ class PostController extends Controller
         $this->view('admin/dashboard');
     }
 
+    // Dashboard photos page
+    public function dashPhoto() {
+        $this->view('admin/dash-photo');
+    }
+
+
     
 
     

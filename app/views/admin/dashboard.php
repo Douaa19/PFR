@@ -6,7 +6,7 @@
             <div class="cards">
                 <div class="card card1 col-3">
                     <img src="../public/img/markus-spiske-EfhOW3cYqD8-unsplash.jpg" alt="">
-                    <div class="route strok"><h3><a href="" class="hov">PHOTOS</a></h3></div>
+                    <div class="route strok"><h3><a href="<?php echo URLROOT ?>/PostController/dashPhoto" class="hov">PHOTOS</a></h3></div>
                 </div>
                 <div class="card card2 col-3">
                     <img src="../public/img/thomas-william-4qGbMEZb56c-unsplash.jpg" alt="">
