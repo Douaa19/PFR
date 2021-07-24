@@ -1,5 +1,7 @@
 <?php include_once APPROOT . './views/inc/header-accueil-admin.php'; ?>
 
+
+
 <main>
 
     <!-- Photos section -->
@@ -72,3 +74,4 @@
 <footer>
 <?php include_once APPROOT . '../views/inc/footer.php'; ?>
 </footer>
+

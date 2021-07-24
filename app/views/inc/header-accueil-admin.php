@@ -27,14 +27,6 @@
                 </div>
                 <nav class="stroke col-6">
                     <ul class="row">
-<<<<<<< Updated upstream
-                        <li class="col-2"><a href="#" class="hov text-light">Accueil</a></li>
-                        <li class="col-2"><a href="" class="hov text-light">Photos</a></li>
-                        <li class="col-2"><a href="" class="hov text-light">Vidéos</a></li>
-                        <li class="col-2"><a href="" class="hov text-light">Dashboard</a></li>
-                        <li class="col-3"><input type="text" name="searche" placeholder="Recherche"></li>
-                        <li class="col-1"><a href=""><img src="../img/searchLoop.png" alt="loop-icon"></a></li>
-=======
                         <li class="col-1"><a href="<?php echo URLROOT; ?>/PostController/index" class="hov text-light">Accueil</a></li>
                         <li class="col-1"><a href="<?php echo URLROOT; ?>/PostController/photos" class="hov text-light">Photos</a></li>
                         <li class="col-1"><a href="<?php echo URLROOT; ?>/PostController/videos" class="hov text-light">Vidéos</a></li>
@@ -44,7 +36,6 @@
                             <input type="text" name="search" id="search" placeholder="Recherche">
                             <button type="submit" name="submit_search" class="btn hover-none"><i class="fas fa-search text-light"></i></button>
                         </form>
->>>>>>> Stashed changes
                     </ul>
                 </nav>
             </div>

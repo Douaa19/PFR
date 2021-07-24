@@ -10,9 +10,6 @@ class PostController extends Controller
     }
 
     public function index() {
-<<<<<<< Updated upstream
-        return view('admin/accueil');
-=======
         $result = $this->postModel->getPhotos();
         
         $this->view('admin/accueil', $result);
@@ -68,7 +65,6 @@ class PostController extends Controller
 
         $this->view('admin/photos');
         
->>>>>>> Stashed changes
     }
 
     // Dashboard page
@@ -78,6 +74,8 @@ class PostController extends Controller
 
     
 
+    
+    
 
 
     

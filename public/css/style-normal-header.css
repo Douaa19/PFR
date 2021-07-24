@@ -132,148 +132,118 @@ header .header .head nav ul form input {
 main {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
 
-/* Form */
 main .container {
     grid-area: 1 / 2 / 2 / 11;
+    height: max-content;
 }
 
-main .container form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+main .container .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 0px;
 }
 
-main .container form .title {
-    display: flex;
-
+main .container .cards .card .card1 {
+    grid-area: 1/ 1 / 2 / 2 ;
 }
 
-main .container form .description {
-    display: flex;
+main .container .cards .card .card2 {
+    grid-area: 1/ 2 / 2 / 3 ;
 }
 
-main .container form .tags {
-    display: flex;
+main .container .cards .card .card3 {
+    grid-area: 1/ 3 / 2 / 4 ;
 }
 
-/* Table */
-main .table-photos {
-    grid-area: 2 / 2 / 3 / 11;
-}
-/* Gallery images */
-
-main .photos {
-    grid-area: 3 / 2 / 4 / 11;
-    text-transform: uppercase;
+main .container .cards .card .card4 {
+    grid-area: 1/ 4 / 2 / 5 ;
 }
 
-main .photos a {
+main .container .cards .card{
+    width: 19rem;
+}
+
+main .container .cards .card .route{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main .container .cards .card .route a {
+    color: whitesmoke;
     text-decoration: none;
-    color: black;
 }
 
-main .photos .galery {
-  position: relative;
-  column-count: 3;
-  padding: 2rem;
+main .container .cards .card .route a,
+main .container .cards .card .route a::after,
+main .container .cards .card .route a::before {
+    transition: all .2s;
 }
 
-main .photos .galery .img {
-  display: inline-block;
-  margin-bottom: 10px;
-  overflow: hidden;
+main .container .cards .card .route a:hover {
+    filter: drop-shadow(0 6mm 4mm rgb(47, 44, 48));
 }
 
-main .photos .galery .img img {
-  width: 100%;
-  transition: 0.25S ease-in-out;
-}
-
-main .photos .galery .img:hover img {
-  transform: scale(1.1);
+main .container .cards .card .route.strok a,
+main .container .cards .card .route.fill a {
+    position: relative;
 }
 
 
-main .photos .galery h3 {
-  position: absolute;
-  padding: 5px;
-  margin: 5px;
-  font-size: 21px;
-  background-color: #494949;
-  color: #F3ECEC;
-  border-radius: 5px;
-  opacity: 0;
-  z-index: 1;
-  transition: 0.25 ease-in-out;
+main .container .cards .card .route.strok a:after,
+main .container .cards .card .route.fill a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: '.';
+    color: transparent;
+    background: #F3ECEC;
+    height: 1px;
 }
 
-main .photos .galery .img:hover h3 {
-  opacity: 0.5;
+main .container .cards .card .route.strok a:hover:after {
+    width: 100%;
 }
 
-
-
-/* Slid Videos */
-/* 
-main .videos {
-    grid-area: 2 / 2 / 3 / 12;
-    text-transform: uppercase;
+main .container .cards .card .route.fill a:after {
+    text-align: left;
+    content: '.';
+    margin: 0;
+    opacity: 0;
 }
 
-main .videos a {
-    text-decoration: none;
-    color: black;
+main .container .cards .card .route.fill a:hover{
+    filter: blur(3px);
+    color: #fff;
+    z-index: 1;
 }
 
-#carouselExampleControls {
-    width: 95%;
-    margin-left: 2rem;
-}*/
-
-/* About section */
-
-/* main .about {
-  grid-area: 3 / 2 / 4 / 12;
-  height: max-content;
+main .container .cards .card .route.fill a:hover:after {
+    z-index: -10;
+    animation: fill 1s forwards;
+    -webkit-animation: fill 1s forwards;
+    -moz-animation: fill 1s forwards;
+    opacity: 1;
 }
 
-main .about h1 {
-  text-transform: uppercase;
-}
-
-main .about .content {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 2rem;
-}
-
-main .about .content p {
-  padding: 0 1.5rem;
-  margin-bottom: 0;
-  width: max-content;
-  font-size: 24px;
-}
-
-main .about .content img {
-  width: 45%;
-  height: 45%;
+main .container .cards .card img:hover {
+    filter: blur(3px);
 }
 
 
 
-main .date h1 {
-  text-transform: uppercase;
-}
 
-main .date {
-  grid-area: 4 / 2 / 5 /12;
-} */
 
 
 
@@ -320,124 +290,3 @@ main .date {
   
 }
 
-/* Responsive Photos */
-
-@media screen and (max-width:1024px){
-  h3 {
-    font-size: 18px;
-  }
-}
-
-@media screen and (max-width:768px){
-  main .photos .galery {
-    column-count: 3;
-  }
-
-  h1 {
-    font-size: 32px;
-  }
-}
-
-
-@media screen and (max-width:425px){
-  main .photos .galery {
-    column-count: 2;
-  }
-  
-  h3 {
-    font-size: 12px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-}
-
-@media screen and (max-width:375px){
-  main .photos .galery {
-    column-count: 1;
-  }
-  
-  h3 {
-    font-size: 15px;
-  }
-
-  h1 {
-    font-size: 20px;
-  }
-}
-
-/* Responsive ABOUT
-
-@media screen and (max-width:1024px){
-  main .about .content img {
-    width: 45%;
-    height: 45%;
-  }
-
-  main .about .content p {
-    font-size: 24px;
-    padding: 0 1rem;
-    line-height: 1.5rem;
-  }
-}
-
-@media screen and (max-width:768px){
-  main .about .content {
-    column-count: 2;
-  }
-
-  main .about .content img {
-    width: 42%;
-    height: 42%;
-  }
-
-  main .about .content p {
-    padding: 0 1rem;
-    font-size: 16px;
-    line-height: 1.2rem;
-  }
-}
-
-
-@media screen and (max-width:425px){
-  main .about .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  main .about .content img {
-    width: 35%;
-    height: 35%;
-  }
-  
-  main .about .content p {
-    padding: 0 0.5rem;
-    font-size: 14px;
-    text-align: center;
-    line-height: 1.5rem;
-  }
-}
-
-@media screen and (max-width:375px){
-  main .about .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  main .about .content img {
-    width: 32%;
-    height: 32%;
-  }
-  
-  main .about .content p {
-    padding: 0 0.2rem;
-    font-size: 12px;
-    text-align: center;
-    line-height: 1.5rem;
-  }
-} */

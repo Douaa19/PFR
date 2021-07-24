@@ -1,18 +1,32 @@
-<<<<<<< Updated upstream
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
-<body>
-=======
 <?php include_once APPROOT . '../views/inc/normal-header.php'; ?>
->>>>>>> Stashed changes
     
-    <form action="" method="post"></form>
+    <main>
+        <div class="container mt-5">
+            <h1>Sections</h1>
+            <div class="cards">
+                <div class="card card1 col-3">
+                    <img src="../public/img/markus-spiske-EfhOW3cYqD8-unsplash.jpg" alt="">
+                    <div class="route strok"><h3><a href="" class="hov">PHOTOS</a></h3></div>
+                </div>
+                <div class="card card2 col-3">
+                    <img src="../public/img/thomas-william-4qGbMEZb56c-unsplash.jpg" alt="">
+                    <div class="route strok"><h3><a href="" class="hov">VIDEOS</a></h3></div>
+                </div>
+                <div class="card card3 col-3">
+                    <img src="../public/img/viktor-talashuk-05HLFQu8bFw-unsplash.jpg" alt="">
+                    <div class="route strok"><h3><a href="" class="hov">DOSSIERS</a></h3></div>
+                </div>
+                <div class="card card4 col-3">
+                    <img src="../public/img/cytonn-photography-n95VMLxqM2I-unsplash.jpg" alt="">
+                    <div class="route strok"><h3><a href="" class="hov">CLIENTS</a></h3></div>
+                </div>
+            </div>
+        </div>
+    </main>
 
 </body>
 </html>
+
+<footer>
+    <?php include_once APPROOT . '../views/inc/footer.php'; ?>
+</footer>

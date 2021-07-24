@@ -18,7 +18,6 @@ class AdminController extends Controller
     }
 
 
-
     public function index()
     {
         $this->view('admin/index');
@@ -86,8 +85,6 @@ class AdminController extends Controller
 
         header('Location: ' . URLROOT);
     }
-<<<<<<< Updated upstream
-=======
 
     // Serch method
     public function search() {
@@ -116,5 +113,4 @@ class AdminController extends Controller
     }
 
     
->>>>>>> Stashed changes
 }
