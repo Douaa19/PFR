@@ -1,12 +1,6 @@
 <?php include_once APPROOT . '../views/inc/header-admin.php'; ?>
 
-<?php
 
-    // if (!isset($_SESSION['name'])) {
-    //     session_start();
-    //     header('Location:' . URLROOT . '/' . 'AdminController/accueil');
-    // }
-?>
 
 <main>
 

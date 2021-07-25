@@ -18,7 +18,6 @@ class AdminController extends Controller
     }
 
 
-
     public function index()
     {
         $this->view('admin/index');
@@ -56,7 +55,8 @@ class AdminController extends Controller
                 if ($email === $dbEmail && $password === $dbPassword) {
                     
                     $this->createSession($logged);
-                    $this->view('admin/accueil');
+                    // $this->view('admin/accueil');
+                    header('Location: ' . URLROOT . '/PostController/index');
                 } else {
                     header('Location: ' . URLROOT);
                 }
@@ -85,4 +85,32 @@ class AdminController extends Controller
 
         header('Location: ' . URLROOT);
     }
+
+    // Serch method
+    public function search() {
+        if (isset($_POST['submit_search'])) {
+            if (!empty($_POST['search'])) {
+                
+                $data = [
+                    'search' => $_POST['search'] 
+                ];
+
+                $result = $this->adminModel->search($data);
+
+                if ($result) {
+                    $this->view('admin/result', $result);
+                }else {
+                    $data = [
+                        'error_search' => "Le resultat ne trouve pas"
+                    ];
+                    $this->view('admin/result', [], $data);
+                }
+
+            } else {
+                $this->view('admin/accueil');
+            }
+        }
+    }
+
+    
 }
