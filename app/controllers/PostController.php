@@ -34,6 +34,10 @@ class PostController extends Controller
        }
      }
 
+     public function add() {
+         $this->view('admin/add-photo');     
+        }
+
     public function addPhoto() {
         if (isset($_POST['submit'])) {
             if (!empty($_FILES['image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {

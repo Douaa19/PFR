@@ -2,23 +2,27 @@
 
     <main>
         <div class="container">
-            <div class="cards"">
+            <h1 class="mt-6">Postes</h1>
+            <div class="add">
+                <a href="<?php echo URLROOT; ?>/PosteController/add" class="col-2"><button type="button" name="ajouter" class="btn btn-outline-primary">Ajouter <i class='fas fa-plus'></i></button></a>
+            </div>
+            <div class="cards">
+                <!-- Foreache loop -->
+
                 <div class="card">
-                    <div class="img">
-                        <img src="" alt="">
-                    </div>
-                    <div class="title">
-                        <h4>Title</h4>
-                    </div>
-                    <div class="d_t">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, deserunt.</p>
-                        <span>tags</span>
+                    <img src="../public/img/alexander-andrews-VLGWE_SumrA-unsplash.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <span>Tags</span>
                     </div>
                     <div class="actions">
-                        <button>Edit</button>
-                        <button>Delete</button>
+                        <a class="button primary edit">Edit</a>
+                        <a class="button primary delete">Delete</a>
                     </div>
                 </div>
+
+                <!-- End foreache loop -->
             </div>
         </div>
     </main>

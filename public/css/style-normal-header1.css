@@ -138,11 +138,60 @@ main {
 }
 
 main .container {
-  grid-area: 1 / 2 / 2 / 11;
+  grid-area: 1 / 2 / 2 / 12;
 }
 
 main .container .cards {
-  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0;
+  grid-row-gap: 0px;
+}
+
+main .container .cards .card .actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+main .container .cards .card .actions .button {
+  cursor: pointer;
+  font-family:'Open Sans';
+  font-size: 16px;
+  font-weight:400;
+  display:inline-block;
+  color:#FFF;
+  border-radius: .25em;
+  text-shadow: -1px -1px 0px rgba(0,0,0,0.4);
+}
+
+main .container .cards .card .actions .primary {
+  line-height:40px;
+  transition:ease-in-out .2s;
+  padding: 0 16px;
+}
+
+main .container .cards .card .actions .primary:hover {
+  transform:scale(1.02);
+  box-shadow:2px 2px 5px rgba(0,0,0,0.20), inset 0 0 0 99999px rgba(0,0,0,0.2);
+}
+
+main .container .cards .card .actions .edit:before, .delete:before {
+  font-family: FontAwesome;
+  display: inline-block;
+  font-size:1rem;
+  padding-right:12px;
+  background:none;
+  color:#FFF;
+}
+
+.edit {
+  background: rgb(85, 85, 233);
+}
+
+main .container .cards .card .actions .delete {
+  background: rgb(228, 64, 64); 
 }
 
 
