@@ -54,7 +54,7 @@ class PostController extends Controller
 
                 if ($this->uploadPhoto($image) === true) {
                     if ($this->postModel->addPhoto($data)) {
-                        header('Location: ' . URLROOT);
+                        header('Location: ' . URLROOT . '/PostController/dashPhoto');
                     }else {
                         die('This is not working');
                     }
@@ -63,7 +63,7 @@ class PostController extends Controller
                 echo var_dump($data);
                 
             } else {
-                header('Location: ' . URLROOT);
+                header('Location: ' . URLROOT . '/PostController/add');
             }
         }
 
@@ -80,6 +80,17 @@ class PostController extends Controller
     public function dashPhoto() {
         $this->view('admin/dash-photo');
     }
+
+    // Edit method for photos
+    public function editPhoto() {
+        echo "edit";
+    }
+
+    // Delete method for photos
+    public function deletePhoto() {
+        echo "delete";
+    }
+
 
 
     

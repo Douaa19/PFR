@@ -2,9 +2,9 @@
 
     <main>
         <div class="container">
-            <h1 class="mt-6">Postes</h1>
+            <h1>Postes</h1>
             <div class="add">
-                <a href="<?php echo URLROOT; ?>/PosteController/add" class="col-2"><button type="button" name="ajouter" class="btn btn-outline-primary">Ajouter <i class='fas fa-plus'></i></button></a>
+                <a href="<?php echo URLROOT; ?>/PostController/add" class="button primary new">New</a>
             </div>
             <div class="cards">
                 <!-- Foreache loop -->
@@ -17,8 +17,8 @@
                         <span>Tags</span>
                     </div>
                     <div class="actions">
-                        <a class="button primary edit">Edit</a>
-                        <a class="button primary delete">Delete</a>
+                        <a href="<?php echo URLROOT ?>/PostController/editPhoto" class="button primary edit btn-success">Edit  <i class="far fa-edit"></i></a>
+                        <a href="<?php echo URLROOT ?>/PostController/deletePhoto" class="button primary delete btn-danger">Delete  <i class="far fa-trash-alt"></i></a>
                     </div>
                 </div>
 

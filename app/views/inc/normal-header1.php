@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../public/css/style-normal-header1.css">
     <link rel="stylesheet" href="../public/css/style-footer.css">
+    <link rel="stylesheet" href="../public/css/dash-photo.css">
     <title>Header Dashboard</title>
 </head>
 <body>
@@ -20,11 +21,12 @@
         <div class="header bg-dark text-light pt-3">
             <div class="head">
                 <div class="vide col-1"></div>
-                <div class="logo col-4">
+                <div class="logo col-5">
                     <a href="#"><img src="../img/white-logo.png" alt="STUDYOU"></a>
                 </div>
-                <nav class="stroke col-6">
+                <nav class="stroke col-5">
                     <ul class="row">
+                        <div class="vid col-1"></div>
                         <li class="col-1"><a href="<?php echo URLROOT; ?>/PostController/index" class="hov text-light">Accueil</a></li>
                         <li class="col-1"><a href="<?php echo URLROOT; ?>/PostController/photos" class="hov text-light">Photos</a></li>
                         <li class="col-1"><a href="<?php echo URLROOT; ?>/PostController/videos" class="hov text-light">Vidéos</a></li>
