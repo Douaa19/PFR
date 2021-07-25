@@ -3,40 +3,53 @@
 <main>
     <div class="container">
         <h1 class="m-3">Ajouter photo</h1>
-        <form action="<?php echo URLROOT ?>/PostController/addPhoto" method="POST" class="form-group" enctype="multipart/form-data">
-            <div class="title">
-                <label for="title">Titre</label>
-                <input type="text" name="title" id="title">
-            </div>
-            <div class="choix">
-                <div class="image">
-                    <label for="image">Image</label>
-                    <input type="file" name="image" id="image">
+        <div class="form">
+            <form action="<?php echo URLROOT ?>/PostController/addPhoto" method="POST" class="form-group" enctype="multipart/form-data">
+                <div class="mb-3">
+                  <label for="formGroupExampleInput" class="form-label">Titre</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" name="title">
                 </div>
-                <div class="folder">
-                <label for="folder">Dossier</label>
-                    <select name="folder" id="folder">
-                        <option value="">Choisir un dossier</option>
-                        <option value="marriage">marriage</option>
-                        <option value="nature">nature</option>
-                        <option value="sport">sport</option>
-                        <option value="fête">fête</option>
-                        <option value="autre">autre</option>
-                    </select>
+                <div class="choix">
+                    <div class="image">
+                        <div class="mb-3">
+                            <label for="formFileMultiple" class="form-label">Image</label>
+                            <input class="form-control" type="file" id="formFileMultiple" multiple name="image">
+                        </div>
+                    </div>
+                    <div class="folder">
+                        <div class="col-md-4">
+                            <label for="folder" class="form-label">Dossier</label>
+                            <select id="inputState" class="form-select" name="folder">
+                              <option selected>Choisir...</option>
+                              <option>nature</option>
+                              <option>jeux</option>
+                              <option>marriage</option>
+                              <option>anniversaire</option>
+                              <option>sport</option>
+                              <option>fête</option>
+                              <option>photographie</option>
+                              <option>autre</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="tags">
-                <label for="tag">Tags</label>
-                <input type="text" name="tag" id="tag">
-            </div>
-            <div class="description">
-                <label for="description">Description</label>
-                <textarea name="description" id="" cols="30" rows="10"></textarea>
-            </div>
-            <div class="button">
-                <input type="submit" value="Ajouter" name="submit">
-            </div>
-        </form>
+                <div class="tags">
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Tag</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" name="tag">
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Ajouter" name="submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
     </div>
 </main>
     
