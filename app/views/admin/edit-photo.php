@@ -8,6 +8,8 @@
             <div class="error"><?php echo $error->error; ?></div>
             <?php endif; ?>
             <form action="<?php echo URLROOT ?>/PostController/testImage" method="POST" class="form-group" enctype="multipart/form-data">
+                <?php echo var_dump($data1) ?>
+                <input type="hidden" name="id" value="<?php echo $data->id; ?>">
                 <div class="mb-3">
                   <label for="formGroupExampleInput" class="form-label">Titre</label>
                   <input type="text" class="form-control" id="formGroupExampleInput" name="title" value="<?php echo $data->title ?>">

@@ -6,12 +6,12 @@ class VisiteurController extends Controller {
     }
 
     public function index() {
-        $result = $this->visiteurModel->getPhotos();
-        
-        $this->view('visiteur/index', $result);
+        $this->view('visiteur/index');
     }
 
     public function photos() {
+        $result = $this->postModel->getPhotos();
         
+        $this->view('admin/photos', $result);
     }
 }

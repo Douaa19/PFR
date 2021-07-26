@@ -113,9 +113,12 @@ class PostController extends Controller
         ];
 
         $result = $this->postModel->selectOne($data);
+
+        $data1 = $this->postModel->selectFolder();
+
         
         if($result) {
-            $this->view('admin/edit-photo', $result);
+            $this->view('admin/edit-photo', $result, $data1);
         }else {
             return false;
         }
@@ -154,6 +157,9 @@ class PostController extends Controller
     }
 
 
+    
+
+
 
     // Test for image update
     public function testImage() {
@@ -161,6 +167,7 @@ class PostController extends Controller
             if (!empty($_FILES['new_image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
                 
                 $data = [
+                    'id' => $_POST['id'],
                     'title' => $_POST['title'],
                     'description' => $_POST['description'],
                     'tag' => $_POST['tag'],
@@ -176,10 +183,11 @@ class PostController extends Controller
 
                 $dir = "C:\\xampp\htdocs\PFR\public\uploads\\" . $data['new_image'];
 
-                if ($dir) {
+                if (file_exists($dir)) {
                     echo 'Image already exists';
                 } else {
-                    
+                    $this->postModel->updatePhoto($data);
+                    die();
                 }
 
                 

@@ -6,7 +6,7 @@ class Visiteur
     private $database;
     public function __construct()
     {
-        $this->db = new Database;
+        $this->database = new Database;
     }
 
     // Get photos

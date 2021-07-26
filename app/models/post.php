@@ -100,19 +100,25 @@ class post {
         }
     }
 
-    public function updatePhoto() {
+    public function updatePhoto($data) {
 
+        $this->db->query("UPDATE `images` SET `titre` = :title, `image` = :image, `description` = :description `tag` = :tag ");
+        $this->db->bind(':title', $data['title']);
+        $this->db->bind(':image', $data['image']);
+        $this->db->bind(':description', $data['description']);
+        $this->db->bind(':tag', $data['tag']);
+    }
+
+    // Folder
+    public function selectFolder(){
         $this->db->query("SELECT * FROM folders INNER JOIN images ON folders.id_folder = images.id_folder");
 
         $result = $this->db->resultSet();
-
-        
-
-        // $this->db->query("UPDATE `images` SET `titre` = :title, `image` = :image, `description` = :description `tag` = :tag ");
-        // $this->db->bind(':title', $data['title']);
-        // $this->db->bind(':image', $data['image']);
-        // $this->db->bind(':description', $data['description']);
-        // $this->db->bind(':tag', $data['tag']);
+        if ($result) {
+            return $result;
+        }else {
+            return false;
+        }
     }
 
     
