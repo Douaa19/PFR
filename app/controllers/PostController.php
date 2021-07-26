@@ -22,17 +22,17 @@ class PostController extends Controller
     }
 
     public function uploadPhoto($image)
-   { 
+    { 
      $dir = "C:\\xampp\htdocs\PFR\public\uploads";
       $name = str_replace(' ','-',strtolower($_FILES["image"]["name"]));
       $type = $_FILES["image"]["type"];
       if(move_uploaded_file($_FILES["image"]["tmp_name"],$dir."/".$name))
       {
-         return true;    }
-      else{
+         return true;    
+      }else{
         return false;
        }
-     }
+    }
 
      public function add() {
          $this->view('admin/add-photo');     
@@ -91,10 +91,23 @@ class PostController extends Controller
     // Delete method for photos
     public function deletePhoto() {
         $data = [
-            'id' => $_GET['id']
+            'id' => $_POST['id'],
+            'image' => $_POST['image']
           ];
-          $this->postModel->deletePhoto($data);
-          header('location:' . URLROOT . '/' . 'PostController/dashPhoto');
+          if ($this->postModel->deletePhoto($data)) {
+              $image = $data['image'];
+              $path = "C:\\xampp\htdocs\PFR\public\uploads/$image";
+              chown($path, 666);
+
+              if (unlink($path)) {
+                header('location:' . URLROOT . '/' . 'PostController/dashPhoto');
+              }else {
+                  $_SESSION["Le poste ne être pas supprimé"];
+              }
+        }else {
+            echo "Post not deleted";
+        }          
+          
         }
 }
 

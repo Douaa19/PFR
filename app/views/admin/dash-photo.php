@@ -10,15 +10,21 @@
                 <!-- Foreache loop -->
                 <?php foreach ($data as $row) : ?>
                 <div class="card">
-                    <img src="../public/uploads/<?php echo $row->image ?>" class="card-img-top" alt="...">
+                    <img src="../public/uploads/<?php echo $row->image ?>" class="card-img-top" alt="..">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row->title ;?></h5>
                         <p class="card-text"><?php echo $row->description ;?></p>
                         <span><?php echo $row->tag ;?></span>
                     </div>
                     <div class="actions">
-                        <a href="<?php echo URLROOT ?>/PostController/editPhoto?id=<?php echo $row->id ;?>" class="button primary edit btn-success">Modifier  <i class="far fa-edit"></i></a>
-                        <a href="<?php echo URLROOT ?>/PostController/deletePhoto?id=<?php echo $row->id ;?>" class="button primary delete btn-danger">Supprimer  <i class="far fa-trash-alt"></i></a>
+                        <form action="<?php echo URLROOT ?>/PostController/editPhoto" method="post">
+                            <button type="submit" name="btn-delete" class="button primary edit btn-success">Modifier  <i class="far fa-edit"></i></button>
+                        </form>
+                        <form action="<?php echo URLROOT ?>/PostController/deletePhoto" method="post">
+                            <input type="hidden" name="id" value="<?php echo $row->id ?>">
+                            <input type="hidden" name="image" value="<?php echo $row->image ?>">
+                            <button type="submit" name="btn-delete" class="button primary delete btn-danger">Supprimer  <i class="far fa-trash-alt"></i></button>
+                        </form>
                     </div>
                 </div>
                 <?php endforeach; ?>
