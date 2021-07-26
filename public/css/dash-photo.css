@@ -30,8 +30,8 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    grid-column-gap: 0;
-    grid-row-gap: 0px;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 1rem;
   }
   
   /* Buttons actions */

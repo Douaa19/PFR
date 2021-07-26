@@ -89,6 +89,18 @@ class post {
         return $result;
     }
 
+    // Delete photo
+    public function deletePhoto($id) {
+        $this->db->query("DELETE FROM `images` WHERE id = :id");
+        $this->db->bind(':id', $data['id']);
+
+        if ($this->db->execute()) {
+            echo "Post deleted";
+        } else {
+           return false;
+        }
+    }
+
     
 
 }

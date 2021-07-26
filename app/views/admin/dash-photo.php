@@ -4,24 +4,24 @@
         <div class="container">
             <h1>Postes</h1>
             <div class="add">
-                <a href="<?php echo URLROOT; ?>/PostController/add" class="button primary new">New</a>
+                <a href="<?php echo URLROOT; ?>/PostController/add" class="button primary new">Ajouter</a>
             </div>
             <div class="cards">
                 <!-- Foreache loop -->
-
+                <?php foreach ($data as $row) : ?>
                 <div class="card">
-                    <img src="../public/img/alexander-andrews-VLGWE_SumrA-unsplash.jpg" class="card-img-top" alt="...">
+                    <img src="../public/uploads/<?php echo $row->image ?>" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <span>Tags</span>
+                        <h5 class="card-title"><?php echo $row->title ;?></h5>
+                        <p class="card-text"><?php echo $row->description ;?></p>
+                        <span><?php echo $row->tag ;?></span>
                     </div>
                     <div class="actions">
-                        <a href="<?php echo URLROOT ?>/PostController/editPhoto" class="button primary edit btn-success">Edit  <i class="far fa-edit"></i></a>
-                        <a href="<?php echo URLROOT ?>/PostController/deletePhoto" class="button primary delete btn-danger">Delete  <i class="far fa-trash-alt"></i></a>
+                        <a href="<?php echo URLROOT ?>/PostController/editPhoto?id=<?php echo $row->id ;?>" class="button primary edit btn-success">Modifier  <i class="far fa-edit"></i></a>
+                        <a href="<?php echo URLROOT ?>/PostController/deletePhoto?id=<?php echo $row->id ;?>" class="button primary delete btn-danger">Supprimer  <i class="far fa-trash-alt"></i></a>
                     </div>
                 </div>
-
+                <?php endforeach; ?>
                 <!-- End foreache loop -->
             </div>
         </div>

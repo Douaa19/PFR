@@ -78,7 +78,9 @@ class PostController extends Controller
 
     // Dashboard photos page
     public function dashPhoto() {
-        $this->view('admin/dash-photo');
+        $data = $this->postModel->getPhotos();
+
+        $this->view('admin/dash-photo', $data);
     }
 
     // Edit method for photos
@@ -88,16 +90,20 @@ class PostController extends Controller
 
     // Delete method for photos
     public function deletePhoto() {
-        echo "delete";
-    }
-
-
-
-    
-
-    
-    
-
-
-    
+        $data = [
+            'id' => $_GET['id']
+          ];
+          $this->postModel->deletePhoto($data);
+          header('location:' . URLROOT . '/' . 'PostController/dashPhoto');
+        }
 }
+
+
+
+    
+
+    
+    
+
+
+    
