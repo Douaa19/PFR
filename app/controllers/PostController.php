@@ -49,7 +49,7 @@ class PostController extends Controller
                     'image' => $_FILES['image']['name'],
                     'description' => $_POST['description'],
                     'tag' => $_POST['tag'],
-                    'folder' => $_POST['folder']
+                    'folder' => $_POST['folder'] 
                 ];
 
                 if ($this->uploadPhoto($image) === true) {
@@ -83,11 +83,6 @@ class PostController extends Controller
         $this->view('admin/dash-photo', $data);
     }
 
-    // Edit method for photos
-    public function editPhoto() {
-        echo "edit";
-    }
-
     // Delete method for photos
     public function deletePhoto() {
         $data = [
@@ -109,6 +104,89 @@ class PostController extends Controller
         }          
           
         }
+
+    // Select one post from data
+    public function editPhoto() {
+        $data = [
+            'id' => $_POST['id'],
+            'image' => $_POST['image']
+        ];
+
+        $result = $this->postModel->selectOne($data);
+        
+        if($result) {
+            $this->view('admin/edit-photo', $result);
+        }else {
+            return false;
+        }
+    }
+
+    // Update the data selected 
+    public function updatePhoto() {
+        if (isset($_POST['"btn-update'])) {
+            if (!empty($_FILES['new_image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
+                
+                $new_image = $_FILES['new_image']['tmp_name'];
+                $data= [
+                    'title' => $_POST['title'],
+                    'image' => $_FILES['new_image']['name'],
+                    'description' => $_POST['description'],
+                    'tag' => $_POST['tag'],
+                    'folder' => $_POST['folder']
+                ];
+
+                if ($this->uploadPhoto() === true) {
+                    if ($this->postModel->updatePhoto()) {
+                        echo 'all is going right';
+                    }
+                }
+
+            }else {
+                $error = [
+                    'error' => 'IL Y A DES CHAMPS VIDES'
+                ];
+
+                $this->view('admin/edit-photo', [], $error);
+            }
+        }else {
+            $this->view('admin/edit-photo');
+        }
+    }
+
+
+
+    // Test for image update
+    public function testImage() {
+        if (isset($_POST['btn-update'])) {
+            if (!empty($_FILES['new_image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
+                
+                $data = [
+                    'title' => $_POST['title'],
+                    'description' => $_POST['description'],
+                    'tag' => $_POST['tag'],
+                    'new_image' => $_FILES['new_image']['name'],
+                    'old_image' => $_POST['old_image']
+                ];
+
+                if ($data['new_image'] != '' ) {
+                    $update_filename = $data['new_image'];
+                }else {
+                    $update_filename = $$data['old_image'];
+                }
+
+                $dir = "C:\\xampp\htdocs\PFR\public\uploads\\" . $data['new_image'];
+
+                if ($dir) {
+                    echo 'Image already exists';
+                } else {
+                    
+                }
+
+                
+
+            }
+        }
+    }
 }
 
 

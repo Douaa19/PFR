@@ -87,6 +87,34 @@ class post {
         }
     }
 
+    // Select one row from data using ID
+    public function selectOne($data) {
+        $this->db->query("SELECT * FROM images WHERE id = :id");
+        $this->db->bind(':id', $data['id']);
+
+        $result = $this->db->single();
+        if ($result) {
+            return $result;
+        }else {
+            return false;
+        }
+    }
+
+    public function updatePhoto() {
+
+        $this->db->query("SELECT * FROM folders INNER JOIN images ON folders.id_folder = images.id_folder");
+
+        $result = $this->db->resultSet();
+
+        
+
+        // $this->db->query("UPDATE `images` SET `titre` = :title, `image` = :image, `description` = :description `tag` = :tag ");
+        // $this->db->bind(':title', $data['title']);
+        // $this->db->bind(':image', $data['image']);
+        // $this->db->bind(':description', $data['description']);
+        // $this->db->bind(':tag', $data['tag']);
+    }
+
     
 
 }

@@ -18,7 +18,9 @@
                     </div>
                     <div class="actions">
                         <form action="<?php echo URLROOT ?>/PostController/editPhoto" method="post">
-                            <button type="submit" name="btn-delete" class="button primary edit btn-success">Modifier  <i class="far fa-edit"></i></button>
+                            <input type="hidden" name="id" value="<?php echo $row->id ?>">
+                            <input type="hidden" name="image" value="<?php echo $row->image ?>">
+                            <button type="submit" name="btn-edit" class="button primary edit btn-success">Modifier  <i class="far fa-edit"></i></button>
                         </form>
                         <form action="<?php echo URLROOT ?>/PostController/deletePhoto" method="post">
                             <input type="hidden" name="id" value="<?php echo $row->id ?>">
