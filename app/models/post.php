@@ -34,21 +34,7 @@ class post {
         // $result = $this->database->resultSet();
 
         // return $result;
-    }
-
-
-    // public function addPhoto($data)
-
-    // {
-    //     $this->db->query("INSERT INTO `images`( `title`, `image`, `description`, `tag`) VALUES (:title, :image, :description, :tag)");
-    //     $this->db->bind(':title', $data['title']);
-    //     $this->db->bind(':image', $data['image']);
-    //     $this->db->bind(':description', $data['description']);
-    //     $this->db->bind(':tag', $data['tag']);
-    //     $exucute_data=$this->db->execute();
-
-    //     return $exucute_data;
-    // }
+    } 
 
 
     // Add photos to database
@@ -90,14 +76,48 @@ class post {
     }
 
     // Delete photo
-    public function deletePhoto($id) {
+    public function deletePhoto($data) {
         $this->db->query("DELETE FROM `images` WHERE id = :id");
         $this->db->bind(':id', $data['id']);
 
         if ($this->db->execute()) {
-            echo "Post deleted";
+            return true;
         } else {
            return false;
+        }
+    }
+
+    // Select one row from data using ID
+    public function selectOne($data) {
+        $this->db->query("SELECT * FROM images WHERE id = :id");
+        $this->db->bind(':id', $data['id']);
+
+        $result = $this->db->single();
+        if ($result) {
+            return $result;
+        }else {
+            return false;
+        }
+    }
+
+    public function updatePhoto($data) {
+
+        $this->db->query("UPDATE `images` SET `titre` = :title, `image` = :image, `description` = :description `tag` = :tag ");
+        $this->db->bind(':title', $data['title']);
+        $this->db->bind(':image', $data['image']);
+        $this->db->bind(':description', $data['description']);
+        $this->db->bind(':tag', $data['tag']);
+    }
+
+    // Folder
+    public function selectFolder(){
+        $this->db->query("SELECT * FROM folders INNER JOIN images ON folders.id_folder = images.id_folder");
+
+        $result = $this->db->resultSet();
+        if ($result) {
+            return $result;
+        }else {
+            return false;
         }
     }
 
