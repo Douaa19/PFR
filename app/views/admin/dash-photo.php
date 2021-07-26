@@ -2,23 +2,27 @@
 
     <main>
         <div class="container">
-            <div class="cards"">
+            <h1>Postes</h1>
+            <div class="add">
+                <a href="<?php echo URLROOT; ?>/PostController/add" class="button primary new">Ajouter</a>
+            </div>
+            <div class="cards">
+                <!-- Foreache loop -->
+                <?php foreach ($data as $row) : ?>
                 <div class="card">
-                    <div class="img">
-                        <img src="" alt="">
-                    </div>
-                    <div class="title">
-                        <h4>Title</h4>
-                    </div>
-                    <div class="d_t">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, deserunt.</p>
-                        <span>tags</span>
+                    <img src="../public/uploads/<?php echo $row->image ?>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $row->title ;?></h5>
+                        <p class="card-text"><?php echo $row->description ;?></p>
+                        <span><?php echo $row->tag ;?></span>
                     </div>
                     <div class="actions">
-                        <button>Edit</button>
-                        <button>Delete</button>
+                        <a href="<?php echo URLROOT ?>/PostController/editPhoto?id=<?php echo $row->id ;?>" class="button primary edit btn-success">Modifier  <i class="far fa-edit"></i></a>
+                        <a href="<?php echo URLROOT ?>/PostController/deletePhoto?id=<?php echo $row->id ;?>" class="button primary delete btn-danger">Supprimer  <i class="far fa-trash-alt"></i></a>
                     </div>
                 </div>
+                <?php endforeach; ?>
+                <!-- End foreache loop -->
             </div>
         </div>
     </main>

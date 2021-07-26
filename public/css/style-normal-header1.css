@@ -33,7 +33,7 @@ header .header .logo img {
 }
 
 header .header nav {
-    padding-top: 1rem;
+    padding-top: 0rem;
 }
 
 header .header nav ul li {
@@ -125,72 +125,27 @@ header .header .head nav ul form input {
   padding-left: 5px;
 }
 
+/* Stype page form-add */
 
-
-/* MAIN */
-
-main {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-
-main .container {
-  grid-area: 1 / 2 / 2 / 11;
-}
-
-main .container .cards {
-  
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Responsive Header */
-@media screen and (max-width:1412px){
-  header .header nav ul li {
+main .container .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
     font-size: 16px;
-  }
+    font-weight: 600;
 }
 
-@media screen and (max-width:1296px){
-  header .header nav ul li {
-    font-size: 15px;
-  }
+main .container .form form {
+    padding: 1rem;
+    width: 35rem;
 }
 
-@media screen and (max-width:1237px){
-  header .header nav ul li {
-    padding: 0;
-    margin: 0;
-  }
+main .container .form form .choix .folder .col-md-4 {
+    display: flex;
+    align-items: baseline;
 }
 
-@media screen and (max-width:906px){
-  header .header nav ul li {
-    font-size: 12px;
-  }
+main .container .form form .choix .folder .col-md-4 .form-select  {
+    margin: 0 0 0 0.3rem;
 }
-
-@media screen and (max-width:425px){
-  
-}
-
-@media screen and (max-width:375px){
-  
-}
-

@@ -34,6 +34,10 @@ class PostController extends Controller
        }
      }
 
+     public function add() {
+         $this->view('admin/add-photo');     
+        }
+
     public function addPhoto() {
         if (isset($_POST['submit'])) {
             if (!empty($_FILES['image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
@@ -50,7 +54,7 @@ class PostController extends Controller
 
                 if ($this->uploadPhoto($image) === true) {
                     if ($this->postModel->addPhoto($data)) {
-                        header('Location: ' . URLROOT);
+                        header('Location: ' . URLROOT . '/PostController/dashPhoto');
                     }else {
                         die('This is not working');
                     }
@@ -59,7 +63,7 @@ class PostController extends Controller
                 echo var_dump($data);
                 
             } else {
-                header('Location: ' . URLROOT);
+                header('Location: ' . URLROOT . '/PostController/add');
             }
         }
 
@@ -74,15 +78,32 @@ class PostController extends Controller
 
     // Dashboard photos page
     public function dashPhoto() {
-        $this->view('admin/dash-photo');
+        $data = $this->postModel->getPhotos();
+
+        $this->view('admin/dash-photo', $data);
     }
 
+    // Edit method for photos
+    public function editPhoto() {
+        echo "edit";
+    }
 
-    
-
-    
-    
-
-
-    
+    // Delete method for photos
+    public function deletePhoto() {
+        $data = [
+            'id' => $_GET['id']
+          ];
+          $this->postModel->deletePhoto($data);
+          header('location:' . URLROOT . '/' . 'PostController/dashPhoto');
+        }
 }
+
+
+
+    
+
+    
+    
+
+
+    
