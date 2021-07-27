@@ -1,4 +1,5 @@
-<?php include_once APPROOT . '../views/inc/header-photos-admin.php'; ?>
+<?php include_once APPROOT . '../views/inc/header-photos-v.php'; ?>
+
 
 
 
@@ -17,11 +18,12 @@
     </main>
 
 
-    
-</body>
-</html>
+
 
 <footer>
-<?php include_once APPROOT . './views/inc/footer.php'; ?>
-
+<?php include_once APPROOT . '../views/inc/footer.php'; ?>
 </footer>
+
+
+</body>
+</html>

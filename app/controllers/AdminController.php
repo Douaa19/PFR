@@ -86,6 +86,7 @@ class AdminController extends Controller
         header('Location: ' . URLROOT);
     }
 
+    
     // Serch method
     public function search() {
         if (isset($_POST['submit_search'])) {
@@ -111,6 +112,5 @@ class AdminController extends Controller
             }
         }
     }
-
     
 }

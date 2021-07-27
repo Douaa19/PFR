@@ -37,6 +37,21 @@ class post {
     } 
 
 
+
+    // public function addPhoto($data)
+
+    // {
+    //     $this->db->query("INSERT INTO `images`( `title`, `image`, `description`, `tag`) VALUES (:title, :image, :description, :tag)");
+    //     $this->db->bind(':title', $data['title']);
+    //     $this->db->bind(':image', $data['image']);
+    //     $this->db->bind(':description', $data['description']);
+    //     $this->db->bind(':tag', $data['tag']);
+    //     $exucute_data=$this->db->execute();
+
+    //     return $exucute_data;
+    // }
+
+
     // Add photos to database
     public function addPhoto($data) {
         
@@ -75,6 +90,7 @@ class post {
         return $result;
     }
 
+    
     // Delete photo
     public function deletePhoto($data) {
         $this->db->query("DELETE FROM `images` WHERE id = :id");
@@ -120,6 +136,7 @@ class post {
             return false;
         }
     }
+
 
     
 
