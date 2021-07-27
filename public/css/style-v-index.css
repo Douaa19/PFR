@@ -110,7 +110,11 @@ header .header nav ul li img {
     height: 25px;
 }
 
-header .header nav ul li input {
+header .header .head nav ul form {
+  display: flex;
+}
+
+header .header .head nav ul form input {
     width: 150px;
     height: 2rem;
     border-radius: 5px;
