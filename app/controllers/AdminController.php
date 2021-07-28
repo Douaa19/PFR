@@ -28,42 +28,38 @@ class AdminController extends Controller
 
         if(isset($_POST['submit_login'])) {
 
-            if(!empty($_POST['email']) && !empty($_POST['password'])) {
+            $data = [
+                'email' => $_POST['email'],
+                'password' => $_POST['password'],
+                'email_error' => '',
+                'password_error' => ''
+            ];
 
-                $data = [
-                    'email' => $_POST['email'],
-                    'password' => $_POST['password']
-                ];
-
-            } elseif (empty($_POST['email']) || empty($_POST['password'])) {
-                $errors = [
-                    'empty_email' => "Saisez votre adresse email",
-                    'empty_password' => "Saisez votre mot de passe"
-                ];
-
-                header('location: ' . URLROOT);
-                $this->view('admin/index', [], $errors);
-             }
-
-            if (isset($data)) {
-                $logged = $this->adminModel->getAdmin($data);
-                $email = $data['email'];
-                $password = $data['password'];
-                $dbEmail = $logged->email;
-                $dbPassword = $logged->password;
-
-                if ($email === $dbEmail && $password === $dbPassword) {
-                    
-                    $this->createSession($logged);
-                    // $this->view('admin/accueil');
-                    header('Location: ' . URLROOT . '/PostController/index');
-                } else {
-                    header('Location: ' . URLROOT);
-                }
-            } else {
-                $this->view('admin/index');
+            if (empty($data['email'])) {
+                $data['email_error'] = '*Saisir votre email*';
             }
 
+            if (empty($data['password'])) {
+                $data['password_error'] = '*Saisir votre password*';
+            }
+
+            if(!empty($data['email']) && !empty($data['password'])) {
+
+                $result = $this->adminModel->getAdmin($data);
+
+                $email = $data['email'];
+                $password = $data['password'];
+                $dbEmail = $result->email;
+                $dbPassword = $result->password;
+                if ($email === $dbEmail && $password === $dbPassword) {
+                    $this->createSession($result);
+                }
+            }
+
+            $this->view('admin/index', $data);
+
+        }else {
+            $this->view('admin/index');
         }
 
     }
@@ -72,20 +68,25 @@ class AdminController extends Controller
     public function createSession($admin) {
         // session_start();
         $_SESSION['id'] = $admin->id;
+        $_SESSION['name'] = $admin->name;
         $_SESSION['email'] = $admin->email;
         $_SESSION['password'] = $admin->password;
+
+        header('Location: ' . URLROOT . '/PostController/index');
 
     }
 
     // Kill session for logout
     public function killSession() {
 
-        session_unset();
+        unset($_SESSION['id']);
+        unset($_SESSION['name']);
+        unset($_SESSION['email']);
+        unset($_SESSION['password']);
         session_destroy();
 
-        header('Location: ' . URLROOT);
+        header('Location: ' . URLROOT . '/AdminController/index');
     }
-
 
     // Serch method
     public function search() {
@@ -93,7 +94,8 @@ class AdminController extends Controller
             if (!empty($_POST['search'])) {
                 
                 $data = [
-                    'search' => $_POST['search'] 
+                    'search' => $_POST['search'],
+                    'error_search' => ''
                 ];
 
                 $result = $this->adminModel->search($data);
@@ -102,6 +104,7 @@ class AdminController extends Controller
                     $this->view('admin/result', $result);
                 }else {
                     $data = [
+                        'search' => '',
                         'error_search' => "Le resultat ne trouve pas"
                     ];
                     $this->view('admin/result', [], $data);

@@ -28,6 +28,19 @@ class admin
         
     }
 
+    public function findAdmin($email) {
+        $this->db->query("SELECT * FROM admin WHERE email = :email");
+        $this->db->bind(':email', $email);
+
+        $result = $this->db>single();
+
+        if ($this->db->rowCount() > 0) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     // Get result from database
     public function search($data) {
         $this->db->query("SELECT * FROM images WHERE tag = :tag");
