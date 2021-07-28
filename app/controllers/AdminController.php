@@ -28,41 +28,45 @@ class AdminController extends Controller
 
         if(isset($_POST['submit_login'])) {
 
-            if(!empty($_POST['email']) && !empty($_POST['password'])) {
+            $data = [
+                'email' => $_POST['email'],
+                'password' => $_POST['password'],
+                'email_error' => '',
+                'password_error' => ''
+            ];
 
-                $data = [
-                    'email' => $_POST['email'],
-                    'password' => $_POST['password']
-                ];
-
-            } elseif (empty($_POST['email']) || empty($_POST['password'])) {
-                $errors = [
-                    'empty_email' => "Saisez votre adresse email",
-                    'empty_password' => "Saisez votre mot de passe"
-                ];
-
-                header('location: ' . URLROOT);
-                $this->view('admin/index', [], $errors);
-             }
-
-            if (isset($data)) {
-                $logged = $this->adminModel->getAdmin($data);
-                $email = $data['email'];
-                $password = $data['password'];
-                $dbEmail = $logged->email;
-                $dbPassword = $logged->password;
-
-                if ($email === $dbEmail && $password === $dbPassword) {
-                    
-                    $this->createSession($logged);
-                    // $this->view('admin/accueil');
-                    header('Location: ' . URLROOT . '/PostController/index');
-                } else {
-                    header('Location: ' . URLROOT);
-                }
-            } else {
-                $this->view('admin/index');
+            if (empty($data['email'])) {
+                $data['email_error'] = '*Saisir votre email*';
             }
+
+            if (empty($data['password'])) {
+                $data['password_error'] = '*Saisir votre mot de passe*';
+            }
+
+            if(!empty($data['email']) && !empty($data['password'])) {
+
+                $result = $this->adminModel->getAdmin($data);
+
+                if ($result === true) {
+                    $dbEmail = $result->email;
+                    $dbPassword = $result->password;
+
+                    if ($data['email'] === $dbEmail && $data['password'] === $dbPassword) {
+                        $this->createSession($result);
+                    }
+
+                    if ($data['password'] !== $dbPassword) {
+                        $data['password_error'] = 'Le mot de passe est incorrect';
+
+                        $this->view('admin/index', $data);
+                    }
+                    
+                    
+                }
+
+            }
+
+            $this->view('admin/index', $data);
 
         }
 
@@ -72,8 +76,11 @@ class AdminController extends Controller
     public function createSession($admin) {
         // session_start();
         $_SESSION['id'] = $admin->id;
+        $_SESSION['name'] = $admin->name;
         $_SESSION['email'] = $admin->email;
         $_SESSION['password'] = $admin->password;
+
+        header('Location: ' . URLROOT . '/PostController/index');
 
     }
 
@@ -85,7 +92,6 @@ class AdminController extends Controller
 
         header('Location: ' . URLROOT);
     }
-
 
     // Serch method
     public function search() {

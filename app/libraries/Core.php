@@ -8,7 +8,7 @@
 
 class Core
 {
-  protected $currentController = 'VisiteurController';
+  protected $currentController = 'AdminController';
   protected $currentMethod = 'index';
   protected $params = [];
 
@@ -19,7 +19,6 @@ class Core
     $url = $this->getUrl();
 
     // Look in controllers for first value
-
 
     if (!empty($url) && file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
       // If exists, set as controller

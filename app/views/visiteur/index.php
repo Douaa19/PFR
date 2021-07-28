@@ -3,7 +3,6 @@
 
 
 
-
 <main id="accueil">
     <div class="photos mt-5">
         <h1>photos</h1>
