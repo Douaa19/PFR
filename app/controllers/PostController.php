@@ -25,10 +25,6 @@ class PostController extends Controller
         $this->view('admin/videos');
     }
 
-    public function dashboard() {
-        $this->view('admin/accueil');
-    }
-
     public function uploadPhoto($image)
    { 
      $dir = "C:\\xampp\htdocs\PFR\public\uploads";
@@ -37,11 +33,15 @@ class PostController extends Controller
       $type = $_FILES["image"]["type"];
       if(move_uploaded_file($_FILES["image"]["tmp_name"],$dir."/".$name))
       {
-         return true;    }
-      else{
+         return true;    
+      }else{
         return false;
        }
-     }
+    }
+
+    public function add() {
+         $this->view('admin/add-photo');
+    }
 
     public function addPhoto() {
         if (isset($_POST['submit'])) {
@@ -59,7 +59,8 @@ class PostController extends Controller
 
                 if ($this->uploadPhoto($image) === true) {
                     if ($this->postModel->addPhoto($data)) {
-                        header('Location: ' . URLROOT);
+                        header('Location: ' . URLROOT . '/PostController/dashPhoto');
+
                     }else {
                         die('This is not working');
                     }
@@ -68,20 +69,18 @@ class PostController extends Controller
                 echo var_dump($data);
                 
             } else {
-                header('Location: ' . URLROOT);
+                header('Location: ' . URLROOT . '/PostController/add');
             }
         }
 
         $this->view('admin/photos');
         
-
     }
 
-    
-
-     public function add() {
-         $this->view('admin/add-photo');     
-        }
+    // Dashboard page
+    public function dashboard() {
+        $this->view('admin/dashboard');
+    }
 
     // Dashboard photos page
     public function dashPhoto() {
@@ -131,10 +130,37 @@ class PostController extends Controller
         }
     }
 
-    
-    
-    
+    // Update the data selected 
+    public function updatePhoto() {
+        if (isset($_POST['"btn-update'])) {
+            if (!empty($_FILES['new_image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
+                
+                $new_image = $_FILES['new_image']['tmp_name'];
+                $data= [
+                    'title' => $_POST['title'],
+                    'image' => $_FILES['new_image']['name'],
+                    'description' => $_POST['description'],
+                    'tag' => $_POST['tag'],
+                    'folder' => $_POST['folder']
+                ];
 
+                if ($this->uploadPhoto() === true) {
+                    if ($this->postModel->updatePhoto()) {
+                        echo 'all is going right';
+                    }
+                }
+
+            }else {
+                $error = [
+                    'error' => 'IL Y A DES CHAMPS VIDES'
+                ];
+
+                $this->view('admin/edit-photo', [], $error);
+            }
+        }else {
+            $this->view('admin/edit-photo');
+        }
+    }
 
     // Test for image update
     public function testImage() {

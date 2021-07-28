@@ -3,15 +3,15 @@
 
 
 
-<main>
+
+<main id="accueil">
     <div class="photos mt-5">
         <h1>photos</h1>
-        <?php echo var_dump($data); ?>
         <div class="galery">
-            <?php foreach($data as $row) : ?>
+            <?php foreach($data as $rows) : ?>
             <div class="img">
-                <h3><?php echo $row->title; ?></h3>
-                <img src="../public/uploads/<?php echo $row->image ?>" alt="">
+                <h3><?php echo $rows->title ?></h3>
+                <img src="./public/uploads/<?php echo $rows->image ?>" alt="">
             </div>
             <?php endforeach; ?>
         </div>
@@ -25,32 +25,31 @@
         <div id="carouselExampleControls" class="carousel slide" >
             <div class="carousel-inner">
               <div class="carousel-item active">
-              <img src="./public/img/kenny-leys-j27SKDa-vBg-unsplash.jpg" alt="" class="d-block w-100">
-              <!-- <video src="./public/vid/Nature Beautiful short video 720p HD.mp4" class="d-block w-100">Second video</video> -->
+
+                <video controls="controls" src="./public/vid/Creative short film- Wonderful little world.mp4" video="web/mp4" class="d-block w-100"></video>
+
               </div>
               <div class="carousel-item">
-              <img src="./public/img/annie-spratt-ceMXSBfPoBs-unsplash.jpg" alt="" class="d-block w-100">
-              <!-- <video src="./public/vid/Nature Beautiful short video 720p HD.mp4" class="d-block w-100">First video</video> -->
+
+              <video controls="controls" src="./public/vid/Nature Beautiful short video 720p HD.mp4" video="web/mp4" class="d-block w-100"></video>
+              
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" style="height: 40rem;">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" style="height: 40rem;">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
         </div>
 
-
-
-
     </div>
 
     <!-- About section -->
 
-    <div class="about">
+    <div class="about" id="about">
         <h1>a propos</h1>
         <div class="content">
             <img src="./public/img/brandon-erlinger-ford-jL8QFwnuOcQ-unsplash.jpg" alt="">

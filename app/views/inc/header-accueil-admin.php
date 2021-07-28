@@ -22,10 +22,10 @@
         <div class="header bg-dark text-light pt-3">
             <div class="head">
                 <div class="vide col-1"></div>
-                <div class="logo col-3">
+                <div class="logo col-4">
                     <a href="#"><img src="../img/white-logo.png" alt="STUDYOU"></a>
                 </div>
-                <nav class="stroke col-7">
+                <nav class="stroke col-6">
                     <ul class="row">
                         <li class="col-1"><a href="<?php echo URLROOT; ?>/PostController/index" class="hov text-light">Accueil</a></li>
                         <li class="col-1"><a href="<?php echo URLROOT; ?>/PostController/photos" class="hov text-light">Photos</a></li>

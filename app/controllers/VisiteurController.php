@@ -6,9 +6,7 @@ class VisiteurController extends Controller {
     }
 
     public function index() {
-<<<<<<< Updated upstream
         $this->view('visiteur/index');
-=======
         $result = $this->visiteurModel->getPhotos();
 
         $this->view('visiteur/index', $result);
@@ -24,7 +22,6 @@ class VisiteurController extends Controller {
         
 
         $this->view('visiteur/videos-page');
->>>>>>> Stashed changes
     }
 
     public function photos() {
@@ -32,4 +29,5 @@ class VisiteurController extends Controller {
         
         $this->view('admin/photos', $result);
     }
+
 }

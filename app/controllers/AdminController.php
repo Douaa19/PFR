@@ -42,7 +42,7 @@ class AdminController extends Controller
                 ];
 
                 header('location: ' . URLROOT);
-                // $this->view('admin/index', [], $errors);
+                $this->view('admin/index', [], $errors);
              }
 
             if (isset($data)) {
@@ -80,13 +80,13 @@ class AdminController extends Controller
     // Kill session for logout
     public function killSession() {
 
-            session_unset();
-            session_destroy();
+        session_unset();
+        session_destroy();
 
         header('Location: ' . URLROOT);
     }
 
-    
+
     // Serch method
     public function search() {
         if (isset($_POST['submit_search'])) {
@@ -112,5 +112,6 @@ class AdminController extends Controller
             }
         }
     }
+
     
 }
