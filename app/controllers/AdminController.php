@@ -40,34 +40,26 @@ class AdminController extends Controller
             }
 
             if (empty($data['password'])) {
-                $data['password_error'] = '*Saisir votre mot de passe*';
+                $data['password_error'] = '*Saisir votre password*';
             }
 
             if(!empty($data['email']) && !empty($data['password'])) {
 
                 $result = $this->adminModel->getAdmin($data);
 
-                if ($result === true) {
-                    $dbEmail = $result->email;
-                    $dbPassword = $result->password;
-
-                    if ($data['email'] === $dbEmail && $data['password'] === $dbPassword) {
-                        $this->createSession($result);
-                    }
-
-                    if ($data['password'] !== $dbPassword) {
-                        $data['password_error'] = 'Le mot de passe est incorrect';
-
-                        $this->view('admin/index', $data);
-                    }
-                    
-                    
+                $email = $data['email'];
+                $password = $data['password'];
+                $dbEmail = $result->email;
+                $dbPassword = $result->password;
+                if ($email === $dbEmail && $password === $dbPassword) {
+                    $this->createSession($result);
                 }
-
             }
 
             $this->view('admin/index', $data);
 
+        }else {
+            $this->view('admin/index');
         }
 
     }
@@ -87,10 +79,13 @@ class AdminController extends Controller
     // Kill session for logout
     public function killSession() {
 
-        session_unset();
+        unset($_SESSION['id']);
+        unset($_SESSION['name']);
+        unset($_SESSION['email']);
+        unset($_SESSION['password']);
         session_destroy();
 
-        header('Location: ' . URLROOT);
+        header('Location: ' . URLROOT . '/AdminController/index');
     }
 
     // Serch method
@@ -99,7 +94,8 @@ class AdminController extends Controller
             if (!empty($_POST['search'])) {
                 
                 $data = [
-                    'search' => $_POST['search'] 
+                    'search' => $_POST['search'],
+                    'error_search' => ''
                 ];
 
                 $result = $this->adminModel->search($data);
@@ -108,6 +104,7 @@ class AdminController extends Controller
                     $this->view('admin/result', $result);
                 }else {
                     $data = [
+                        'search' => '',
                         'error_search' => "Le resultat ne trouve pas"
                     ];
                     $this->view('admin/result', [], $data);

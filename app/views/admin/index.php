@@ -1,7 +1,9 @@
 <?php include_once APPROOT . '../views/inc/header-admin.php'; ?>
 
 <?php 
+    echo 'DATA';
     echo var_dump($data);
+    echo '<br>';
 ?>
 
 <main>
