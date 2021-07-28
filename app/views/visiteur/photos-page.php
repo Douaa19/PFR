@@ -2,7 +2,6 @@
 
 
 
-
     <main id="main">
         <div class="photos mt-5">
             <a href=""><h1>photos</h1></a>

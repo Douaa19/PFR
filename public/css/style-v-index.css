@@ -204,8 +204,6 @@ main .photos .galery .img:hover h3 {
   opacity: 0.5;
 }
 
-
-
 /* Section Videos */
 
 main .videos {
@@ -217,11 +215,6 @@ main .videos {
 main .videos .carousel {
   padding: 2rem;
 }
-
-
-
-
-
 
 /* About section */
 

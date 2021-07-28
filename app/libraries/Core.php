@@ -20,6 +20,7 @@ class Core
 
     // Look in controllers for first value
 
+
     if (!empty($url) && file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
       // If exists, set as controller
       $this->currentController = ucwords($url[0]);

@@ -21,9 +21,14 @@ class PostController extends Controller
         $this->view('admin/photos', $result);
     }
 
+    public function videos() {
+        $this->view('admin/videos');
+    }
+
     public function uploadPhoto($image)
-    { 
+   { 
      $dir = "C:\\xampp\htdocs\PFR\public\uploads";
+    //  $time = time();
       $name = str_replace(' ','-',strtolower($_FILES["image"]["name"]));
       $type = $_FILES["image"]["type"];
       if(move_uploaded_file($_FILES["image"]["tmp_name"],$dir."/".$name))
@@ -34,9 +39,9 @@ class PostController extends Controller
        }
     }
 
-     public function add() {
-         $this->view('admin/add-photo');     
-        }
+    public function add() {
+         $this->view('admin/add-photo');
+    }
 
     public function addPhoto() {
         if (isset($_POST['submit'])) {
@@ -49,12 +54,13 @@ class PostController extends Controller
                     'image' => $_FILES['image']['name'],
                     'description' => $_POST['description'],
                     'tag' => $_POST['tag'],
-                    'folder' => $_POST['folder'] 
+                    'folder' => $_POST['folder']
                 ];
 
                 if ($this->uploadPhoto($image) === true) {
                     if ($this->postModel->addPhoto($data)) {
                         header('Location: ' . URLROOT . '/PostController/dashPhoto');
+
                     }else {
                         die('This is not working');
                     }
@@ -155,11 +161,6 @@ class PostController extends Controller
             $this->view('admin/edit-photo');
         }
     }
-
-
-    
-
-
 
     // Test for image update
     public function testImage() {
