@@ -1,0 +1,213 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F3ECEC;
+    height: max-content;
+}
+
+header .header {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1, 1fr);
+    background-size: cover;
+    position: relative;
+    height: max-content;
+    overflow: hidden;
+}
+
+header .header .head {
+    display: flex;
+    align-items: center;
+    height: max-content;
+}
+
+header .header .logo img {
+    width: 275px;
+}
+
+header .header nav {
+    padding-top: 1rem;
+}
+
+header .header nav ul li {
+    display: inline-block;
+    cursor: pointer;
+    list-style: none;
+    font-size: 18px;
+    text-align: center;
+    width: max-content;
+    padding: 0 1.2rem;
+}
+
+header .header nav ul li a {
+    text-decoration: none;
+}
+
+header .header nav ul li a,
+header .header nav ul li a::after,
+header .header nav ul li a::before {
+    transition: all .2s;
+}
+
+header .header nav ul li a:hover {
+    color: rgb(243, 159, 159);
+}
+
+nav.stroke ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #F3ECEC;
+  height: 1px;
+}
+
+ nav.stroke ul li a:hover:after {
+  width: 100%;
+}
+
+nav.fill ul li a {
+  transition: all 1s;
+}
+
+nav.fill ul li a:after {
+  text-align: left;
+  content: '.';
+  margin: 0;
+  opacity: 0;
+}
+
+nav.fill ul li a:hover {
+  color: #fff;
+  z-index: 1;
+}
+
+nav.fill ul li a:hover:after {
+  z-index: -10;
+  animation: fill 1s forwards;
+  -webkit-animation: fill 1s forwards;
+  -moz-animation: fill 1s forwards;
+  opacity: 1;
+}
+
+/* Style Main */
+main .container {
+    grid-area: 1 / 2 / 2 / 11;
+    height: max-content;
+}
+
+/* Style Cards */
+main .container .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 0px;
+}
+
+/* Style One Card */
+main .container .cards .card .card1 {
+    grid-area: 1/ 1 / 2 / 2 ;
+}
+
+main .container .cards .card .card2 {
+    grid-area: 1/ 2 / 2 / 3 ;
+}
+
+main .container .cards .card .card3 {
+    grid-area: 1/ 3 / 2 / 4 ;
+}
+
+main .container .cards .card .card4 {
+    grid-area: 1/ 4 / 2 / 5 ;
+}
+
+main .container .cards .card{
+    width: 19rem;
+}
+
+main .container .cards .card .route{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main .container .cards .card .route a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+main .container .cards .card .route a,
+main .container .cards .card .route a::after,
+main .container .cards .card .route a::before {
+    transition: all .2s;
+}
+
+main .container .cards .card .route a:hover {
+    filter: drop-shadow(0 6mm 4mm rgb(47, 44, 48));
+}
+
+main .container .cards .card .route.strok a,
+main .container .cards .card .route.fill a {
+    position: relative;
+}
+
+
+main .container .cards .card .route.strok a:after,
+main .container .cards .card .route.fill a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: '.';
+    color: transparent;
+    background: #F3ECEC;
+    height: 1px;
+}
+
+main .container .cards .card .route.strok a:hover:after {
+    width: 100%;
+}
+
+main .container .cards .card .route.fill a:after {
+    text-align: left;
+    content: '.';
+    margin: 0;
+    opacity: 0;
+}
+
+main .container .cards .card .route.fill a:hover{
+    filter: blur(3px);
+    color: #fff;
+    z-index: 1;
+}
+
+main .container .cards .card .route.fill a:hover:after {
+    z-index: -10;
+    animation: fill 1s forwards;
+    -webkit-animation: fill 1s forwards;
+    -moz-animation: fill 1s forwards;
+    opacity: 1;
+}
+
+main .container .cards .card img:hover {
+    filter: blur(3px);
+}

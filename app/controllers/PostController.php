@@ -5,7 +5,7 @@ class PostController extends Controller
 
     public function __construct()
     {
-        //instanciation du model
+        //Instanciation du model
         $this->postModel = $this->model('post');
     }
     
@@ -74,19 +74,7 @@ class PostController extends Controller
         
     }
 
-    // Dashboard page
-    public function dashboard() {
-        $this->view('admin/dashboard');
-    }
-
-    // Dashboard photos page
-    public function dashPhoto() {
-        $data = $this->postModel->getPhotos();
-
-        $this->view('admin/dash-photo', $data);
-    }
-
-    // Delete method for photos
+    // Delete Method For Photos
     public function deletePhoto() {
         $data = [
             'id' => $_POST['id'],
@@ -108,7 +96,7 @@ class PostController extends Controller
           
         }
 
-    // Select one post from data
+    // Select One Post From Data
     public function editPhoto() {
         $data = [
             'id' => $_POST['id'],
@@ -127,7 +115,7 @@ class PostController extends Controller
         }
     }
 
-    // Update the data selected 
+    // Update The Data Selected 
     public function updatePhoto() {
         if (isset($_POST['"btn-update'])) {
             if (!empty($_FILES['new_image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
@@ -197,6 +185,53 @@ class PostController extends Controller
 
             }
         }
+    }
+
+
+
+    
+
+
+
+    // Route Folders Page
+    public function foldersPhotos() {
+        $this->view('admin/f-photos');
+    }
+    
+    
+    
+    // Route Video Page
+    public function foldersVideos() {
+        $this->view('admin/f-videos');
+    }
+
+    
+
+    // Route Dashboard Page
+    public function dashboard() {
+        $this->view('admin/dashboard');
+    }
+
+    // Dashboard Photos page
+    public function dashPhoto() {
+        $data = $this->postModel->getPhotos();
+
+        $this->view('admin/dash-photo', $data);
+    }
+
+    // Dashboard Videos Page 
+    public function dashVideo() {
+        $this->view('admin/dash-video');
+    }
+
+    // Dashboard Folders Page 
+    public function dashFolder() {
+        $this->view('admin/dash-folder');
+    }
+
+    // Dashboard Client Pgae
+    public function dashClient() {
+        $this->view('admin/dash-client');
     }
 }
 
