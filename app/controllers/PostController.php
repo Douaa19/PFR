@@ -5,9 +5,10 @@ class PostController extends Controller
 
     public function __construct()
     {
-        //instanciation du model
+        //Instanciation du model
         $this->postModel = $this->model('post');
     }
+    
 
     public function index() {
         $result = $this->postModel->getPhotos();
@@ -15,23 +16,20 @@ class PostController extends Controller
         $this->view('admin/accueil', $result);
     }
 
+
     public function photos() {
         $result = $this->postModel->getPhotos();
         
         $this->view('admin/photos', $result);
     }
 
-    public function videos() {
-        $this->view('admin/videos');
-    }
 
     public function uploadPhoto($image)
-   { 
+    { 
      $dir = "C:\\xampp\htdocs\PFR\public\uploads";
-    //  $time = time();
       $name = str_replace(' ','-',strtolower($_FILES["image"]["name"]));
       $type = $_FILES["image"]["type"];
-      if(move_uploaded_file($_FILES["image"]["tmp_name"],$dir."/".$name))
+      if(move_uploaded_file($image,$dir."/".$name))
       {
          return true;    
       }else{
@@ -39,9 +37,9 @@ class PostController extends Controller
        }
     }
 
-    public function add() {
-         $this->view('admin/add-photo');
-    }
+     public function add() {
+         $this->view('admin/add-photo');     
+        }
 
     public function addPhoto() {
         if (isset($_POST['submit'])) {
@@ -54,13 +52,12 @@ class PostController extends Controller
                     'image' => $_FILES['image']['name'],
                     'description' => $_POST['description'],
                     'tag' => $_POST['tag'],
-                    'folder' => $_POST['folder']
+                    'folder' => $_POST['folder'] 
                 ];
 
                 if ($this->uploadPhoto($image) === true) {
                     if ($this->postModel->addPhoto($data)) {
                         header('Location: ' . URLROOT . '/PostController/dashPhoto');
-
                     }else {
                         die('This is not working');
                     }
@@ -77,19 +74,7 @@ class PostController extends Controller
         
     }
 
-    // Dashboard page
-    public function dashboard() {
-        $this->view('admin/dashboard');
-    }
-
-    // Dashboard photos page
-    public function dashPhoto() {
-        $data = $this->postModel->getPhotos();
-
-        $this->view('admin/dash-photo', $data);
-    }
-
-    // Delete method for photos
+    // Delete Method For Photos
     public function deletePhoto() {
         $data = [
             'id' => $_POST['id'],
@@ -111,7 +96,7 @@ class PostController extends Controller
           
         }
 
-    // Select one post from data
+    // Select One Post From Data
     public function editPhoto() {
         $data = [
             'id' => $_POST['id'],
@@ -130,7 +115,7 @@ class PostController extends Controller
         }
     }
 
-    // Update the data selected 
+    // Update The Data Selected 
     public function updatePhoto() {
         if (isset($_POST['"btn-update'])) {
             if (!empty($_FILES['new_image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
@@ -162,7 +147,12 @@ class PostController extends Controller
         }
     }
 
-    // Test for image update
+
+    
+
+
+
+    // Test For Image Update
     public function testImage() {
         if (isset($_POST['btn-update'])) {
             if (!empty($_FILES['new_image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
@@ -195,6 +185,38 @@ class PostController extends Controller
 
             }
         }
+    }
+
+
+
+    
+
+
+
+    // Route Folders Page
+    public function foldersPhotos() {
+        $this->view('admin/f-photos');
+    }
+    
+    
+    
+    // Route Video Page
+    public function foldersVideos() {
+        $this->view('admin/f-Videos');
+    }
+
+    
+
+    // Route Dashboard Page
+    public function dashboard() {
+        $this->view('admin/dashboard');
+    }
+
+    // Dashboard Photos page
+    public function dashPhoto() {
+        $data = $this->postModel->getPhotos();
+
+        $this->view('admin/dash-photo', $data);
     }
 }
 

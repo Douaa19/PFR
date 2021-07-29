@@ -1,6 +1,6 @@
-<?php include_once APPROOT . './views/inc/header-accueil-admin.php'; ?>
+<?php include_once APPROOT . './views/inc/header-accueil.php'; ?>
 
-
+<?php echo $_SESSION['name']; ?>
 
 <main>
 
@@ -11,7 +11,7 @@
         <?php foreach($data as $row) : ?>
             <div class="img">
                 <h3><?php echo $row->title; ?></h3>
-                <img src="../public/uploads/<?php echo $row->image ?>">
+                <img src="<?= URLROOT ?>/uploads/<?php echo $row->image ?>">
             </div>
         <?php endforeach; ?>
         </div>
@@ -26,12 +26,12 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
 
-                <video controls="controls" src="../public/vid/Creative short film- Wonderful little world.mp4" video="web/mp4" class="d-block w-100"></video>
+                <video controls="controls" src="<?= URLROOT ?>/vid/Creative short film- Wonderful little world.mp4" video="web/mp4" class="d-block w-100"></video>
 
               </div>
               <div class="carousel-item">
 
-              <video controls="controls" src="../public/vid/Nature Beautiful short video 720p HD.mp4" video="web/mp4" class="d-block w-100"></video>
+              <video controls="controls" src="<?= URLROOT ?>/vid/Nature Beautiful short video 720p HD.mp4" video="web/mp4" class="d-block w-100"></video>
               
               </div>
             </div>
