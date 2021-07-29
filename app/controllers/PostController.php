@@ -202,7 +202,7 @@ class PostController extends Controller
     
     // Route Video Page
     public function foldersVideos() {
-        $this->view('admin/f-Videos');
+        $this->view('admin/f-videos');
     }
 
     
@@ -217,6 +217,21 @@ class PostController extends Controller
         $data = $this->postModel->getPhotos();
 
         $this->view('admin/dash-photo', $data);
+    }
+
+    // Dashboard Videos Page 
+    public function dashVideo() {
+        $this->view('admin/dash-video');
+    }
+
+    // Dashboard Folders Page 
+    public function dashFolder() {
+        $this->view('admin/dash-folder');
+    }
+
+    // Dashboard Client Pgae
+    public function dashClient() {
+        $this->view('admin/dash-client');
     }
 }
 

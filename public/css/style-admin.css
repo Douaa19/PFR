@@ -10,6 +10,11 @@ body {
     background-color: #F3ECEC;
 }
 
+header .header .head {
+    display: flex;
+    align-items: center;
+}
+
 header .header .head .logo img {
     width: 275px;
 }

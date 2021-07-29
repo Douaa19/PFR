@@ -47,13 +47,19 @@ class AdminController extends Controller
 
                 $result = $this->adminModel->getAdmin($data);
 
-                $email = $data['email'];
-                $password = $data['password'];
-                $dbEmail = $result->email;
-                $dbPassword = $result->password;
-                if ($email === $dbEmail && $password === $dbPassword) {
-                    $this->createSession($result);
+                if ($result === false) {
+                    $this->view('admin/index');
+                }else {
+                    $email = $data['email'];
+                    $password = $data['password'];
+                    $dbEmail = $result->email;
+                    $dbPassword = $result->password;
+                    if ($email === $dbEmail && $password === $dbPassword) {
+                        $this->createSession($result);
+                    }
                 }
+
+                
             }
 
             $this->view('admin/index', $data);

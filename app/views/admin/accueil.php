@@ -1,6 +1,6 @@
 <?php include_once APPROOT . './views/inc/header-accueil.php'; ?>
 
-<?php echo $_SESSION['name']; ?>
+
 
 <main>
 

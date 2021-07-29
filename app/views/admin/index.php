@@ -1,4 +1,4 @@
-<?php include_once APPROOT . '../views/inc/header-admin.php'; ?>
+<?php include_once APPROOT . '../views/inc/header-index.php'; ?>
 
 
 
