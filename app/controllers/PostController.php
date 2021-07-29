@@ -152,7 +152,7 @@ class PostController extends Controller
 
 
 
-    // Test For Image Update
+    // Test for image update
     public function testImage() {
         if (isset($_POST['btn-update'])) {
             if (!empty($_FILES['new_image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
