@@ -62,11 +62,6 @@ class post {
 
     }
 
-    // Add videos to database
-    public function addVideo() {
-        echo 'addVideo function';
-    }
-
     // Get photos
     public function getPhotos() {
         $this->db->query("SELECT * FROM images");
@@ -87,7 +82,7 @@ class post {
         }
     }
 
-    // Select one row from data using ID
+    // Select OneRrow From Table Images Using ID
     public function selectOne($data) {
         $this->db->query("SELECT * FROM images WHERE id = :id");
         $this->db->bind(':id', $data['id']);
@@ -100,6 +95,7 @@ class post {
         }
     }
 
+    // Traing To Update Photo
     public function updatePhoto($data) {
 
         $this->db->query("UPDATE `images` SET `titre` = :title, `image` = :image, `description` = :description `tag` = :tag ");
@@ -109,7 +105,34 @@ class post {
         $this->db->bind(':tag', $data['tag']);
     }
 
-    // Folder
+    // Add videos to database
+    public function addVideo() {
+        echo 'addVideo function';
+    }
+
+    // Select All Data From Table Folders
+    public function getFolders() {
+        $this->db->query("SELECT * FROM folders");
+
+        $result = $this->db->resultSet();
+        if ($result) {
+            return $result;
+        }else {
+            return false;
+        }
+    }
+
+    // Add Folder 
+    public function addFolder() {
+        echo 'this is addFolder method';
+    }
+
+    // Delete Folder From Folders Table
+    public function deleteFolder($id) {
+        echo ' this is deleteFolder method';
+    }
+
+    // Folder In Images Table
     public function selectFolder(){
         $this->db->query("SELECT * FROM folders INNER JOIN images ON folders.id_folder = images.id_folder");
 
