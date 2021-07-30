@@ -1,10 +1,6 @@
 <?php include_once APPROOT . '../views/inc/header-index.php'; ?>
 
-<?php 
-    echo 'DATA';
-    echo var_dump($data);
-    echo '<br>';
-?>
+
 
 <main>
 

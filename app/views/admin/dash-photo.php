@@ -10,7 +10,7 @@
                 <!-- Foreache loop -->
                 <?php foreach ($data as $row) : ?>
                 <div class="card">
-                    <img src="../public/uploads/<?php echo $row->image ?>" class="card-img-top" alt="..">
+                    <img src="<?= URLROOT ?>/uploads/<?php echo $row->image ?>" class="card-img-top" alt="..">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row->title ;?></h5>
                         <p class="card-text"><?php echo $row->description ;?></p>
