@@ -58,6 +58,8 @@ class AdminController extends Controller
                         $this->createSession($result);
                     }
                 }
+
+                
             }
 
             $this->view('admin/index', $data);

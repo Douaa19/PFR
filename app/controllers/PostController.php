@@ -152,7 +152,7 @@ class PostController extends Controller
 
 
 
-    // Test for image update
+    // Test For Image Update
     public function testImage() {
         if (isset($_POST['btn-update'])) {
             if (!empty($_FILES['new_image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
@@ -222,6 +222,11 @@ class PostController extends Controller
     // Dashboard Videos Page 
     public function dashVideo() {
         $this->view('admin/dash-video');
+    }
+
+    // Go To The Page Form For Adding New Video
+    public function addVideo() {
+        $this->view('admin/add-video');
     }
 
     // Dashboard Folders Page 
