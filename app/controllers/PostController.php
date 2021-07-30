@@ -231,7 +231,24 @@ class PostController extends Controller
 
     // Dashboard Folders Page 
     public function dashFolder() {
-        $this->view('admin/dash-folder');
+        $result = $this->postModel->getFolders();
+
+        $this->view('admin/dash-folder', $result);
+    }
+
+    // Add Folder
+    public function addFolder() {
+        $this->postModel->addFolder();
+    }
+
+    // Delete Folder Using ID
+    public function deleteFolder() {
+        $data = [
+            'id' => $_POST['id_folder'],
+            'image' => $_POST['image']
+        ];
+
+        
     }
 
     // Dashboard Client Pgae
