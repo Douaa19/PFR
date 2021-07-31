@@ -124,12 +124,27 @@ class post {
 
     // Add Folder 
     public function addFolder() {
-        echo 'this is addFolder method';
+        $this->db->query("INSERT INTO `folders`(`name`, `image`) VALUES (:name, :image)");
+        $this->db->bind(':name', $data['name']);
+        $this->db->bind(':image', $data['image']);
+
+        if ($this->db->execute()) {
+            return true;
+        }else {
+            return false;
+        }
     }
 
     // Delete Folder From Folders Table
-    public function deleteFolder($id) {
-        echo ' this is deleteFolder method';
+    public function deleteFolder($data) {
+        $this->db->query("DELETE FROM `folders` WHERE id_folder = :id");
+        $this->db->bind(':id', $data['id']);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+           return false;
+        }
     }
 
     // Folder In Images Table

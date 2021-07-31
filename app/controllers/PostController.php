@@ -92,7 +92,7 @@ class PostController extends Controller
               }
         }else {
             echo "Post not deleted";
-        }          
+        }
           
         }
 
@@ -236,9 +236,33 @@ class PostController extends Controller
         $this->view('admin/dash-folder', $result);
     }
 
-    // Add Folder
+    // Page addFolder
     public function addFolder() {
-        $this->postModel->addFolder();
+        $this->view('admin/add-folder');
+    }
+
+    // Add Folder
+    public function insertFolder() {
+        if (isset($_POST['submit'])) {
+            if (!empty($_POST['name']) && !empty($_FILES['image'])) {
+                
+                $image = $_FILES['image']['tmp_name'];
+                $data= [
+                    'name' => $_POST['name'] 
+                ];
+                if ($this->uploadPhoto($image) === true) {
+                    if ($this->postModel->addFolder($data)) {
+                        header('Location: ' . URLROOT . '/PostController/dashFolder');
+                    }
+                }
+            }else {
+                $data = [
+                    'error' => 'Les champs sont vides'
+                ];
+                $this->view('admin/add-folder', $data);
+            }
+        }
+        
     }
 
     // Delete Folder Using ID
@@ -247,7 +271,25 @@ class PostController extends Controller
             'id' => $_POST['id_folder'],
             'image' => $_POST['image']
         ];
+        
+        if ($this->postModel->deleteFolder($data)) {
+            header('Location: ' . URLROOT . '/PostController/dashFolder');
+        }
+        
+        
+        // if ($this->postModel->deleteFolder($data)) {
+        //     $image = $data['image'];
+        //     $path = "C:\\xampp\htdocs\PFR\public\uploads/$image";
+        //     chown($path, 666);
 
+        //         if (unlink($path)) {
+        //           header('location:' . URLROOT . '/' . 'PostController/dashFolder');
+        //         }else {
+        //             $_SESSION["Le dossier ne être pas supprimé"];
+        //         }
+        // }else {
+        //     echo "Folder not deleted";
+        // }
         
     }
 
