@@ -1,6 +1,6 @@
 <?php include_once APPROOT . '../views/inc/header-dash-pvf.php'; ?>
 
-    <main>
+    <main class="m-auto">
         <div class="container">
             <h1>Postes</h1>
             <div class="add">
@@ -41,3 +41,4 @@
 <footer>
     <?php include_once APPROOT . '../views/inc/footer.php'; ?>
 </footer>
+
