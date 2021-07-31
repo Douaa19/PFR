@@ -43,6 +43,19 @@ class post {
         return $result;
     }
 
+    // GET PHOTOS BY ID FOLDER
+    public function photos($data) {
+        $this->db->query("SELECT * FROM images WHERE id_folder = :id");
+        $this->db->bind(':id', $data['id']);
+
+        $result = $this->db->resultSet();
+        if ($result) {
+            return $result;
+        }else {
+            return false;
+        }
+    }
+
     // GET 6 PHOTOS
     public function sexPhotos() {
         $this->db->query("SELECT * FROM images LIMIT 6");

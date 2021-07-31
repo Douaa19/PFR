@@ -21,19 +21,33 @@ class PostController extends Controller
 
     // ADMIN FOLDERS OF IMAGES
     public function foldersPhotos() {
-        $this->view('admin/f-photos');
+        $result = $this->getFolders();
+
+        $this->view('admin/f-photos', $result);
     }
 
     // ADMIN PHOTOS PAGE
     public function photos() {
-        $result = $this->postModel->getPhotos();
-        
-        $this->view('admin/photos', $result);
+        if (isset($_POST['submit'])) {
+            $data = [
+                'id' => $_POST['id'],
+                'error' => ''
+            ];
+            $result = $this->postModel->photos($data);
+            if ($result) {
+                $this->view('admin/photos', $result);
+            }else {
+                $data['error'] = 'Le dossier est vide';
+                $this->view('admin/photos', $data);
+            }
+        }
     }
 
     // ADMIN VIDEO PAGE
     public function foldersVideos() {
-        $this->view('admin/f-videos');
+        $result = $this->getFolders();
+
+        $this->view('admin/f-videos', $result);
     }
 
     // DASHBOARD PAGE
