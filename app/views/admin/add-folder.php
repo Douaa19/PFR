@@ -6,9 +6,10 @@
         <h1 class="m-3">Ajouter dossier</h1>
         <div class="form">
             <form action="<?php echo URLROOT ?>/PostController/insertFolder" method="POST" class="form-group" enctype="multipart/form-data">
+            <div class="error text-center text-danger"><?php if (isset($data['error'])) { echo $data['error'] . '!'; } ?></div>
                 <div class="mb-3">
                   <label for="formGroupExampleInput" class="form-label">Nom</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" name="title">
+                  <input type="text" class="form-control" id="formGroupExampleInput" name="name">
                 </div>
                 <div class="choix">
                     <div class="image">

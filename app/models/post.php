@@ -122,8 +122,21 @@ class post {
         }
     }
 
+    // Select One Folder For Checking
+    public function oneFolder($data) {
+        $this->db->query("SELECT name FROM folders WHERE name = :name");
+        $this->db->bind(':name', $data['name']);
+        
+        $result = $this->db->single();
+        if ($result) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     // Add Folder 
-    public function addFolder() {
+    public function addFolder($data) {
         $this->db->query("INSERT INTO `folders`(`name`, `image`) VALUES (:name, :image)");
         $this->db->bind(':name', $data['name']);
         $this->db->bind(':image', $data['image']);
