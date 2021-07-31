@@ -244,21 +244,35 @@ class PostController extends Controller
     // Add Folder
     public function insertFolder() {
         if (isset($_POST['submit'])) {
+            $data = [
+                'name' => $_POST['name'],
+                'image' => $_FILES['image'],
+                'error' => ''
+            ];
+            
             if (!empty($_POST['name']) && !empty($_FILES['image'])) {
                 
                 $image = $_FILES['image']['tmp_name'];
                 $data= [
-                    'name' => $_POST['name'] 
+                    'name' => $_POST['name'],
+                    'image' => $_FILES['image']['name'],
+                    'error' => ''
                 ];
-                if ($this->uploadPhoto($image) === true) {
-                    if ($this->postModel->addFolder($data)) {
-                        header('Location: ' . URLROOT . '/PostController/dashFolder');
+
+                $check = $this->postModel->oneFolder($data);
+                if (!$check) {
+                    if ($this->uploadPhoto($image) === true) {
+                        if ($this->postModel->addFolder($data)) {
+                            
+                            header('Location: ' . URLROOT . '/PostController/dashFolder');
+                        }
                     }
-                }
+                    }else {
+                        $data['error'] = 'Le dossier est déjà existe';
+                        $this->view('admin/add-folder', $data);
+                    }
             }else {
-                $data = [
-                    'error' => 'Les champs sont vides'
-                ];
+                $data['error'] = 'Les champs sont vides';
                 $this->view('admin/add-folder', $data);
             }
         }
