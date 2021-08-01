@@ -58,7 +58,7 @@ class post {
 
     // GET 6 PHOTOS
     public function sexPhotos() {
-        $this->db->query("SELECT * FROM images LIMIT 6");
+        $this->db->query("SELECT * FROM images LIMIT 7");
         $result = $this->db->resultSet();
 
         return $result;
