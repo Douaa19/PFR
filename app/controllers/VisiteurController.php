@@ -108,6 +108,24 @@ class VisiteurController extends Controller {
             }
         }
     }
+
+    // THIS METHOD FOR SEARCH
+    public function search() {
+        if (isset($_POST['submit_search'])) {
+            $data = [
+                'name' => $_POST['name'],
+                'error' => ''
+            ];
+            $result = $this->visiteurModel->searchFolders($data);
+
+            if ($result) {
+                $this->view('visiteur/result', $result);
+            }else {
+                $data['error'] = 'Le dossier n\'existe pas';
+                $this->view('visiteur/result', $data);
+            }
+        }
+    }
     
 
     

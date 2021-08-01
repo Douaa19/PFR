@@ -72,4 +72,19 @@ class Visiteur
         }
     }
 
+    // SEARCH FOR FOLDERS
+    public function searchFolders($data) {
+        $this->db->query("SELECT * FROM folders WHERE name = :name");
+        $this->db->bind(':name', $data['name']);
+
+        $result = $this->db->resultSet();
+
+        if ($result) {
+            return $result;
+        }else {
+            return false;
+            die();
+        }
+    }
+
 }

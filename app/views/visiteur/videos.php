@@ -3,9 +3,7 @@
     <main>
         <div class="photos mt-5">
             <h1>vidéos</h1>
-            <div class="error text-light text-center text-uppercase fw-bold bg-danger p-1">
                 <?php if (!isset($data['error'])) { ?>
-            </div>
             <div class="">
                 <?php foreach($data as $row) : ?>
                 <div class="vid">
@@ -13,7 +11,11 @@
                     <video controls="controls" src="<?= URLROOT ?>/vid/Creative short film- Wonderful little world.mp4" video="web/mp4" class="d-block w-100"></video>
                 </div>
                 <?php endforeach; ?>
-                <?php }else{echo $data['error']; } ?>
+                <?php }else { ?>
+                <div class="error text-light text-center text-uppercase fw-bold bg-danger p-1">
+                    <span><?php echo $data['error'];?></span>
+                </div>
+                <?php } ?>
             </div>
         </div>
     </main>

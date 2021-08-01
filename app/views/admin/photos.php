@@ -3,9 +3,7 @@
     <main>
         <div class="photos mt-5">
             <h1>photos</h1>
-            <div class="error text-light text-center text-uppercase fw-bold bg-danger p-1">
                 <?php if (!isset($data['error'])) { ?>
-            </div>
             <div class="galery">
                 <?php foreach($data as $row) : ?>
                 <div class="img">
@@ -13,7 +11,11 @@
                     <img src="<?= URLROOT ?>/uploads/<?php echo $row->image ?>">
                 </div>
                 <?php endforeach; ?>
-                <?php }else{echo $data['error']; } ?>
+                <?php }else { ?>
+                <div class="error text-light text-center text-uppercase fw-bold bg-danger p-1">
+                    <span><?php echo $data['error'];?></span>
+                </div>
+                <?php } ?>
             </div>
         </div>
     </main>
