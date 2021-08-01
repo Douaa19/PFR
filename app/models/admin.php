@@ -43,15 +43,15 @@ class admin
 
     // Get result from database
     public function search($data) {
-        $this->db->query("SELECT * FROM images WHERE tag = :tag");
-        $this->db->bind(':tag', $data['search']);
+        $this->db->query("SELECT * FROM folders WHERE name = :name");
+        $this->db->bind(':name', $data['name']);
 
         $result = $this->db->resultSet();
 
-        if (!$result) {
-            var_dump($result);
+        if ($result) {
+            return $result;
         }else {
-            var_dump($result);
+            return false;
             die();
         }
     }

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?= URLROOT ?>/css/style-pvf.css">
     <link rel="stylesheet" href="<?= URLROOT ?>/css/style-footer.css">
     <link rel="stylesheet" href="<?= URLROOT ?>/css/style-f-pv.css">
+    <link rel="stylesheet" href="<?= URLROOT ?>/css/style-result.css">
 
 
 </head>
