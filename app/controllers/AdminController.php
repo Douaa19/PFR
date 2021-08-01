@@ -97,10 +97,10 @@ class AdminController extends Controller
     // Serch method
     public function search() {
         if (isset($_POST['submit_search'])) {
-            if (!empty($_POST['search'])) {
+            if (!empty($_POST['name'])) {
                 
                 $data = [
-                    'search' => $_POST['search'],
+                    'name' => $_POST['name'],
                     'error_search' => ''
                 ];
 

@@ -21,11 +21,19 @@
     <header>
         <div class="header bg-dark text-light pt-3">
             <div class="head">
+                <?php if(isset($_SESSION['name'])) { ?>
                 <div class="vide col-1"></div>
                 <div class="logo col-4">
                     <a href=""><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
                 </div>
                 <?php include_once APPROOT . '../views/inc/navbar-admin.php'; ?>
+                <?php }else{ ?>
+                <div class="vide col-1"></div>
+                <div class="logo col-5">
+                    <a href=""><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
+                </div>
+                <?php include_once APPROOT . '../views/inc/navbar-visiteur.php'; ?>
+                <?php } ?>
             </div>
             <div class="slogon">
                 <span>On prise le moment</span>

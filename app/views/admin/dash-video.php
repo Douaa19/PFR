@@ -31,10 +31,11 @@
             </div>
     </div>
 </main>
-
-</body>
-</html>
-
+<!-- MAIN -->
+<!-- SECTION FOOTER -->
 <footer>
     <?php include_once APPROOT . '../views/inc/footer.php'; ?>
 </footer>
+
+</body>
+</html>

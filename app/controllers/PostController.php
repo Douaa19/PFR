@@ -82,7 +82,10 @@ class PostController extends Controller
 
     // ADD VIDEO PAGE
     public function addVideo() {
-        $this->view('admin/add-video');
+        //  SELECT FLDERS FOR DISPLAY IT IN THE DROP DOWN SELECT
+        $result = $this->getFolders();
+
+        $this->view('admin/add-video', $result);
     }
 
     // DASHBOARD FOLDER 
@@ -100,6 +103,24 @@ class PostController extends Controller
     // DASHBOARD CLIENT PAGE
     public function dashClient() {
         $this->view('admin/dash-client');
+    }
+
+    // RESULT OF SERSHING BY FOLDER
+    public function resultAll() {
+        if (isset($_POST['submit'])) {
+            $data = [
+                'id' => $_POST['id'],
+                'error' => ''
+            ];
+            $result = $this->postModel->searchAll($data);
+
+            if ($result) {
+                echo '<pre>';
+                var_dump($result);
+                echo '</pre>';
+                die();
+            }
+        }
     }
 
 
