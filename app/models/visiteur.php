@@ -11,7 +11,7 @@ class Visiteur
 
     // Get photos
     public function getPhotos() {
-        $this->db->query("SELECT * FROM images");
+        $this->db->query("SELECT * FROM images LIMIT 7");
 
         $result = $this->db->resultSet();
 

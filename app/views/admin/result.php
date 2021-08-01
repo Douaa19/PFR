@@ -7,7 +7,7 @@
                 <?php foreach($data as $row) : ?>
                 <div class="card">
                     <img src="<?= URLROOT ?>/uploads/<?php echo $row->image ?>" alt="">
-                    <form action="<?php echo URLROOT ?>/PostController/resultAll" method="post">
+                    <form action="<?php echo URLROOT ?>/PostController/photos" method="post">
                         <div class="route strok">
                             <input type="hidden" name="id" value="<?php echo $row->id_folder; ?>">
                             <button name="submit"><h3 class="text-uppercase">Photos</h3></button>
@@ -18,7 +18,7 @@
                 <?php foreach($data as $row) : ?>
                 <div class="card">
                     <img src="<?= URLROOT ?>/uploads/<?php echo $row->image ?>" alt="">
-                    <form action="<?php echo URLROOT ?>/PostController/resultAll" method="post">
+                    <form action="<?php echo URLROOT ?>/PostController/videos" method="post">
                         <div class="route strok">
                             <input type="hidden" name="id" value="<?php echo $row->id_folder; ?>">
                             <button name="submit"><h3 class="text-uppercase">Vidéos</h3></button>
@@ -32,3 +32,7 @@
     
 </body>
 </html>
+
+<footer>
+    <?php include_once APPROOT . '../views/inc/footer.php'; ?>
+</footer>
