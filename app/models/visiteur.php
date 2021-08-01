@@ -87,4 +87,12 @@ class Visiteur
         }
     }
 
+    // METHOD TO INSERT DATA CLIENT INTO DATABASE
+    public function insertClient($data) {
+        echo '<pre>';
+        var_dump($data);
+        echo '</pre>';
+        die();
+    }
+
 }

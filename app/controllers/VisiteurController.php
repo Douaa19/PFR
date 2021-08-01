@@ -126,6 +126,29 @@ class VisiteurController extends Controller {
             }
         }
     }
+
+    // ADD CLIENT IN DATABASE
+    public function addClient() {
+        if (isset($_POST['client'])) {
+            $data = [
+                'email' => $_POST['email'],
+                'phone' => $_POST['phone'],
+                'photos' => $_POST['photos'],
+                'vidéos' => $_POST['vidéos'],
+                'marriage' => $_POST['marriage'],
+                'fête' => $_POST['fête'],
+                'anniversaire' => $_POST['anniversaire'],
+                'match' => $_POST['match'],
+                'autre' => $_POST['autre'],
+                'error' => ''
+            ];
+
+            echo '<pre>';
+            var_dump($data);
+            echo '</pre>';
+            die();
+        }
+    }
     
 
     

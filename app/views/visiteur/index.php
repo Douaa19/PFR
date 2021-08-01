@@ -55,19 +55,46 @@
         <h1>Prenez votre rondez-vous</h1>
         <form action="<?php echo URLROOT ?>/VisiteurController/addClient" method="POST">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              <label for="exampleInputEmail1" class="form-label">email</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label for="exampleInputPassword1" class="form-label">télephone</label>
+              <input type="number" class="form-control" id="exampleInputPassword1" name="phone">
             </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <div class="checkboxs1">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="photos" name="photos">
+                <label class="form-check-label" for="inlineCheckbox1">photos</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="videos" name="videos">
+                <label class="form-check-label" for="inlineCheckbox1">vidéos</label>
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="checkboxs2">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="marriage" name="marriage">
+                <label class="form-check-label" for="inlineCheckbox1">marriage</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="fête" name="fête">
+                <label class="form-check-label" for="inlineCheckbox2">fête</label>
+              </div>
+              <div<div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="anniversaire" name="anniversaire">
+                <label class="form-check-label" for="inlineCheckbox3">anniversaire</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="match" name="match">
+                <label class="form-check-label" for="inlineCheckbox3">match du sport</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="autre" name="autre">
+                <label class="form-check-label" for="inlineCheckbox3">autre</label>
+              </div>
+            </div>
+            <input type="submit" value="Envoyer" class="btn btn-primary" name="client">
         </form>
     </div>
     <!-- SECTION FORM FOR CLIENT -->
