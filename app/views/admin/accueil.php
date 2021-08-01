@@ -64,14 +64,10 @@
 </main>
 
 
-
-
-
-
-</body>
-</html>
-
 <footer>
     <?php include_once APPROOT . '../views/inc/footer.php'; ?>
 </footer>
+
+</body>
+</html>
 

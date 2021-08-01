@@ -82,7 +82,10 @@ class PostController extends Controller
 
     // ADD VIDEO PAGE
     public function addVideo() {
-        $this->view('admin/add-video');
+        //  SELECT FLDERS FOR DISPLAY IT IN THE DROP DOWN SELECT
+        $result = $this->getFolders();
+
+        $this->view('admin/add-video', $result);
     }
 
     // DASHBOARD FOLDER 

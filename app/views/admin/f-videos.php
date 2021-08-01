@@ -1,6 +1,7 @@
 <?php include_once APPROOT . '../views/inc/header-pvf.php'; ?>
-
+<!-- MAIN -->
 <main>
+    <!-- FOLDERS -->
     <div class="folders mt-5">
         <h1>Dossiers vidéos</h1>
         <div class="folder">
@@ -17,11 +18,13 @@
             <?php endforeach; ?>
         </div>
     </div>
+<!-- FOLDERS -->
 </main>
-
-</body>
-</html>
-
+<!-- MAIN -->
+<!-- SECTION FOOTER -->
 <footer>
     <?php include_once APPROOT . '../views/inc/footer.php'; ?>
 </footer>
+<!-- SECTION FOOTER -->
+</body>
+</html>

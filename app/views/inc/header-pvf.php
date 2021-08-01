@@ -14,7 +14,6 @@
 
     <link rel="stylesheet" href="<?= URLROOT ?>/css/style-pvf.css">
     <link rel="stylesheet" href="<?= URLROOT ?>/css/style-footer.css">
-    <link rel="stylesheet" href="<?= URLROOT ?>/css/style-f-pv.css">
     <link rel="stylesheet" href="<?= URLROOT ?>/css/style-result.css">
 
 
@@ -23,11 +22,19 @@
     <header>
         <div class="header bg-dark text-light pt-3">
             <div class="head">
+                <?php if(isset($_SESSION['name'])) { ?>
                 <div class="vide col-1"></div>
                 <div class="logo col-4">
                     <a href="<?php echo URLROOT; ?>/AdminController/accueil"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
                 </div>
                 <?php include_once APPROOT . '../views/inc/navbar-admin.php'; ?>
+                <?php }else{ ?>
+                <div class="vide col-1"></div>
+                <div class="logo col-5">
+                    <a href="<?php echo URLROOT; ?>/VisiteurController/index"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
+                </div>
+                <?php include_once APPROOT . '../views/inc/navbar-visiteur.php'; ?>
+                <?php } ?>
             </div>
         </div>
     </header>

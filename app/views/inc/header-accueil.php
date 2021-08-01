@@ -21,7 +21,7 @@
     <header>
         <div class="header bg-dark text-light pt-3">
             <div class="head">
-                <?php if(isset($_SESSUION['name'])) { ?>
+                <?php if(isset($_SESSION['name'])) { ?>
                 <div class="vide col-1"></div>
                 <div class="logo col-4">
                     <a href=""><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
