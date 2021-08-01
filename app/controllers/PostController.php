@@ -50,6 +50,11 @@ class PostController extends Controller
         $this->view('admin/f-videos', $result);
     }
 
+    // PAGE VIDEOS
+    public function videos() {
+        $this->view('admin/videos');
+    }
+
     // DASHBOARD PAGE
     public function dashboard() {
         $this->view('admin/dashboard');
