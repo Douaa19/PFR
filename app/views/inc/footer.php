@@ -1,6 +1,5 @@
 
 
-<footer>
     <small>
         <!-- Section Footer -->
         <div class="head_footer">
@@ -57,6 +56,3 @@
             </div>
         <!-- Copyright -->
     </small>
-</footer>
-
-    <script src="<?= URLROOT ?>/js/script-index.js"></script>
