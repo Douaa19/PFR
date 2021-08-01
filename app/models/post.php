@@ -166,6 +166,22 @@ class post {
         }
     }
 
+
+
+
+    // SEARCH FOR ALL BY ID_FOLDER
+    public function searchAll($data) {
+        $this->db->query("SELECT * FROM ");
+        $this->db->bind(':id_folder', $data['id']);
+
+        $result = $this->db->resultSet();
+
+        echo '<pre>';
+        var_dump($result);
+        echo '</pre>';
+        die();
+    }
+
     
 
 }

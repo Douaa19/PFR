@@ -50,6 +50,11 @@ class PostController extends Controller
         $this->view('admin/f-videos', $result);
     }
 
+    // PAGE VIDEOS
+    public function videos() {
+        $this->view('admin/videos');
+    }
+
     // DASHBOARD PAGE
     public function dashboard() {
         $this->view('admin/dashboard');
@@ -95,6 +100,24 @@ class PostController extends Controller
     // DASHBOARD CLIENT PAGE
     public function dashClient() {
         $this->view('admin/dash-client');
+    }
+
+    // RESULT OF SERSHING BY FOLDER
+    public function resultAll() {
+        if (isset($_POST['submit'])) {
+            $data = [
+                'id' => $_POST['id'],
+                'error' => ''
+            ];
+            $result = $this->postModel->searchAll($data);
+
+            if ($result) {
+                echo '<pre>';
+                var_dump($result);
+                echo '</pre>';
+                die();
+            }
+        }
     }
 
 
