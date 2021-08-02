@@ -143,10 +143,15 @@ class VisiteurController extends Controller {
                 'error' => ''
             ];
 
-            echo '<pre>';
-            var_dump($data);
-            echo '</pre>';
-            die();
+            if (!empty($_POST['email']) && !empty($_POST['phone'])) {
+             echo '<pre>';
+             var_dump($data);
+             echo '</pre>';
+             die();   
+            }else {
+                $data['error'] = 'Il faut sésir votre adress email et votre numéro du télephone!';
+                $this->view('visiteur/index', $data);
+            }
         }
     }
     
