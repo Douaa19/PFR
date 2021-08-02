@@ -176,7 +176,6 @@ header .header .slogon {
 
 
 /* MAIN */
-
 main {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -186,17 +185,13 @@ main {
 }
 
 main .row {
-    margin: 0;
+    margin: 0 !important;
 }
 
 /* SECTION PHOTOS */
-/* main .photos {
-    grid-area: 1 / 2 / 2 / 12;
-} */
 
 main h1 {
     text-transform: uppercase;
-    cursor: pointer;
 }
 
 main .photos, .videos, .about, .rv a {
@@ -251,6 +246,8 @@ main .photos .galery .img:hover h3 {
     margin-left: 2rem;
 }
 
+
+/* SECTION ABOUT */
 main .about .content {
     display: flex;
     justify-content: space-around;
@@ -269,15 +266,6 @@ main .about .content img {
     width: 45%;
     height: 45%;
 }
-
-
-
-/* SECTION DATE */
-
-
-
-
-
 
 
 /* SECTION PHOTOS RESPONSIVE */

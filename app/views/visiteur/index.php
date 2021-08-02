@@ -1,10 +1,11 @@
 <?php include_once APPROOT . '../views/inc/header-accueil.php'; ?>
 <!-- MAIN -->
-<main id="accueil" class="row">
+<main id="accueil" class="row m-0">
   <div class="container col-10">
     <!-- SECTION PHOTOS -->
-    <div class="photos mt-5">
-        <h1>photos</h1>
+    <div class="photos mt-5 row">
+        <h1 class="col-10">photos</h1>
+        <a href="<?= URLROOT ?>/VisiteurController/foldersPhotos" class="col-2 text-center text-primary">voir plus <i class="fas fa-angle-right"></i></a>
         <div class="galery">
             <?php foreach($data as $rows) : ?>
             <div class="img">
@@ -16,8 +17,9 @@
     </div>
     <!-- SECTION PHOTOS -->
     <!-- SECTION VIDEOS -->
-    <div class="videos mt-5">
-        <h1>vidéos</h1>
+    <div class="videos row mt-5">
+        <h1 class="col-10">vidéos</h1>
+        <a href="<?= URLROOT ?>/VisiteurController/foldersVideos" class="col-2 text-center text-primary">voir plus <i class="fas fa-angle-right"></i></a>
         <div id="carouselExampleControls" class="carousel slide mt-5" >
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -74,7 +76,7 @@
                 <div class="check1 col-6">
                     <input class="form-check-input" type="checkbox" id="photos" value="photos" name="photos">
                     <label class="form-check-label" for="photos">Photos</label>
-                    <input class="form-check-input" type="checkbox" id="videos" value="videos" name="videos">
+                    <input class="form-check-input" type="checkbox" id="videos" value="vidéos" name="videos">
                     <label class="form-check-label" for="videos">Vidéos</label>
                 </div>
               </div>
@@ -86,7 +88,7 @@
                     <label class="form-check-label" for="marriage">Marriage</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="fête" value="fête" name="fête">
+                    <input class="form-check-input" type="checkbox" id="fête" value="fete" name="fête">
                     <label class="form-check-label" for="fête">Fête</label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -94,11 +96,11 @@
                     <label class="form-check-label" for="shooting">Shooting</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="sport" value="sport" name="sport">
+                    <input class="form-check-input" type="checkbox" id="sport" value="match" name="match">
                     <label class="form-check-label" for="sport">Sport</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="anniv" value="anniv" name="anniv">
+                    <input class="form-check-input" type="checkbox" id="anniv" value="anniversaire" name="anniversaire">
                     <label class="form-check-label" for="anniv">Anniversaire</label>
                   </div>
                   <div class="form-check form-check-inline">

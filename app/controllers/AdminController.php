@@ -123,4 +123,20 @@ class AdminController extends Controller
     }
 
     
+
+    // GET CLIENTS 
+    public function dashClient() {
+        $result = $this->adminModel->getClients();
+
+        $result['0']->gender = explode(',', $result['0']->gender);
+        $result['0']->occasion = explode(',', $result['0']->occasion);
+
+        if ($result) {
+            $this->view('admin/dash-client', $result);
+        }else {
+            return false;
+        }
+    }
+
+    
 }

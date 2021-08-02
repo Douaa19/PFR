@@ -1,27 +1,27 @@
 <?php include_once APPROOT . './views/inc/header-accueil.php'; ?>
 
 
-
-<main>
-
-    <!-- Photos section -->
-    <div class="photos mt-5">
-        <h1><a href="">photos</a></h1>
+<main id="accueil" class="row m-0">
+  <div class="container col-10">
+    <!-- SECTION PHOTOS -->
+    <div class="photos mt-5 row">
+        <h1 class="col-10">photos</h1>
+        <a href="<?= URLROOT ?>/VisiteurController/foldersPhotos" class="col-2 text-center text-primary">voir plus <i class="fas fa-angle-right"></i></a>
         <div class="galery">
-        <?php foreach($data as $row) : ?>
+            <?php foreach($data as $rows) : ?>
             <div class="img">
-                <h3><?php echo $row->title; ?></h3>
-                <img src="<?= URLROOT ?>/uploads/<?php echo $row->image ?>">
+                <h3><?php echo $rows->title ?></h3>
+                <img src="<?= URLROOT ?>/uploads/<?php echo $rows->image ?>" alt="">
             </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
         </div>
     </div>
-
-    <!-- Videos section -->
-    <div class="videos">
-        <a href=""><h1>vidéos</h1></a>
-
-        <div id="carouselExampleControls" class="carousel slide" >
+    <!-- SECTION PHOTOS -->
+    <!-- SECTION VIDEOS -->
+    <div class="videos row mt-5">
+        <h1 class="col-10">vidéos</h1>
+        <a href="<?= URLROOT ?>/VisiteurController/foldersVideos" class="col-2 text-center text-primary">voir plus <i class="fas fa-angle-right"></i></a>
+        <div id="carouselExampleControls" class="carousel slide mt-5" >
             <div class="carousel-inner">
               <div class="carousel-item active">
 
@@ -44,17 +44,16 @@
             </button>
         </div>
     </div>
-
-    <!-- About section -->
-
-    <div class="about">
+    <!-- SECTION VIDEOS -->
+    <!-- SECTION ABOUT -->
+    <div class="about mt-5" id="about">
         <h1>a propos</h1>
         <div class="content">
-            <img src="../public/img/brandon-erlinger-ford-jL8QFwnuOcQ-unsplash.jpg" alt="">
+            <img src="<?= URLROOT ?>/img/brandon-erlinger-ford-jL8QFwnuOcQ-unsplash.jpg" alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
         </div>
     </div>
-    
+    <!-- SECTION ABOUT -->
 
 </main>
 
