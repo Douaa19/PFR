@@ -1,9 +1,11 @@
 <?php include_once APPROOT . '../views/inc/header-accueil.php'; ?>
 <!-- MAIN -->
-<main id="accueil">
+<main id="accueil" class="row m-0">
+  <div class="container col-10">
     <!-- SECTION PHOTOS -->
-    <div class="photos mt-5">
-        <h1>photos</h1>
+    <div class="photos mt-5 row">
+        <h1 class="col-10">photos</h1>
+        <a href="<?= URLROOT ?>/VisiteurController/foldersPhotos" class="col-2 text-center text-primary">voir plus <i class="fas fa-angle-right"></i></a>
         <div class="galery">
             <?php foreach($data as $rows) : ?>
             <div class="img">
@@ -15,9 +17,10 @@
     </div>
     <!-- SECTION PHOTOS -->
     <!-- SECTION VIDEOS -->
-    <div class="videos">
-        <h1>vidéos</h1>
-        <div id="carouselExampleControls" class="carousel slide" >
+    <div class="videos row mt-5">
+        <h1 class="col-10">vidéos</h1>
+        <a href="<?= URLROOT ?>/VisiteurController/foldersVideos" class="col-2 text-center text-primary">voir plus <i class="fas fa-angle-right"></i></a>
+        <div id="carouselExampleControls" class="carousel slide mt-5" >
             <div class="carousel-inner">
               <div class="carousel-item active">
 
@@ -42,7 +45,7 @@
     </div>
     <!-- SECTION VIDEOS -->
     <!-- SECTION ABOUT -->
-    <div class="about" id="about">
+    <div class="about mt-5" id="about">
         <h1>a propos</h1>
         <div class="content">
             <img src="<?= URLROOT ?>/img/brandon-erlinger-ford-jL8QFwnuOcQ-unsplash.jpg" alt="">
@@ -51,53 +54,69 @@
     </div>
     <!-- SECTION ABOUT -->
     <!-- SECTION FORM FOR CLIENT -->
-    <div class="date">
+    <div class="date mt-5">
         <h1>Prenez votre rondez-vous</h1>
-        <form action="<?php echo URLROOT ?>/VisiteurController/addClient" method="POST">
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">email</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">télephone</label>
-              <input type="number" class="form-control" id="exampleInputPassword1" name="phone">
-            </div>
-            <div class="checkboxs1">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="photos" name="photos">
-                <label class="form-check-label" for="inlineCheckbox1">photos</label>
+        <div class="form row mt-4">
+          <div class="col-2"></div>
+          <form action="<?php echo URLROOT ?>/VisiteurController/addClient" method="POST" class="col-8">
+              <div class="email row mb-3">
+                <label for="email" class="col-6">Email</label>
+                <div class="col-6">
+                  <input type="email" class="form-control" id="email" name="email">
+                </div>
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="videos" name="videos">
-                <label class="form-check-label" for="inlineCheckbox1">vidéos</label>
+              <div class="phone row mb-3">
+                <label for="phone" class="col-6">Numéro de télephone</label>
+                <div class="col-6">
+                  <input type="phone" class="form-control" id="phone" name="phone">
+                </div>
               </div>
-            </div>
-            <div class="checkboxs2">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="marriage" name="marriage">
-                <label class="form-check-label" for="inlineCheckbox1">marriage</label>
+              <div class="genre row">
+                <label for="genre" class="col-6">Genre</label>
+                <div class="check1 col-6">
+                    <input class="form-check-input" type="checkbox" id="photos" value="photos" name="photos">
+                    <label class="form-check-label" for="photos">Photos</label>
+                    <input class="form-check-input" type="checkbox" id="videos" value="vidéos" name="videos">
+                    <label class="form-check-label" for="videos">Vidéos</label>
+                </div>
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="fête" name="fête">
-                <label class="form-check-label" for="inlineCheckbox2">fête</label>
+              <div class="occasion row mt-2">
+                <label for="occasion" class="col-6">Occasion</label>
+                <div class="check2 col-6">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="marriage" value="marriage" name="marriage">
+                    <label class="form-check-label" for="marriage">Marriage</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="fête" value="fete" name="fête">
+                    <label class="form-check-label" for="fête">Fête</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="shooting" value="shooting" name="shooting">
+                    <label class="form-check-label" for="shooting">Shooting</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="sport" value="match" name="match">
+                    <label class="form-check-label" for="sport">Sport</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="anniv" value="anniversaire" name="anniversaire">
+                    <label class="form-check-label" for="anniv">Anniversaire</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="autre" value="autre" name="autre">
+                    <label class="form-check-label" for="autre">Autre</label>
+                  </div>
+                </div>
               </div>
-              <div<div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="anniversaire" name="anniversaire">
-                <label class="form-check-label" for="inlineCheckbox3">anniversaire</label>
+              <div class="button mt-4 text-center">
+                <input type="submit" value="Envoyer" name="envoyer" class="btn btn-primary col-2">
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="match" name="match">
-                <label class="form-check-label" for="inlineCheckbox3">match du sport</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="autre" name="autre">
-                <label class="form-check-label" for="inlineCheckbox3">autre</label>
-              </div>
-            </div>
-            <input type="submit" value="Envoyer" class="btn btn-primary" name="client">
-        </form>
+          </form>
+        </div>
     </div>
-    <!-- SECTION FORM FOR CLIENT -->
+    <!-- SECTION FORM FOR CLIENT TO SEND HIS COMMAND-->
+  </div>
 </main>
 <!-- MAIN -->
 <!-- SECTION Footer -->

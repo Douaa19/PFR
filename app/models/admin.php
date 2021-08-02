@@ -57,4 +57,16 @@ class admin
             die();
         }
     }
+
+    // GET CLIENTS FROM DATABASE
+    public function getClients() {
+        $this->db->query("SELECT * FROM clients");
+        
+        $result = $this->db->resultSet();
+        if ($result) {
+            return $result;
+        }else {
+            return false;
+        }
+    }
 }

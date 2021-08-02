@@ -89,10 +89,34 @@ class Visiteur
 
     // METHOD TO INSERT DATA CLIENT INTO DATABASE
     public function insertClient($data) {
-        echo '<pre>';
-        var_dump($data);
-        echo '</pre>';
-        die();
+        $this->db->query("INSERT INTO `clients`(`email`, `phone`, `gender`, `occasion`) VALUES (:email, :phone, :gender, :occasion)");
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':phone', $data['phone']);
+        // ocassion and gender values
+        $oca_string = '';
+        $gen_string = '';
+        //  concatinating gender if not null
+            foreach ($data['gender'] as $gender) {
+                if ($gender != 0) {
+                    $gen_string .= $gender .',';
+                }
+            }
+ 
+        // concatinating all the occasions that the user choose
+
+            foreach ($data['occasion'] as $occasion) {
+                if ($occasion != 0) {
+
+                    $oca_string .= $occasion .',';
+                }
+            }
+            $this->db->bind(':gender', $gen_string);
+            $this->db->bind(':occasion', $oca_string);
+            
+
+        $push = $this->db->execute();
+
+        return $push;
     }
 
 }

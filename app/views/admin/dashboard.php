@@ -18,7 +18,7 @@
             </div>
             <div class="card card4 col-3">
                 <img src="<?= URLROOT ?>/img/cytonn-photography-n95VMLxqM2I-unsplash.jpg" alt="">
-                <div class="route strok"><h3><a href="<?php echo URLROOT ?>/PostController/dashClient" class="hov">CLIENTS</a></h3></div>
+                <div class="route strok"><h3><a href="<?php echo URLROOT ?>/AdminController/dashClient" class="hov">CLIENTS</a></h3></div>
             </div>
         </div>
     </div>
