@@ -5,7 +5,7 @@
     <div class="container">
         <h1 class="m-3">Ajouter video</h1>
         <div class="form">
-            <form action="<?php echo URLROOT ?>/PostController/addPhoto" method="POST" class="form-group" enctype="multipart/form-data">
+            <form action="<?php echo URLROOT ?>/PostController/addVideo" method="POST" class="form-group" enctype="multipart/form-data">
                 <div class="mb-3">
                   <label for="formGroupExampleInput" class="form-label">Titre</label>
                   <input type="text" class="form-control" id="formGroupExampleInput" name="title">
@@ -14,7 +14,7 @@
                     <div class="image">
                         <div class="mb-3">
                             <label for="formFileMultiple" class="form-label">video</label>
-                            <input class="form-control" type="file" id="formFileMultiple" multiple name="image">
+                            <input class="form-control" type="file" id="formFileMultiple" multiple name="video">
                         </div>
                     </div>
                     <div class="folder">

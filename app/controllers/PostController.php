@@ -18,7 +18,75 @@ class PostController extends Controller
 
 
     public function photos() {
+<<<<<<< Updated upstream
         $result = $this->postModel->getPhotos();
+=======
+        if (isset($_POST['submit'])) {
+            $data = [
+                'id' => $_POST['id'],
+                'error' => ''
+            ];
+            $result = $this->postModel->photos($data);
+            if ($result) {
+                $this->view('admin/photos', $result);
+            }else {
+                $data['error'] = 'Le dossier est vide';
+                $this->view('admin/photos', $data);
+            }
+        }
+    }
+
+    // ADMIN VIDEO PAGE
+    public function foldersVideos() {
+        $result = $this->getFolders();
+
+        $this->view('admin/f-videos', $result);
+    }
+
+    // PAGE VIDEOS
+    public function videos() {
+        $this->view('admin/videos');
+    }
+
+    // DASHBOARD PAGE
+    public function dashboard() {
+        $this->view('admin/dashboard');
+    }
+
+    // DASHBOARD PHOTO PAGE
+    public function dashPhoto() {
+        $result = $this->postModel->getPhotos();
+
+        $this->view('admin/dash-photo', $result);
+    }
+
+    // FORM FOR ADD PHOTO
+    public function add() {
+        //  SELECT FLDERS FOR DISPLAY IT IN THE DROP DOWN SELECT
+        $result = $this->getFolders();
+        
+        $this->view('admin/add-photo', $result);    
+    }
+
+    // DASHBOARD VIDEO PAGE
+    public function dashVideo() {
+        $result = $this->postModel->getVideos();
+
+        $this->view('admin/dash-video', $result);
+    }
+
+    // ADD VIDEO PAGE
+    public function addVideoPage() {
+        //  SELECT FoLDERS FOR DISPLAY IT IN THE DROP DOWN SELECT
+        $result = $this->getFolders();
+
+        $this->view('admin/add-video', $result);
+    }
+
+    // DASHBOARD FOLDER 
+    public function dashFolder() {
+        $result = $this->getFolders();
+>>>>>>> Stashed changes
         
         $this->view('admin/photos', $result);
     }
@@ -62,19 +130,86 @@ class PostController extends Controller
                         die('This is not working');
                     }
                 }
-
-                echo var_dump($data);
-                
             } else {
                 header('Location: ' . URLROOT . '/PostController/add');
             }
         }
+    }
 
-        $this->view('admin/photos');
+<<<<<<< Updated upstream
+    // Delete Method For Photos
+=======
+    // ADD VIDEO
+    public function addVideo() {
+        if (isset($_POST['submit'])) {
+            if (!empty($_FILES['video']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
+
+                $video = $_FILES['video']['tmp_name'];
+                $data= [
+                    'title' => $_POST['title'],
+                    'video' => $_FILES['video']['name'],
+                    'description' => $_POST['description'],
+                    'tag' => $_POST['tag'],
+                    'folder' => $_POST['folder'] 
+                ];
+
+                if ($this->uploadVideo($video) === true) {
+                    if ($this->postModel->addVideo($data)) {
+                        header('Location: ' . URLROOT . '/PostController/dashVideo');
+                    }else {
+                        die('This is not working');
+                    }
+                }
+
+            } else {
+                header('Location: ' . URLROOT . '/PostController/add');
+            }
+        }
+    }
+
+    // Add Folder
+    public function insertFolder() {
+        if (isset($_POST['submit'])) {
+            $data = [
+                'name' => $_POST['name'],
+                'image' => $_FILES['image'],
+                'error' => ''
+            ];
+            
+            if (!empty($_POST['name']) && !empty($_FILES['image'])) {
+                
+                $image = $_FILES['image']['tmp_name'];
+                $data= [
+                    'name' => $_POST['name'],
+                    'image' => $_FILES['image']['name'],
+                    'error' => ''
+                ];
+
+                $check = $this->postModel->oneFolder($data);
+                if (!$check) {
+                    if ($this->uploadPhoto($image) === true) {
+                        if ($this->postModel->addFolder($data)) {
+                            
+                            header('Location: ' . URLROOT . '/PostController/dashFolder');
+                        }
+                    }
+                    }else {
+                        $data['error'] = 'Le dossier est déjà existe';
+                        $this->view('admin/add-folder', $data);
+                    }
+            }else {
+                $data['error'] = 'Les champs sont vides';
+                $this->view('admin/add-folder', $data);
+            }
+        }
         
     }
 
-    // Delete Method For Photos
+
+    // DELETE METHODS
+
+    // PHOTO
+>>>>>>> Stashed changes
     public function deletePhoto() {
         $data = [
             'id' => $_POST['id'],
@@ -96,6 +231,128 @@ class PostController extends Controller
           
         }
 
+<<<<<<< Updated upstream
+=======
+    // DELETE VIDEO
+    public function deleteVideo() {
+        $data = [
+            'id' => $_POST['id'],
+            'video' => $_POST['video'],
+            'error' => ''
+          ];
+          if ($this->postModel->deleteVideo($data)) {
+              $video = $data['video'];
+              $path = "C:\\xampp\htdocs\PFR\public\uploads/$video";
+              chown($path, 666);
+
+              if (unlink($path)) {
+                header('location:' . URLROOT . '/' . 'PostController/dashVideo');
+              }else {
+                  $data['error'] = ["Le poste ne être pas supprimé"];
+              }
+        }else {
+            echo "Post not deleted";
+        }
+    }
+
+    // FOLDER
+    public function deleteFolder() {
+        $data = [
+            'id' => $_POST['id_folder'],
+            'image' => $_POST['image']
+        ];
+        
+        if ($this->postModel->deleteFolder($data)) {
+            header('Location: ' . URLROOT . '/PostController/dashFolder');
+        }
+    }
+
+
+    // UPDATE METHODS
+
+    // PHOTO
+
+
+    // VIDEO
+
+
+    // FOLDER
+
+
+
+    // SUPPORT METHODS
+
+    // GET FOLDERS
+    public function getFolders() {
+        $result = $this->postModel->getFolders();
+
+        if ($result) {
+            return $result;
+        }else {
+            return false;
+        }
+    }
+
+    // UPLOAD IMAGE
+    public function uploadPhoto($image)
+    { 
+     $dir = "C:\\xampp\htdocs\PFR\public\uploads";
+      $name = str_replace(' ','-',strtolower($_FILES["image"]["name"]));
+      $type = $_FILES["image"]["type"];
+      if(move_uploaded_file($image,$dir."/".$name))
+      {
+         return true;    
+      }else{
+        return false;
+       }
+    }
+
+    // UPLOAD VIDEO
+    public function uploadVideo($video) {
+        $dir = "C:\\xampp\htdocs\PFR\public\uploads";
+        $name = str_replace(' ','-',strtolower($_FILES["video"]["name"]));
+        $type = $_FILES["video"]["type"];
+        if(move_uploaded_file($video,$dir."/".$name))
+        {
+           return true;    
+        }else{
+          return false;
+        }
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+     
+    
+
+>>>>>>> Stashed changes
     // Select One Post From Data
     public function editPhoto() {
         $data = [
