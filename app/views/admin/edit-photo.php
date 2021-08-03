@@ -8,6 +8,7 @@
             <?php if(isset($_GET['error'])) : ?>
             <div class="error"><?php echo $error->error; ?></div>
             <?php endif; ?>
+            
             <form action="<?php echo URLROOT ?>/PostController/updatePhoto" method="POST" class="form-group container col-6" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $data->id; ?>">
                 <div class="mb-3">
