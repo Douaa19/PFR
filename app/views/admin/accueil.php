@@ -26,7 +26,7 @@
             <?php foreach($data1 as $row) : ?>
               <div class="carousel-item active">
 
-                <video controls="controls" src="<?= URLROOT ?>/uploads/<?php echo $rows->video ?>" video="web/mp4" class="d-block w-100" type="video/mp4"></video>
+                <video controls="controls" src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>" video="web/mp4" class="d-block w-100" type="video/mp4"></video>
 
               </div>
               <?php endforeach; ?>

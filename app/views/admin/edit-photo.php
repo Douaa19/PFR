@@ -8,8 +8,8 @@
             <?php if(isset($_GET['error'])) : ?>
             <div class="error"><?php echo $error->error; ?></div>
             <?php endif; ?>
-            <form action="<?php echo URLROOT ?>/PostController/testImage" method="POST" class="form-group container col-6" enctype="multipart/form-data">
-                <!-- <?php echo var_dump($data1) ?> -->
+            
+            <form action="<?php echo URLROOT ?>/PostController/updatePhoto" method="POST" class="form-group container col-6" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $data->id; ?>">
                 <div class="mb-3">
                   <label for="formGroupExampleInput" class="form-label">Titre</label>
@@ -20,6 +20,7 @@
                         <div class="mb-3">
                             <label for="formFileMultiple" class="form-label">Image</label>
                             <input class="form-control" type="file" id="formFileMultiple" multiple name="new_image">
+                            <img src="<?=URLROOT?>/img/<?php echo $data->image; ?>" alt="" style="width:25%;">
                             <input type="hidden" name="old_image" value="<?php echo $data->image; ?>">
                         </div>
                     </div>
@@ -48,7 +49,7 @@
                     </div>
                 </div>
                 <div class="button">
-                    <input type="submit" value="Modifier" name="btn-update" class="btn btn-primary">
+                    <input type="submit" value="Modifier" name="submit" class="btn btn-primary">
                 </div>
             </form>
         </div>

@@ -136,7 +136,16 @@ class post {
 
 
     // SELECT TOO VIDEOS FROM DATABASE TO DISPLAY IT IN HOME PAGE
+    public function getOneVideo() {
+        $this->db->query("SELECT * FROM videos ORDER BY id DESC LIMIT 1");
 
+        $result = $this->db->resultSet();
+        if ($result) {
+            return $result;
+        }else {
+            return false;
+        }
+    }
 
     // DELETE VIDEO FROM DATABASE
     // Delete photo
