@@ -8,7 +8,7 @@
                 <?php foreach($data as $row) : ?>
                 <div class="vid">
                     <h3><?php echo $row->title; ?></h3>
-                    <video controls="controls" src="<?= URLROOT ?>/vid/Creative short film- Wonderful little world.mp4" video="web/mp4" class="d-block w-100"></video>
+                    <video controls="controls" src="<?= URLROOT ?>/uploads/<?php echo $rows->video ?>" video="web/mp4" class="d-block w-100"></video>
                 </div>
                 <?php endforeach; ?>
                 <?php }else { ?>
