@@ -6,7 +6,7 @@
 
 body {
     background-color: #F3ECEC;
-    height: max-content;
+    height:100%;
 }
 
 header .header {
@@ -31,7 +31,7 @@ header .header .logo img {
 }
 
 header .header nav {
-    padding-top: 1rem;
+    padding-top: 0rem;
 }
 
 header .header nav ul li {
@@ -115,7 +115,7 @@ main .container {
 main .container .cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
+    grid-template-rows: 0;
     grid-column-gap: 0;
     grid-row-gap: 0px;
 }
@@ -145,7 +145,7 @@ main .container .cards .card .route{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 200%);
 }
 
 main .container .cards .card .route a {

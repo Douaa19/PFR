@@ -11,16 +11,9 @@ class VisiteurController extends Controller {
     // this method take seven photos to the index page
     public function index() {
         $result = $this->getPhotos();
-
-        $this->view('visiteur/index', $result);
-    }
-
-    // this method take too videos to the index page
-    public function indexVideos() {
-        die();
-        $result = $this->getVideos();
-
-        $this->view('visiteur/index', $result);
+        // this method take one videos to the index page
+        $data = $this->getVideos();
+        $this->view('visiteur/index', $result, $data);
     }
 
     // this method take all folders to f-photos

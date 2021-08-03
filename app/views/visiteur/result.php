@@ -1,5 +1,5 @@
 <?php include_once APPROOT . '../views/inc/header-pvf.php'; ?>
-
+<!-- MAIN -->
     <main>
         <div class="folders mt-5">
             <h1>Dossiers</h1>
@@ -35,10 +35,6 @@
             <?php } ?>
         </div>
     </main>
-    
+    <!-- MAIN -->
 </body>
 </html>
-
-<footer>
-    <?php include_once APPROOT . '../views/inc/footer.php'; ?>
-</footer>

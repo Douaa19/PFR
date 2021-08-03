@@ -1,7 +1,7 @@
 <?php include_once APPROOT . '../views/inc/header-dash-pvf.php'; ?>
 
-    <main class="m-auto">
-        <div class="container">
+    <main class="row m-0">
+        <div class="container col-10">
             <h1>Postes</h1>
             <div class="add">
                 <a href="<?php echo URLROOT; ?>/PostController/add" class="button primary new">Ajouter</a>
@@ -34,11 +34,7 @@
             </div>
         </div>
     </main>
-
+    <!-- MAIN -->
 </body>
 </html>
-
-<footer>
-    <?php include_once APPROOT . '../views/inc/footer.php'; ?>
-</footer>
 

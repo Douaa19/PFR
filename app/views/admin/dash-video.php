@@ -1,7 +1,7 @@
 <?php include_once APPROOT . '../views/inc/header-dash-pvf.php'; ?>
 
-<main>
-    <div class="container">
+<main class="row m-0">
+    <div class="container col-10">
         <h1  class="mt-5">postes</h1>
         <div class="add">
              <a href="<?php echo URLROOT; ?>/PostController/addVideoPage" class="button primary new">Ajouter</a>
@@ -10,7 +10,7 @@
             <!-- Foreache loop -->
             <?php foreach ($data as $row) : ?>
             <div class="card">
-              <video src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>" controls></video>
+              <video src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>" controls type="videos/mp4"></video>
               <div class="card-body">
                 <h5 class="card-title"><?php echo $row->title ?></h5>
                 <p class="card-text"><?php echo $row->description ?></p>
@@ -35,10 +35,5 @@
     </div>
 </main>
 <!-- MAIN -->
-<!-- SECTION FOOTER -->
-<footer>
-    <?php include_once APPROOT . '../views/inc/footer.php'; ?>
-</footer>
-
 </body>
 </html>

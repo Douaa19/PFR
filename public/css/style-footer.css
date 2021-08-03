@@ -1,63 +1,7 @@
+
 footer {
-    margin-top: 4rem;
-    display: grid;
-}
-
-footer .head_footer {
-    background-color: black;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    text-align: center;
-    height: 15rem;
-}
-
-footer .head_footer .icones section .btn {
-    border-radius: 20px;
-}
-
-footer .head_footer .contacts {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-footer .head_footer .contacts .ad {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-/* Phone */
-
-footer .head_footer .contacts .phone, .email, .address ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 0;
-}
-
-footer .head_footer .contacts .phone, .email, .address ul li {
-    list-style: none;
-    text-transform: uppercase;
-}
-
-footer .head_footer .contacts .phone, .email, .address ul li a {
-    text-decoration: none;
-    color: #F3ECEC;
-    margin-left: 1.5rem;
-}
-
-footer .head_footer .contacts .phone, .email, .address ul li a img {
-    width: 32px;
-    height: 32px;
-}
-
-/* Hovers */
-
-footer .head_footer .contacts .phone, .email, .address ul li a:hover {
-    text-decoration: underline #F3ECEC;
+    position: absolute;
+    bottom:0;
 }
 
 
