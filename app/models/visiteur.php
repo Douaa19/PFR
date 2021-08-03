@@ -24,7 +24,7 @@ class Visiteur
 
     // GET TOO VIDEOS 
     public function getVideos() {
-        $this->db->query("SELECT * FROM videos LIMIT 1");
+        $this->db->query("SELECT * FROM videos ORDER BY id LIMIT 1 DESC");
 
         $result = $this->db->resultSet();
         if ($result) {

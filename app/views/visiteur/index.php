@@ -3,7 +3,7 @@
 <main id="accueil" class="row m-0">
   <div class="container col-10">
     <!-- SECTION PHOTOS -->
-    <div class="photos row">
+    <div class="photos row m-0">
         <h1 class="col-10 mt-4">photos</h1>
         <a href="<?= URLROOT ?>/VisiteurController/foldersPhotos" class="col-2 text-center text-primary mt-4 d-flex justify-content-center text-uppercase">voir plus</a>
         <div class="galery">

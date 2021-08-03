@@ -106,8 +106,7 @@ nav.fill ul li a:hover:after {
 }
 
 /* Style Main */
-main .container {
-    grid-area: 1 / 2 / 2 / 11;
+.container {
     height: max-content;
 }
 

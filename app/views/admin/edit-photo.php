@@ -1,15 +1,14 @@
-<?php include_once APPROOT . '../views/inc/normal-header1.php'; ?>
+<?php include_once APPROOT . '../views/inc/header-dash-pvf.php'; ?>
 <!-- MAIN -->
-<main>
-    <div class="container">
-        <h1 class="m-3">Modifier photo</h1>
+<main class="row m-0">
+    <div class="container col-10">
+        <h1 class="mt-4">Modifier photo</h1>
         <!-- FORM -->
         <div class="form">
             <?php if(isset($_GET['error'])) : ?>
             <div class="error"><?php echo $error->error; ?></div>
             <?php endif; ?>
-            <form action="<?php echo URLROOT ?>/PostController/testImage" method="POST" class="form-group" enctype="multipart/form-data">
-                <?php echo var_dump($data1) ?>
+            <form action="<?php echo URLROOT ?>/PostController/updatePhoto" method="POST" class="form-group container col-6" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $data->id; ?>">
                 <div class="mb-3">
                   <label for="formGroupExampleInput" class="form-label">Titre</label>
@@ -20,6 +19,7 @@
                         <div class="mb-3">
                             <label for="formFileMultiple" class="form-label">Image</label>
                             <input class="form-control" type="file" id="formFileMultiple" multiple name="new_image">
+                            <img src="<?=URLROOT?>/img/<?php echo $data->image; ?>" alt="" style="width:25%;">
                             <input type="hidden" name="old_image" value="<?php echo $data->image; ?>">
                         </div>
                     </div>
@@ -27,15 +27,10 @@
                         <div class="col-md-4">
                             <label for="folder" class="form-label">Dossier</label>
                             <select id="inputState" class="form-select" name="folder">
-                              <option selected>...</option>
-                              <option>nature</option>
-                              <option>jeux</option>
-                              <option>marriage</option>
-                              <option>anniversaire</option>
-                              <option>sport</option>
-                              <option>fête</option>
-                              <option>photographie</option>
-                              <option>autre</option>
+                              <option selected>Choisir...</option>
+                              <?php foreach($data1 as $name) : ?>
+                              <option><?php echo $name->name; ?></option>
+                              <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -53,7 +48,7 @@
                     </div>
                 </div>
                 <div class="button">
-                    <input type="submit" value="Modifier" name="btn-update" class="btn btn-primary">
+                    <input type="submit" value="Modifier" name="submit" class="btn btn-primary">
                 </div>
             </form>
         </div>
@@ -61,5 +56,9 @@
     </div>
 </main>
 <!-- MAIN -->
+<!-- SECTION FOOTER -->
+<?php include_once APPROOT . '../views/inc/footer.php'; ?>
+<!-- SECTION FOOTER -->
+
 </body>
 </html>

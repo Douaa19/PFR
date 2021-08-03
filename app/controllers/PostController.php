@@ -15,8 +15,9 @@ class PostController extends Controller
     // INDEX - ACCUEIL ADMIN
     public function index() {
         $result = $this->postModel->sexPhotos();
-        
-        $this->view('admin/accueil', $result);
+        $data = $this->postModel->getOneVideo();
+
+        $this->view('admin/accueil', $result, $data);
     }
 
     // ADMIN FOLDERS OF IMAGES
@@ -286,6 +287,50 @@ class PostController extends Controller
     // UPDATE METHODS
 
     // PHOTO
+    // Select One Post From Data
+    public function editPhoto() {
+        $data = [
+            'id' => $_POST['id'],
+            'image' => $_POST['image']
+        ];
+
+        $result = $this->postModel->selectOne($data);
+
+        $data1 = $this->postModel->selectFolder();
+
+        
+        if($result) {
+            $this->view('admin/edit-photo', $result, $data1);
+        }else {
+            return false;
+        }
+    }
+
+    // UPDATE PHOTO
+    public function updatePhoto() {
+        if (isset($_POST['submit'])) {
+            if (!empty($_FILES['new_image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
+
+
+                $new_image = $_FILES['new_image']['tmp_name'];
+                $data = [
+                    'id' => $_POST['id'],
+                    'title' => $_POST['title'],
+                    'old_image' => $_POST['old_image'],
+                    'tag' => $_POST['tag'],
+                    'description' => $_POST['description'],
+                    'folder' => $_POST['folder'],
+                ];
+            
+                echo '<pre>';
+                echo $new_image;
+                var_dump($data);
+                echo '</pre>';
+                die();
+            }
+            
+        }
+    }
 
 
     // VIDEO
@@ -367,27 +412,10 @@ class PostController extends Controller
      
     
 
-    // Select One Post From Data
-    public function editPhoto() {
-        $data = [
-            'id' => $_POST['id'],
-            'image' => $_POST['image']
-        ];
-
-        $result = $this->postModel->selectOne($data);
-
-        $data1 = $this->postModel->selectFolder();
-
-        
-        if($result) {
-            $this->view('admin/edit-photo', $result, $data1);
-        }else {
-            return false;
-        }
-    }
+    
 
     // Update The Data Selected 
-    public function updatePhoto() {
+    public function datePhoto() {
         if (isset($_POST['"btn-update'])) {
             if (!empty($_FILES['new_image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
                 
@@ -418,40 +446,7 @@ class PostController extends Controller
         }
     }
 
-    // Test For Image Update
-    public function testImage() {
-        if (isset($_POST['btn-update'])) {
-            if (!empty($_FILES['new_image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
-                
-                $data = [
-                    'id' => $_POST['id'],
-                    'title' => $_POST['title'],
-                    'description' => $_POST['description'],
-                    'tag' => $_POST['tag'],
-                    'new_image' => $_FILES['new_image']['name'],
-                    'old_image' => $_POST['old_image']
-                ];
-
-                if ($data['new_image'] != '' ) {
-                    $update_filename = $data['new_image'];
-                }else {
-                    $update_filename = $$data['old_image'];
-                }
-
-                $dir = "C:\\xampp\htdocs\PFR\public\uploads\\" . $data['new_image'];
-
-                if (file_exists($dir)) {
-                    echo 'Image already exists';
-                } else {
-                    $this->postModel->updatePhoto($data);
-                    die();
-                }
-
-                
-
-            }
-        }
-    }
+    
 }
 
 

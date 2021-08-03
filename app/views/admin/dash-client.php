@@ -37,5 +37,6 @@
     </div>
 </main>
 <!-- MAIN -->
-</body>
-</html>
+<!-- SECTION FOOTER -->
+<?php include_once APPROOT . '../views/inc/footer.php'; ?>
+<!-- SECTION FOOTER -->
