@@ -1,58 +1,22 @@
-
-
-    <small>
-        <!-- Section Footer -->
-        <div class="head_footer">
-            <div class="icones">
-                <section class="mb-4">
-                    <!-- Facebook -->
-                    <a class="btn btn-outline-light btn-floating m-2" href="#!" role="button"
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-
-                    <!-- Youtube -->
-                    <a class="btn btn-outline-light btn-floating m-2" href="#!" role="button"
-                      ><i class="fab fa-youtube"></i
-                    ></a>
-
-                    <!-- Instagram -->
-                    <a class="btn btn-outline-light btn-floating m-2" href="#!" role="button"
-                      ><i class="fab fa-instagram"></i
-                    ></a>
-                </section>
-            </div>
-
-            <!-- Section Contact -->
-            <div class="contacts">
-                <div class="ad">
-                    <div class="phone">
-                        <ul>
-                            <li><a class="btn btn-outline-light btn-floating m-2" href="#!" role="button"><i class="fal fa-phone"></i></a></li>
-                            <li><a href="">NNNNNNNNNNN°</a></li>
-                        </ul>
-                    </div>
-                    <div class="email">
-                        <ul>
-                            <li><a class="btn btn-outline-light btn-floating m-2" href="#!" role="button"><i class="fal fa-envelope-square"></i></a></li>
-                            <li><a href="">email@gmail.com</a></li>
-                        </ul>
-                    </div>
-                    <div class="address">
-                        <ul>
-                            <li><a class="btn btn-outline-light btn-floating m-2" href="#!" role="button"><i class="fal fa-map-marker-alt"></i></a></li>
-                            <li><a href="">address</a></li>
-                        </ul>
-                    </div>
+        <!-- SECTION FOOTER -->
+        <footer class="footer container-fluid row m-0 p-2"  style="background: black;">
+            <div class="vid col-1"></div>
+            <div class="col-5 d-flex align-items-center justify-content-start">
+                <!-- COPYRIGHT -->
+                <div class="text-center text-white p-1">
+                  copyright © 2021<a class="text-decoration-none text-white" href=""> STUDYOU</a> All rights reserved.
                 </div>
+                <!-- COPYRIGHT -->
             </div>
-            <!-- Section Contact -->
-        </div>
-        <!-- Section Footer -->
-
-        <!-- Copyright -->
-            <div class="text-center text-light p-3 bg-dark">
-              © 2020 Copyright:
-              <a class="text-light" href="#">STUDYOU</a>
+            <div class="col-5 d-flex align-items-center justify-content-end text-uppercase">
+                <!-- Facebook -->
+                <a href="" class="text-underline-hover text-light m-1">facebook</a>
+                <!-- Instagram -->
+                <a type="button" class="text-underline-hover text-light m-1">instagram</a>
+                <!-- Youtube -->
+                <a type="button" class="text-underline-hover text-light m-1">youtube</a>
             </div>
-        <!-- Copyright -->
-    </small>
+        </footer>
+        <!-- SECTION FOOTER -->
+    </body>
+</html>

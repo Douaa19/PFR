@@ -1,8 +1,8 @@
 <?php include_once APPROOT . '../views/inc/header-dash.php'; ?>
 
-<main>
+<main class="row m-0">
   <?php var_dump($data ) ?>
-    <div class="container">
+    <div class="container col-10">
         <h1 class="mt-5">Dashboard clients</h1>
         <table class="table table-dark table-hover">
             <thead>
@@ -36,12 +36,6 @@
         </table>
     </div>
 </main>
-
-
-<!-- SECTION FOOTER -->
-<footer>
-<?php include_once APPROOT . '../views/inc/footer.php'; ?>
-</footer>
-<!-- SECTION FOOTER -->
+<!-- MAIN -->
 </body>
 </html>

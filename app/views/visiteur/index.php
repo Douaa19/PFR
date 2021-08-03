@@ -3,9 +3,9 @@
 <main id="accueil" class="row m-0">
   <div class="container col-10">
     <!-- SECTION PHOTOS -->
-    <div class="photos mt-5 row">
-        <h1 class="col-10">photos</h1>
-        <a href="<?= URLROOT ?>/VisiteurController/foldersPhotos" class="col-2 text-center text-primary">voir plus <i class="fas fa-angle-right"></i></a>
+    <div class="photos row">
+        <h1 class="col-10 mt-4">photos</h1>
+        <a href="<?= URLROOT ?>/VisiteurController/foldersPhotos" class="col-2 text-center text-primary mt-4 d-flex justify-content-center text-uppercase">voir plus</a>
         <div class="galery">
             <?php foreach($data as $rows) : ?>
             <div class="img">
@@ -19,28 +19,17 @@
     <!-- SECTION VIDEOS -->
     <div class="videos row mt-5">
         <h1 class="col-10">vidéos</h1>
-        <a href="<?= URLROOT ?>/VisiteurController/foldersVideos" class="col-2 text-center text-primary">voir plus <i class="fas fa-angle-right"></i></a>
+        <a href="<?= URLROOT ?>/VisiteurController/foldersVideos" class="col-2 text-center text-primary d-flex justify-content-center text-uppercase">voir plus</a>
         <div id="carouselExampleControls" class="carousel slide mt-5" >
             <div class="carousel-inner">
+              <?php foreach($data1 as $row) : ?>
               <div class="carousel-item active">
 
-                <video controls="controls" src="<?= URLROOT ?>/vid/Creative short film- Wonderful little world.mp4" video="web/mp4" class="d-block w-100"></video>
+                <video controls="controls" src="<?= URLROOT ?>/uploads/<?php echo $rows->video ?>" video="web/mp4" class="d-block w-100" type="video/mp4"></video>
 
               </div>
-              <div class="carousel-item">
-
-              <video controls="controls" src="<?= URLROOT ?>/vid/Nature Beautiful short video 720p HD.mp4" video="web/mp4" class="d-block w-100"></video>
-              
-              </div>
+              <?php endforeach; ?>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" style="height: 38rem;">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" style="height: 38rem;">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
         </div>
     </div>
     <!-- SECTION VIDEOS -->
@@ -54,24 +43,24 @@
     </div>
     <!-- SECTION ABOUT -->
     <!-- SECTION FORM FOR CLIENT -->
-    <div class="date mt-5">
+    <div class="date mt-5 mb-5">
         <h1>Prenez votre rondez-vous</h1>
         <div class="form row mt-4">
           <div class="col-2"></div>
           <form action="<?php echo URLROOT ?>/VisiteurController/addClient" method="POST" class="col-8">
-              <div class="email row mb-3">
-                <label for="email" class="col-6">Email</label>
+            <div class="mail row mt-3">
+                <label for="mail" class="col-6">Adresse émail</label>
                 <div class="col-6">
-                  <input type="email" class="form-control" id="email" name="email">
+                  <input type="email" class="form-control" id="mail" name="email">
                 </div>
               </div>
-              <div class="phone row mb-3">
+              <div class="phone row mt-3">
                 <label for="phone" class="col-6">Numéro de télephone</label>
                 <div class="col-6">
                   <input type="phone" class="form-control" id="phone" name="phone">
                 </div>
               </div>
-              <div class="genre row">
+              <div class="genre row mt-3">
                 <label for="genre" class="col-6">Genre</label>
                 <div class="check1 col-6">
                     <input class="form-check-input" type="checkbox" id="photos" value="photos" name="photos">
@@ -80,7 +69,7 @@
                     <label class="form-check-label" for="videos">Vidéos</label>
                 </div>
               </div>
-              <div class="occasion row mt-2">
+              <div class="occasion row mt-3">
                 <label for="occasion" class="col-6">Occasion</label>
                 <div class="check2 col-6">
                   <div class="form-check form-check-inline">
@@ -110,7 +99,7 @@
                 </div>
               </div>
               <div class="button mt-4 text-center">
-                <input type="submit" value="Envoyer" name="envoyer" class="btn btn-primary col-2">
+                <input type="submit" value="Envoyer" name="envoyer" class="btn btn-primary col-2 mb-5">
               </div>
           </form>
         </div>
@@ -120,9 +109,5 @@
 </main>
 <!-- MAIN -->
 <!-- SECTION Footer -->
-<footer>
 <?php include_once APPROOT . '../views/inc/footer.php'; ?>
-</footer>
 <!-- SECTION Footer -->
-</body>
-</html>

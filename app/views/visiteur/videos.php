@@ -20,10 +20,5 @@
         </div>
     </main>
 <!-- MAIN -->
-<!-- SECTION FOOTER -->
-<footer>
-<?php include_once APPROOT . './views/inc/footer.php'; ?>
-</footer>
-<!-- SECTION FOOTER -->
 </body>
 </html>
