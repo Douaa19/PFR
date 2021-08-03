@@ -22,14 +22,9 @@
                             <label for="folder" class="form-label">Dossier</label>
                             <select id="inputState" class="form-select" name="folder">
                               <option selected>Choisir...</option>
-                              <option>nature</option>
-                              <option>jeux</option>
-                              <option>marriage</option>
-                              <option>anniversaire</option>
-                              <option>sport</option>
-                              <option>fête</option>
-                              <option>photographie</option>
-                              <option>autre</option>
+                              <?php foreach($data as $name) : ?>
+                              <option><?php echo $name->name; ?></option>
+                              <?php endforeach; ?>
                             </select>
                         </div>
                     </div>

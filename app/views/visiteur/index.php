@@ -1,114 +1,128 @@
 <?php include_once APPROOT . '../views/inc/header-accueil.php'; ?>
-
-
-
-
-<main id="accueil">
-    <div class="photos mt-5">
-        <h1>photos</h1>
+<!-- MAIN -->
+<main id="accueil" class="row m-0">
+  <div class="container col-10">
+    <!-- SECTION PHOTOS -->
+    <div class="photos mt-5 row">
+        <h1 class="col-10">photos</h1>
+        <a href="<?= URLROOT ?>/VisiteurController/foldersPhotos" class="col-2 text-center text-primary">voir plus <i class="fas fa-angle-right"></i></a>
         <div class="galery">
             <?php foreach($data as $rows) : ?>
             <div class="img">
                 <h3><?php echo $rows->title ?></h3>
-                <img src="./public/uploads/<?php echo $rows->image ?>" alt="">
+                <img src="<?= URLROOT ?>/uploads/<?php echo $rows->image ?>" alt="">
             </div>
             <?php endforeach; ?>
         </div>
     </div>
-
-    <!-- Videos section -->
-
-    <div class="videos">
-        <h1>vidéos</h1>
-
-        <div id="carouselExampleControls" class="carousel slide" >
+    <!-- SECTION PHOTOS -->
+    <!-- SECTION VIDEOS -->
+    <div class="videos row mt-5">
+        <h1 class="col-10">vidéos</h1>
+        <a href="<?= URLROOT ?>/VisiteurController/foldersVideos" class="col-2 text-center text-primary">voir plus <i class="fas fa-angle-right"></i></a>
+        <div id="carouselExampleControls" class="carousel slide mt-5" >
             <div class="carousel-inner">
               <div class="carousel-item active">
 
-                <video controls="controls" src="./public/vid/Creative short film- Wonderful little world.mp4" video="web/mp4" class="d-block w-100"></video>
+                <video controls="controls" src="<?= URLROOT ?>/vid/Creative short film- Wonderful little world.mp4" video="web/mp4" class="d-block w-100"></video>
 
               </div>
               <div class="carousel-item">
 
-              <video controls="controls" src="./public/vid/Nature Beautiful short video 720p HD.mp4" video="web/mp4" class="d-block w-100"></video>
+              <video controls="controls" src="<?= URLROOT ?>/vid/Nature Beautiful short video 720p HD.mp4" video="web/mp4" class="d-block w-100"></video>
               
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" style="height: 40rem;">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" style="height: 38rem;">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" style="height: 40rem;">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" style="height: 38rem;">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
         </div>
-
     </div>
-
-    <!-- About section -->
-
-    <div class="about" id="about">
+    <!-- SECTION VIDEOS -->
+    <!-- SECTION ABOUT -->
+    <div class="about mt-5" id="about">
         <h1>a propos</h1>
         <div class="content">
-            <img src="./public/img/brandon-erlinger-ford-jL8QFwnuOcQ-unsplash.jpg" alt="">
+            <img src="<?= URLROOT ?>/img/brandon-erlinger-ford-jL8QFwnuOcQ-unsplash.jpg" alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
         </div>
     </div>
-
-    <!-- Date section -->
-
-    <div class="date">
+    <!-- SECTION ABOUT -->
+    <!-- SECTION FORM FOR CLIENT -->
+    <div class="date mt-5">
         <h1>Prenez votre rondez-vous</h1>
-        <form action="#">
-            <div class="email">
-                <label for="email">Adresse email :</label>
-                <input type="text" name="email_client" id="email" placeholder="">
-            </div>
-            <div class="phone">
-                <label for="phone">Numéro de télephone :</label>
-                <input type="tel" name="phone_client" id="phone" placeholder="">
-            </div>
-            <div class="gender">
-                <label for="gender">Genre :</label>
-                <div class="check_1">
-                    <label for="photo">Pohot</label>
-                    <input type="checkbox" name="photo" id="gender">
-                    <label for="video">Video</label>
-                    <input type="checkbox" name="video" id="gender">
+        <div class="form row mt-4">
+          <div class="col-2"></div>
+          <form action="<?php echo URLROOT ?>/VisiteurController/addClient" method="POST" class="col-8">
+              <div class="email row mb-3">
+                <label for="email" class="col-6">Email</label>
+                <div class="col-6">
+                  <input type="email" class="form-control" id="email" name="email">
                 </div>
-            </div>
-            <div class="event">
-                <label for="event">Occasion :</label>
-                <div class="check_1">
-                    <label for="marriage">Marriage</label>
-                    <input type="checkbox" name="marriage" id="event">
-                    <label for="party">Party</label>
-                    <input type="checkbox" name="party" id="event">
-                    <label for="birth-day">Birth-day</label>
-                    <input type="checkbox" name="birth-day" id="event">
-                    <label for="shooting">Shooting</label>
-                    <input type="checkbox" name="shooting" id="event">
-                    <label for="game">Game</label>
-                    <input type="checkbox" name="game" id="event">
-                    <label for="other">Other</label>
-                    <input type="checkbox" name="other" id="event">
+              </div>
+              <div class="phone row mb-3">
+                <label for="phone" class="col-6">Numéro de télephone</label>
+                <div class="col-6">
+                  <input type="phone" class="form-control" id="phone" name="phone">
                 </div>
-            </div>
-            <div class="btn">
-                <input type="submit" value="Envoyer">
-            </div>
-        </form>
+              </div>
+              <div class="genre row">
+                <label for="genre" class="col-6">Genre</label>
+                <div class="check1 col-6">
+                    <input class="form-check-input" type="checkbox" id="photos" value="photos" name="photos">
+                    <label class="form-check-label" for="photos">Photos</label>
+                    <input class="form-check-input" type="checkbox" id="videos" value="vidéos" name="videos">
+                    <label class="form-check-label" for="videos">Vidéos</label>
+                </div>
+              </div>
+              <div class="occasion row mt-2">
+                <label for="occasion" class="col-6">Occasion</label>
+                <div class="check2 col-6">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="marriage" value="marriage" name="marriage">
+                    <label class="form-check-label" for="marriage">Marriage</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="fête" value="fete" name="fête">
+                    <label class="form-check-label" for="fête">Fête</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="shooting" value="shooting" name="shooting">
+                    <label class="form-check-label" for="shooting">Shooting</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="sport" value="match" name="match">
+                    <label class="form-check-label" for="sport">Sport</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="anniv" value="anniversaire" name="anniversaire">
+                    <label class="form-check-label" for="anniv">Anniversaire</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="autre" value="autre" name="autre">
+                    <label class="form-check-label" for="autre">Autre</label>
+                  </div>
+                </div>
+              </div>
+              <div class="button mt-4 text-center">
+                <input type="submit" value="Envoyer" name="envoyer" class="btn btn-primary col-2">
+              </div>
+          </form>
+        </div>
     </div>
-
+    <!-- SECTION FORM FOR CLIENT TO SEND HIS COMMAND-->
+  </div>
 </main>
-
-<!-- Footer -->
-
+<!-- MAIN -->
+<!-- SECTION Footer -->
 <footer>
 <?php include_once APPROOT . '../views/inc/footer.php'; ?>
 </footer>
-
-
+<!-- SECTION Footer -->
 </body>
 </html>

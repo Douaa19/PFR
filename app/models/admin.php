@@ -9,6 +9,7 @@ class admin
         $this->db = new Database;
     }
 
+    // GET ADMIN EMAIL AND PASSWORD FROM DATABASE
     public function getAdmin($data)
     {
 
@@ -28,6 +29,7 @@ class admin
         
     }
 
+    // CHECK IF THE EMAIL EXISTE IN DATABASE
     public function findAdmin($email) {
         $this->db->query("SELECT * FROM admin WHERE email = :email");
         $this->db->bind(':email', $email);
@@ -41,18 +43,30 @@ class admin
         }
     }
 
-    // Get result from database
+    // GET RESULT FROM DATABASE
     public function search($data) {
-        $this->db->query("SELECT * FROM images WHERE tag = :tag");
-        $this->db->bind(':tag', $data['search']);
+        $this->db->query("SELECT * FROM folders WHERE name = :name");
+        $this->db->bind(':name', $data['name']);
 
         $result = $this->db->resultSet();
 
-        if (!$result) {
-            var_dump($result);
+        if ($result) {
+            return $result;
         }else {
-            var_dump($result);
+            return false;
             die();
+        }
+    }
+
+    // GET CLIENTS FROM DATABASE
+    public function getClients() {
+        $this->db->query("SELECT * FROM clients");
+        
+        $result = $this->db->resultSet();
+        if ($result) {
+            return $result;
+        }else {
+            return false;
         }
     }
 }

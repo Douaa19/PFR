@@ -180,8 +180,6 @@ main .photos, .videos, .folders {
     grid-area: 1 / 2 / 2 / 12;
 }
 
-/* Style Folders Pages */
-
 
 /* Style Photos Section */
 main .photos .galery {
@@ -274,4 +272,94 @@ main .photos .galery .img:hover h3 {
 /* Style Videos Section */
 main .videos {
     grid-area: 1 / 2 / 2 / 12;
+}
+
+
+/* FOLDERS PHOTOS */
+main .folders .folder {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
+main .folders .folder .card form button {
+  background: none;
+  border: none;
+}
+
+main .folders .folder .card img {
+  width: 100%;
+  height: 100%;
+}
+
+main .folders .folder .card .route {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+main .folders .folder .card .route a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+main .folders .folder .card .route a,
+main .folders .folder .card .route a::after,
+main .folders .folder .card .route a::before {
+  transition: all .2s;
+}
+
+main .folders .folder .card .route a:hover {
+  filter: drop-shadow(0 6mm 4mm rgb(47, 44, 48));
+}
+
+main .folders .folder .card .route.strok a,
+main .folders .folder .route.fill a {
+  position: relative;
+}
+
+main .folders .folder .card .route.strok a:after,
+main .folders .folder .card .route.fill a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #F3ECEC;
+  height: 1px;
+}
+
+main .folders .folder .card .route.strok a:hover:after {
+  width: 100%;
+}
+
+main .folders .folder .card .route.fill a:after {
+  text-align: left;
+  content: '.';
+  margin: 0;
+  opacity: 0;
+}
+
+main .folders .folder .card .route.fill a:hover {
+  filter: blur(3px);
+  color: #fff;
+  z-index: 1;
+}
+
+main .folders .folder .card .route.fill a:hover:after {
+  z-index: -10;
+  animation: fill 1s forwards;
+  -webkit-animation:fill 1s forwards;
+  -moz-animation: fill 1s forwards;
+  opacity: 1;
+}
+
+main .folders .folder .card img:hover {
+  filter: blur(3px);
 }

@@ -9,35 +9,8 @@ class post {
         $this->db = new Database;
     }
 
-    // Get photos from database
-    public function getPhoto() {
-        echo 'getPhoto function';
-        // $this->db->query("SELECT * FROM photos");
-        // $result = $this->database->resultSet();
 
-        // return $result;
-    }
-
-    // Get videos from database
-    public function getVideo() {
-        echo 'getVideo function';
-        // $this->db->query("SELECT * FROM videos");
-        // $result = $this->database->resultSet();
-
-        // return $result;
-    }
-
-    // Get folder from database
-    public function getFolder() {
-        echo 'getFolder function';
-        // $this->db->query("SELECT * FROM folders");
-        // $result = $this->database->resultSet();
-
-        // return $result;
-    } 
-
-
-    // Add photos to database
+    // ADD PHOTO
     public function addPhoto($data) {
         
         $this->db->query("SELECT * FROM folders WHERE name = :folder");
@@ -47,7 +20,7 @@ class post {
         $id_folder = $result->id_folder;
 
         $this->db->query("INSERT INTO `images`(`title`, `image`, `description`, `tag`, `id_folder`) VALUES (:title, :image, :description, :tag, :id_folder)");
-        
+        // BIND THE DATA
         $this->db->bind(':title', $data['title']);
         $this->db->bind(':image', $data['image']);
         $this->db->bind(':description', $data['description']);
@@ -62,14 +35,30 @@ class post {
 
     }
 
-    // Add videos to database
-    public function addVideo() {
-        echo 'addVideo function';
-    }
-
-    // Get photos
+    // GET ALL PHOTOS
     public function getPhotos() {
         $this->db->query("SELECT * FROM images");
+        $result = $this->db->resultSet();
+
+        return $result;
+    }
+
+    // GET PHOTOS BY ID FOLDER
+    public function photos($data) {
+        $this->db->query("SELECT * FROM images WHERE id_folder = :id");
+        $this->db->bind(':id', $data['id']);
+
+        $result = $this->db->resultSet();
+        if ($result) {
+            return $result;
+        }else {
+            return false;
+        }
+    }
+
+    // GET 6 PHOTOS
+    public function sexPhotos() {
+        $this->db->query("SELECT * FROM images LIMIT 7");
         $result = $this->db->resultSet();
 
         return $result;
@@ -87,7 +76,7 @@ class post {
         }
     }
 
-    // Select one row from data using ID
+    // Select OneRrow From Table Images Using ID
     public function selectOne($data) {
         $this->db->query("SELECT * FROM images WHERE id = :id");
         $this->db->bind(':id', $data['id']);
@@ -100,6 +89,7 @@ class post {
         }
     }
 
+    // Traing To Update Photo
     public function updatePhoto($data) {
 
         $this->db->query("UPDATE `images` SET `titre` = :title, `image` = :image, `description` = :description `tag` = :tag ");
@@ -109,9 +99,6 @@ class post {
         $this->db->bind(':tag', $data['tag']);
     }
 
-<<<<<<< Updated upstream
-    // Folder
-=======
     // Add videos to database
     public function addVideo($data) {
         $this->db->query("SELECT * FROM folders WHERE name = :folder");
@@ -215,7 +202,6 @@ class post {
     }
 
     // Folder In Images Table
->>>>>>> Stashed changes
     public function selectFolder(){
         $this->db->query("SELECT * FROM folders INNER JOIN images ON folders.id_folder = images.id_folder");
 
@@ -225,6 +211,22 @@ class post {
         }else {
             return false;
         }
+    }
+
+
+
+
+    // SEARCH FOR ALL BY ID_FOLDER
+    public function searchAll($data) {
+        $this->db->query("SELECT * FROM ");
+        $this->db->bind(':id_folder', $data['id']);
+
+        $result = $this->db->resultSet();
+
+        echo '<pre>';
+        var_dump($result);
+        echo '</pre>';
+        die();
     }
 
     

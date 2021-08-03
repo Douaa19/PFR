@@ -8,19 +8,26 @@ class PostController extends Controller
         //Instanciation du model
         $this->postModel = $this->model('post');
     }
-    
 
+
+    // GO TO:
+
+    // INDEX - ACCUEIL ADMIN
     public function index() {
-        $result = $this->postModel->getPhotos();
+        $result = $this->postModel->sexPhotos();
         
         $this->view('admin/accueil', $result);
     }
 
+    // ADMIN FOLDERS OF IMAGES
+    public function foldersPhotos() {
+        $result = $this->getFolders();
 
+        $this->view('admin/f-photos', $result);
+    }
+
+    // ADMIN PHOTOS PAGE
     public function photos() {
-<<<<<<< Updated upstream
-        $result = $this->postModel->getPhotos();
-=======
         if (isset($_POST['submit'])) {
             $data = [
                 'id' => $_POST['id'],
@@ -86,29 +93,43 @@ class PostController extends Controller
     // DASHBOARD FOLDER 
     public function dashFolder() {
         $result = $this->getFolders();
->>>>>>> Stashed changes
         
-        $this->view('admin/photos', $result);
+        $this->view('admin/dash-folder', $result);
     }
 
-
-    public function uploadPhoto($image)
-    { 
-     $dir = "C:\\xampp\htdocs\PFR\public\uploads";
-      $name = str_replace(' ','-',strtolower($_FILES["image"]["name"]));
-      $type = $_FILES["image"]["type"];
-      if(move_uploaded_file($image,$dir."/".$name))
-      {
-         return true;    
-      }else{
-        return false;
-       }
+    // ADD FOLDER PAGE
+    public function addFolder() {
+        $this->view('admin/add-folder');
     }
 
-     public function add() {
-         $this->view('admin/add-photo');     
+    // DASHBOARD CLIENT PAGE
+    public function dashClient() {
+        $this->view('admin/dash-client');
+    }
+
+    // RESULT OF SERSHING BY FOLDER
+    public function resultAll() {
+        if (isset($_POST['submit'])) {
+            $data = [
+                'id' => $_POST['id'],
+                'error' => ''
+            ];
+            $result = $this->postModel->searchAll($data);
+
+            if ($result) {
+                echo '<pre>';
+                var_dump($result);
+                echo '</pre>';
+                die();
+            }
         }
+    }
 
+
+
+    // ADD METHODS
+
+    // ADD PHOTO
     public function addPhoto() {
         if (isset($_POST['submit'])) {
             if (!empty($_FILES['image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
@@ -136,9 +157,6 @@ class PostController extends Controller
         }
     }
 
-<<<<<<< Updated upstream
-    // Delete Method For Photos
-=======
     // ADD VIDEO
     public function addVideo() {
         if (isset($_POST['submit'])) {
@@ -209,7 +227,6 @@ class PostController extends Controller
     // DELETE METHODS
 
     // PHOTO
->>>>>>> Stashed changes
     public function deletePhoto() {
         $data = [
             'id' => $_POST['id'],
@@ -227,12 +244,10 @@ class PostController extends Controller
               }
         }else {
             echo "Post not deleted";
-        }          
+        }
           
         }
 
-<<<<<<< Updated upstream
-=======
     // DELETE VIDEO
     public function deleteVideo() {
         $data = [
@@ -319,7 +334,6 @@ class PostController extends Controller
           return false;
         }
     }
-
     
 
 
@@ -352,7 +366,6 @@ class PostController extends Controller
      
     
 
->>>>>>> Stashed changes
     // Select One Post From Data
     public function editPhoto() {
         $data = [
@@ -404,11 +417,6 @@ class PostController extends Controller
         }
     }
 
-
-    
-
-
-
     // Test For Image Update
     public function testImage() {
         if (isset($_POST['btn-update'])) {
@@ -442,58 +450,6 @@ class PostController extends Controller
 
             }
         }
-    }
-
-
-
-    
-
-
-
-    // Route Folders Page
-    public function foldersPhotos() {
-        $this->view('admin/f-photos');
-    }
-    
-    
-    
-    // Route Video Page
-    public function foldersVideos() {
-        $this->view('admin/f-videos');
-    }
-
-    
-
-    // Route Dashboard Page
-    public function dashboard() {
-        $this->view('admin/dashboard');
-    }
-
-    // Dashboard Photos page
-    public function dashPhoto() {
-        $data = $this->postModel->getPhotos();
-
-        $this->view('admin/dash-photo', $data);
-    }
-
-    // Dashboard Videos Page 
-    public function dashVideo() {
-        $this->view('admin/dash-video');
-    }
-
-    // Go To The Page Form For Adding New Video
-    public function addVideo() {
-        $this->view('admin/add-video');
-    }
-
-    // Dashboard Folders Page 
-    public function dashFolder() {
-        $this->view('admin/dash-folder');
-    }
-
-    // Dashboard Client Pgae
-    public function dashClient() {
-        $this->view('admin/dash-client');
     }
 }
 

@@ -1,9 +1,9 @@
 <?php include_once APPROOT . '../views/inc/header-index.php'; ?>
 
 
-
+<!-- MAIN -->
 <main>
-
+<!-- FORM LOGIN -->
     <div class="login">
     <form action="<?php echo URLROOT ?>/AdminController/login" method="post">
         <div class="email">
@@ -21,14 +21,8 @@
         </div>
     </form>
     </div>
-
+<!-- FORM LOGIN -->
 </main>
-
-
-
-
-
-
-
+<!-- MAIN -->
 </body>
 </html>

@@ -1,8 +1,9 @@
 <?php include_once APPROOT . '../views/inc/normal-header1.php'; ?>
-
+<!-- MAIN -->
 <main>
     <div class="container">
         <h1 class="m-3">Modifier photo</h1>
+        <!-- FORM -->
         <div class="form">
             <?php if(isset($_GET['error'])) : ?>
             <div class="error"><?php echo $error->error; ?></div>
@@ -56,8 +57,9 @@
                 </div>
             </form>
         </div>
+        <!-- FORM -->
     </div>
 </main>
-    
+<!-- MAIN -->
 </body>
 </html>
