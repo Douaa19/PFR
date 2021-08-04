@@ -6,22 +6,21 @@
         <!-- FORM -->
         <div class="form">
             <?php if(isset($_GET['error'])) : ?>
-            <div class="error"><?php echo $error->error; ?></div>
+            <div class="error"><?= $error->error; ?></div>
             <?php endif; ?>
-            
-            <form action="<?php echo URLROOT ?>/PostController/updatePhoto" method="POST" class="form-group container col-6" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?php echo $data->id; ?>">
+            <form action="<?= URLROOT ?>/PostController/updatePhoto" method="POST" class="form-group container col-6" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $data->id; ?>">
                 <div class="mb-3">
                   <label for="formGroupExampleInput" class="form-label">Titre</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" name="title" value="<?php echo $data->title ?>">
+                  <input type="text" class="form-control" id="formGroupExampleInput" name="title" value="<?= $data->title ?>">
                 </div>
                 <div class="choix">
                     <div class="image">
                         <div class="mb-3">
                             <label for="formFileMultiple" class="form-label">Image</label>
                             <input class="form-control" type="file" id="formFileMultiple" multiple name="new_image">
-                            <img src="<?=URLROOT?>/img/<?php echo $data->image; ?>" alt="" style="width:25%;">
-                            <input type="hidden" name="old_image" value="<?php echo $data->image; ?>">
+                            <img src="<?=URLROOT?>/uploads/<?= $data->image; ?>" alt="" style="width:25%;">
+                            <input type="hidden" name="old_image" value="<?= $data->image; ?>">
                         </div>
                     </div>
                     <div class="folder">
@@ -30,7 +29,7 @@
                             <select id="inputState" class="form-select" name="folder">
                               <option selected>Choisir...</option>
                               <?php foreach($data1 as $name) : ?>
-                              <option><?php echo $name->name; ?></option>
+                              <option><?= $name->name; ?></option>
                               <?php endforeach; ?>
                             </select>
                         </div>
@@ -57,9 +56,6 @@
     </div>
 </main>
 <!-- MAIN -->
-<!-- SECTION FOOTER -->
-<?php include_once APPROOT . '../views/inc/footer.php'; ?>
-<!-- SECTION FOOTER -->
 
 </body>
 </html>

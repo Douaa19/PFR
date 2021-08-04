@@ -40,5 +40,3 @@
         </div>
     </main>
 <!-- MAIN -->
-</body>
-</html>

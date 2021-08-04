@@ -1,10 +1,9 @@
 <?php include_once APPROOT . '../views/inc/header-dash.php'; ?>
 
 <main class="row m-0">
-  <?php var_dump($data ) ?>
     <div class="container col-10">
-        <h1 class="mt-5">Dashboard clients</h1>
-        <table class="table table-dark table-hover">
+        <h1 class="mt-5 text-uppercase">Dashboard clients</h1>
+        <table class="table table-dark table-hover footer-margin-bot">
             <thead>
               <tr>
                 <th scope="col">ID</th>
@@ -15,21 +14,21 @@
               </tr>
             </thead>
             <tbody>
-              <?php foreach($data as $keys) : ?>
+              <?php foreach($data as $key => $value) : ?>
               <tr>
-                <th scope="row"><?php echo $keys->id ?></th>
-                <td><?php echo $keys->email ?></td>
-                <td><?php echo $keys->phone ?></td>
+                <th scope="row"><?php echo $value->id ?></th>
+                <td><?php echo $value->email?></td>
+                <td><?php echo $value->phone ?></td>
                 <td>
-                  <?php foreach($keys as $key) : ?>
-                  <?php echo $key->gender['0'] ?>
+                  <?php foreach($value->gender as $gender) : ?>
+                  <?= $gender; ?>
                   <?php endforeach; ?>
                 </td>
-                <!-- <td>
-                  <?php foreach($keys as $key -> $value) : ?>
-                  <?php echo $key['occasion'] ?>
+                <td>
+                  <?php foreach($value->occasion as $occasion) : ?>
+                  <?= $occasion . ' '; ?>
                   <?php endforeach; ?>
-                </td> -->
+                </td>
               </tr>
               <?php endforeach; ?>
             </tbody>

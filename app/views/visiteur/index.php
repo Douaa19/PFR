@@ -1,4 +1,9 @@
 <?php include_once APPROOT . '../views/inc/header-accueil.php'; ?>
+<?php if(isset($data['error'])) { ?>
+  <div class="error text-danger text-bold container text-center">
+    <?= $data['error']; ?>
+  </div>
+<?php } ?>
 <!-- MAIN -->
 <main id="accueil" class="row m-0">
   <div class="container col-10">
@@ -43,9 +48,9 @@
     </div>
     <!-- SECTION ABOUT -->
     <!-- SECTION FORM FOR CLIENT -->
-    <div class="date mt-5 mb-5">
+    <div class="date mt-5 mb-2">
         <h1>Prenez votre rondez-vous</h1>
-        <div class="form row mt-4">
+        <div class="form row mt-4 footer-margin-bot">
           <div class="col-2"></div>
           <form action="<?php echo URLROOT ?>/VisiteurController/addClient" method="POST" class="col-8">
             <div class="mail row mt-3">

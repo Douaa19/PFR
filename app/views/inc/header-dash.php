@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="<?= URLROOT ?>/css/style-footer.css">
     <title>Header Dashboard</title>
 </head>
-<body>
+<body class="vh-100">
 
     <header>
         <div class="header bg-dark text-light pt-3">

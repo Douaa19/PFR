@@ -1,12 +1,12 @@
 <?php include_once APPROOT . '../views/inc/header-dash-pvf.php'; ?>
 
     <main class="row m-0">
-        <div class="container col-10 mb-3">
-            <h1 class="mt-5">Dossiers</h1>
+        <div class="container mb-1 col-10">
+            <h1 class="mt-5 text-uppercase">Dossiers</h1>
             <div class="add">
                 <a href="<?php echo URLROOT; ?>/PostController/addFolder" class="button primary new">Ajouter</a>
             </div>
-            <div class="cards">
+            <div class="cards footer-margin-bot">
                 <!-- Start Foreach Loop -->
                 <?php foreach($data as $row) : ?>
                 <div class="card">

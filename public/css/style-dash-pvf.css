@@ -25,10 +25,9 @@ main .container .add {
 main .container .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
+    grid-template-rows: 0fr;
     grid-column-gap: 0.5rem;
     grid-row-gap: 1rem;
-    height: 21.1vh;
 }
 main .container .cards .card img {
     height: 16rem !important;

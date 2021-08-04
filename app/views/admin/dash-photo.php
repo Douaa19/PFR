@@ -2,11 +2,11 @@
 
     <main class="row m-0">
         <div class="container col-10">
-            <h1>Postes</h1>
+            <h1 class="mt-5 text-uppercase">Postes</h1>
             <div class="add">
                 <a href="<?php echo URLROOT; ?>/PostController/add" class="button primary new">Ajouter</a>
             </div>
-            <div class="cards">
+            <div class="cards footer-margin-bot">
                 <!-- Foreache loop -->
                 <?php foreach ($data as $row) : ?>
                 <div class="card">

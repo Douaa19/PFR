@@ -317,16 +317,26 @@ class PostController extends Controller
                     'id' => $_POST['id'],
                     'title' => $_POST['title'],
                     'old_image' => $_POST['old_image'],
+                    'new_image' => $_FILES['new_image']['name'],
                     'tag' => $_POST['tag'],
                     'description' => $_POST['description'],
                     'folder' => $_POST['folder'],
                 ];
+
+                $old_image = $data['old_image'];
+                $path = "C:\\xampp\htdocs\PFR\public\uploads/$old_image";
+                chown($path, 666);
+                $this->postModel->updatePhoto($data);
+              if (unlink($path)) {
+                    
+                    die();
+                }
             
-                echo '<pre>';
-                echo $new_image;
-                var_dump($data);
-                echo '</pre>';
-                die();
+                // echo '<pre>';
+                // echo $new_image;
+                // var_dump($data);
+                // echo '</pre>';
+                // die();
             }
             
         }

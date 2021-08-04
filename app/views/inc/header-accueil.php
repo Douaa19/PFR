@@ -24,7 +24,7 @@
                 <?php if(isset($_SESSION['name'])) { ?>
                 <div class="vide col-1"></div>
                 <div class="logo col-4">
-                    <a href=""><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
+                    <a href="<?= URLROOT?>/PostController/index"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
                 </div>
                 <?php include_once APPROOT . '../views/inc/navbar-admin.php'; ?>
                 <?php }else{ ?>

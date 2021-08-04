@@ -76,7 +76,7 @@ class post {
         }
     }
 
-    // Select OneRrow From Table Images Using ID
+    // Select OneRow From Table Images Using ID
     public function selectOne($data) {
         $this->db->query("SELECT * FROM images WHERE id = :id");
         $this->db->bind(':id', $data['id']);
@@ -91,12 +91,26 @@ class post {
 
     // Traing To Update Photo
     public function updatePhoto($data) {
+        $result = $this->folderByName($data);
+        if ($result) {
+            $this->db->query("UPDATE `images` SET `title` = :title, `image`= :new_image, `description`= :description, `tag`= :tag, `id_folder`= :id_folder WHERE id = :id");
+            $this->db->bind(':title', $data['title']);
+            $this->db->bind(':image', $data['new_image']);
+            $this->db->bind(':description', $data['description']);
+            $this->db->bind(':tag', $data['tag']);
+            $this->db->bind(':id_folder', $result->id_folder);
+            $this->db->bind(':id', $data['id']);
 
-        $this->db->query("UPDATE `images` SET `titre` = :title, `image` = :image, `description` = :description `tag` = :tag ");
-        $this->db->bind(':title', $data['title']);
-        $this->db->bind(':image', $data['image']);
-        $this->db->bind(':description', $data['description']);
-        $this->db->bind(':tag', $data['tag']);
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+
+        
     }
 
     // Add videos to database
@@ -180,6 +194,19 @@ class post {
         $result = $this->db->single();
         if ($result) {
             return true;
+        }else {
+            return false;
+        }
+    }
+
+    // Select One Folder By Name
+    public function folderByName($data) {
+        $this->db->query("SELECT id_folder FROM folders WHERE name = :name");
+        $this->db->bind(':name', $data['folder']);
+        
+        $result = $this->db->single();
+        if ($result) {
+            return $result;
         }else {
             return false;
         }
