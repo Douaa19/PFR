@@ -3,7 +3,7 @@
     <main>
         <div class="folders mt-5">
             <h1>Dossiers</h1>
-            <?php if (!isset($data['error'])) { ?>
+            <?php if (empty($data['error'])) { ?>
             <div class="result">
                 <?php foreach($data as $row) : ?>
                 <div class="card">

@@ -1,7 +1,7 @@
 <?php include_once APPROOT . '../views/inc/header-pvf.php'; ?>
 <!-- MAIN -->
     <main id="main">
-        <div class="folders mt-5">
+        <div class="folders mt-5 footer-margin-bot">
         <h1>Dossiers vidéos</h1>
         <div class="folder">
             <?php foreach($data as $row) : ?>

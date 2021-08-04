@@ -35,7 +35,7 @@
     </div>
     <!-- SECTION VIDEOS -->
     <!-- SECTION ABOUT -->
-    <div class="about mt-5 mb-5" id="about">
+    <div class="about mt-5 footer-margin-bot" id="about">
         <h1>a propos</h1>
         <div class="content">
             <img src="<?= URLROOT ?>/img/brandon-erlinger-ford-jL8QFwnuOcQ-unsplash.jpg" alt="">
