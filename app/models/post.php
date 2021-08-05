@@ -89,11 +89,18 @@ class post {
         }
     }
 
-    // Traing To Update Photo
+    // Update Photo
     public function updatePhoto($data) {
         $result = $this->folderByName($data);
+
+        echo '<pre>';
+        var_dump($data);
+        echo '<pre>';
+        var_dump($result);
+        echo '<pre>';
+
         if ($result) {
-            $this->db->query("UPDATE `images` SET `title` = :title, `image`= :new_image, `description`= :description, `tag`= :tag, `id_folder`= :id_folder WHERE id = :id");
+            $this->db->query("UPDATE `images` SET `title` = :title, `image`= :image, `description`= :description, `tag`= :tag, `id_folder`= :id_folder WHERE id = :id");
             $this->db->bind(':title', $data['title']);
             $this->db->bind(':image', $data['new_image']);
             $this->db->bind(':description', $data['description']);
@@ -103,14 +110,15 @@ class post {
 
             if ($this->db->execute()) {
                 return true;
+                die();
             } else {
                 return false;
             }
 
+        }else {
+            echo 'result is false!!';
         }
-
-
-        
+ 
     }
 
     // Add videos to database
@@ -149,7 +157,7 @@ class post {
     }
 
 
-    // SELECT TOO VIDEOS FROM DATABASE TO DISPLAY IT IN HOME PAGE
+    // SELECT ONE VIDEOS FROM DATABASE TO DISPLAY IT IN HOME PAGE
     public function getOneVideo() {
         $this->db->query("SELECT * FROM videos ORDER BY id DESC LIMIT 1");
 
@@ -216,7 +224,7 @@ class post {
     public function addFolder($data) {
         $this->db->query("INSERT INTO `folders`(`name`, `image`) VALUES (:name, :image)");
         $this->db->bind(':name', $data['name']);
-        $this->db->bind(':image', $data['image']);
+        $this->db->bind(':image', $data['new_image']);
 
         if ($this->db->execute()) {
             return true;
@@ -239,7 +247,7 @@ class post {
 
     // Folder In Images Table
     public function selectFolder(){
-        $this->db->query("SELECT * FROM folders INNER JOIN images ON folders.id_folder = images.id_folder");
+        $this->db->query("SELECT * FROM folders");
 
         $result = $this->db->resultSet();
         if ($result) {
@@ -259,10 +267,11 @@ class post {
 
         $result = $this->db->resultSet();
 
-        echo '<pre>';
-        var_dump($result);
-        echo '</pre>';
-        die();
+        if ($result) {
+            return $result;
+        }else {
+            return false;
+        }
     }
 
     

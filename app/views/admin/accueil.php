@@ -18,7 +18,7 @@
     </div>
     <!-- SECTION PHOTOS -->
     <!-- SECTION VIDEOS -->
-    <div class="videos row mt-5">
+    <div class="videos row mt-1">
         <h1 class="col-10">vidéos</h1>
         <a href="<?= URLROOT ?>/VisiteurController/foldersVideos" class="col-2 text-center text-primary d-flex justify-content-center text-uppercase">voir plus</a>
         <div id="carouselExampleControls" class="carousel slide mt-5" >

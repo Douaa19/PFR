@@ -1,11 +1,12 @@
 <?php include_once APPROOT . '../views/inc/header-dash-pvf.php'; ?>
 
 
-<main>
-    <div class="container">
-        <h1 class="m-3">Ajouter photo</h1>
-        <div class="form">
-            <form action="<?php echo URLROOT ?>/PostController/addPhoto" method="POST" class="form-group" enctype="multipart/form-data">
+<main class="row m-0">
+    <div class="container col-10">
+        <h1 class="mt-4">Ajouter photo</h1>
+        <div class="form footer-margin-bot mt-3">
+            <!-- FORM -->
+            <form action="<?php echo URLROOT ?>/PostController/addPhoto" method="POST" class="form-group container col-6" enctype="multipart/form-data">
                 <div class="mb-3">
                   <label for="formGroupExampleInput" class="form-label">Titre</label>
                   <input type="text" class="form-control" id="formGroupExampleInput" name="title">

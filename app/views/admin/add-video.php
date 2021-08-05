@@ -1,11 +1,11 @@
 <?php include_once APPROOT . '../views/inc/header-dash-pvf.php'; ?>
 
 
-<main>
-    <div class="container">
+<main class="row m-0">
+    <div class="container col-10">
         <h1 class="m-3">Ajouter video</h1>
-        <div class="form">
-            <form action="<?php echo URLROOT ?>/PostController/addVideo" method="POST" class="form-group" enctype="multipart/form-data">
+        <div class="form footer-margin-bot">
+            <form action="<?php echo URLROOT ?>/PostController/addVideo" method="POST" class="form-group container col-6" enctype="multipart/form-data">
                 <div class="mb-3">
                   <label for="formGroupExampleInput" class="form-label">Titre</label>
                   <input type="text" class="form-control" id="formGroupExampleInput" name="title">

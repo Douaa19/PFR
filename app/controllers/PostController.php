@@ -191,16 +191,16 @@ class PostController extends Controller
         if (isset($_POST['submit'])) {
             $data = [
                 'name' => $_POST['name'],
-                'image' => $_FILES['image'],
+                'new_image' => $_FILES['new_image'],
                 'error' => ''
             ];
             
-            if (!empty($_POST['name']) && !empty($_FILES['image'])) {
+            if (!empty($_POST['name']) && !empty($_FILES['new_image'])) {
                 
-                $image = $_FILES['image']['tmp_name'];
+                $image = $_FILES['new_image']['tmp_name'];
                 $data= [
                     'name' => $_POST['name'],
-                    'image' => $_FILES['image']['name'],
+                    'new_image' => $_FILES['new_image']['name'],
                     'error' => ''
                 ];
 
@@ -297,6 +297,7 @@ class PostController extends Controller
         $result = $this->postModel->selectOne($data);
 
         $data1 = $this->postModel->selectFolder();
+        
 
         
         if($result) {
@@ -326,19 +327,15 @@ class PostController extends Controller
                 $old_image = $data['old_image'];
                 $path = "C:\\xampp\htdocs\PFR\public\uploads/$old_image";
                 chown($path, 666);
-                $this->postModel->updatePhoto($data);
-              if (unlink($path)) {
-                    
-                    die();
-                }
-            
-                // echo '<pre>';
-                // echo $new_image;
-                // var_dump($data);
-                // echo '</pre>';
-                // die();
+                
+            //   if (unlink($path)) {
+                    if ($this->uploadPhoto($new_image) === true) {
+                        $this->postModel->updatePhoto($data);
+
+                        header('Location: ' . URLROOT . '/PostController/dashPhoto');
+                    }
+                // }
             }
-            
         }
     }
 
@@ -367,8 +364,8 @@ class PostController extends Controller
     public function uploadPhoto($image)
     { 
      $dir = "C:\\xampp\htdocs\PFR\public\uploads";
-      $name = str_replace(' ','-',strtolower($_FILES["image"]["name"]));
-      $type = $_FILES["image"]["type"];
+      $name = str_replace(' ','-',strtolower($_FILES["new_image"]["name"]));
+      $type = $_FILES["new_image"]["type"];
       if(move_uploaded_file($image,$dir."/".$name))
       {
          return true;    

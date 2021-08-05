@@ -4,7 +4,7 @@
     <div class="container col-10">
         <h1 class="mt-4">Modifier photo</h1>
         <!-- FORM -->
-        <div class="form">
+        <div class="form footer-margin-bot mt-3">
             <?php if(isset($_GET['error'])) : ?>
             <div class="error"><?= $error->error; ?></div>
             <?php endif; ?>
