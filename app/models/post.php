@@ -93,12 +93,6 @@ class post {
     public function updatePhoto($data) {
         $result = $this->folderByName($data);
 
-        echo '<pre>';
-        var_dump($data);
-        echo '<pre>';
-        var_dump($result);
-        echo '<pre>';
-
         if ($result) {
             $this->db->query("UPDATE `images` SET `title` = :title, `image`= :image, `description`= :description, `tag`= :tag, `id_folder`= :id_folder WHERE id = :id");
             $this->db->bind(':title', $data['title']);
@@ -170,7 +164,7 @@ class post {
     }
 
     // DELETE VIDEO FROM DATABASE
-    // Delete photo
+    // DELETE VIDEO
     public function deleteVideo($data) {
         $this->db->query("DELETE FROM `videos` WHERE id = :id");
         $this->db->bind(':id', $data['id']);
@@ -220,6 +214,19 @@ class post {
         }
     }
 
+    // GET ONE FOLDER BY ID_FOLDER
+    public function getFolderById($data) {
+        $this->db->query("SELECT * FROM folders WHERE id_folder = :id");
+        $this->db->bind('id', $data['id']);
+
+        $result = $this->db->single();
+        if ($result) {
+            return $result;
+        }else {
+            return false;
+        }
+    }
+
     // Add Folder 
     public function addFolder($data) {
         $this->db->query("INSERT INTO `folders`(`name`, `image`) VALUES (:name, :image)");
@@ -229,6 +236,21 @@ class post {
         if ($this->db->execute()) {
             return true;
         }else {
+            return false;
+        }
+    }
+
+    // UPDATE FOLDER
+    public function updateFolder($data) {
+        
+        $this->db->query("UPDATE `folders` SET `name` = :name, `image`= :image WHERE id_folder = :id");
+        $this->db->bind(':name', $data['name']);
+        $this->db->bind(':image', $data['new_image']);
+        $this->db->bind(':id', $data['id_folder']);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
             return false;
         }
     }
