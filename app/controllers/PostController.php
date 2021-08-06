@@ -344,7 +344,54 @@ class PostController extends Controller
 
 
     // FOLDER
+    public function editFolder() {
+        $data = [
+            'id' => $_POST['id_folder'],
+            'new_image' => $_POST['image']
+        ];
 
+        $result = $this->postModel->getFolderById($data);
+
+        if ($result) {
+            $this->view('admin/edit-folder', $result);
+        }else {
+            return false;
+        }
+    }
+
+    // UPDATE FOLDER
+    public function updateFolder() {
+        if (isset($_POST['submit'])) {
+            if (!empty($_FILES['new_image']) && !empty($_POST['name'])) {
+
+
+                $new_image = $_FILES['new_image']['tmp_name'];
+                $data = [
+                    'id_folder' => $_POST['id'],
+                    'name' => $_POST['name'],
+                    'old_image' => $_POST['old_image'],
+                    'new_image' => $_FILES['new_image']['name']
+                ];
+
+                $old_image = $data['old_image'];
+                $path = "C:\\xampp\htdocs\PFR\public\uploads/$old_image";
+                chown($path, 666);
+                
+            //   if (unlink($path)) {
+                    if ($this->uploadPhoto($new_image) === true) {
+                        if ($this->postModel->updateFolder($data)) {
+                            
+                            header('Location: ' . URLROOT . '/PostController/dashFolder');   
+                        }else {
+                            echo 'Post model returns false';
+                        }
+                    }else {
+                        echo 'method uploafPhoto returns false';
+                    }
+                // }
+            }
+        }
+    }
 
 
     // SUPPORT METHODS
