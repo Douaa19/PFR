@@ -218,7 +218,7 @@ class post {
         $this->db->query("SELECT * FROM videos WHERE id_folder = :id");
         $this->db->bind(':id', $data['id']);
 
-        $result = $this->db->single();
+        $result = $this->db->resultSet();
         if ($result) {
             return $result;
         }else {
