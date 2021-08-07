@@ -181,6 +181,7 @@ class post {
         $this->db->bind(':id', $data['id']);
 
         $result = $this->db->single();
+
         if ($result) {
             return $result;
         }else {
@@ -209,6 +210,19 @@ class post {
 
         }else {
             echo 'result is false!!';
+        }
+    }
+
+    // GET ONE VIDEO BY ID_FOLDER
+    public function getVideoByIdFolder($data) {
+        $this->db->query("SELECT * FROM videos WHERE id_folder = :id");
+        $this->db->bind(':id', $data['id']);
+
+        $result = $this->db->single();
+        if ($result) {
+            return $result;
+        }else {
+            return false;
         }
     }
 
