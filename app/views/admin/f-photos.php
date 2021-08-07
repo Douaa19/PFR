@@ -2,7 +2,7 @@
 <!-- MAIN -->
 <main>
     <!-- FOLDERS -->
-    <div class="folders mt-5">
+    <div class="folders mt-5 footer-margin-bot">
         <h1>Dossiers photos</h1>
         <div class="folder">
             <?php foreach($data as $row) : ?>
