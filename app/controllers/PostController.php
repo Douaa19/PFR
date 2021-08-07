@@ -161,16 +161,17 @@ class PostController extends Controller
     // ADD VIDEO
     public function addVideo() {
         if (isset($_POST['submit'])) {
-            if (!empty($_FILES['video']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
+            $data= [
+                'title' => $_POST['title'],
+                'new_video' => $_FILES['new_video']['name'],
+                'description' => $_POST['description'],
+                'tag' => $_POST['tag'],
+                'folder' => $_POST['folder'],
+                'error' => ''
+            ];
+            if (!empty($_FILES['new_video']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
 
-                $video = $_FILES['video']['tmp_name'];
-                $data= [
-                    'title' => $_POST['title'],
-                    'video' => $_FILES['video']['name'],
-                    'description' => $_POST['description'],
-                    'tag' => $_POST['tag'],
-                    'folder' => $_POST['folder'] 
-                ];
+                $video = $_FILES['new_video']['tmp_name'];
 
                 if ($this->uploadVideo($video) === true) {
                     if ($this->postModel->addVideo($data)) {
@@ -181,7 +182,8 @@ class PostController extends Controller
                 }
 
             } else {
-                header('Location: ' . URLROOT . '/PostController/add');
+                $data['error'] = 'Un champ est vide';
+                $this->view('admin/add-video', $data);
             }
         }
     }
@@ -296,7 +298,7 @@ class PostController extends Controller
 
         $result = $this->postModel->selectOnePhoto($data);
         $data1 = $this->postModel->selectFolder();
-        
+
         if($result) {
             $this->view('admin/edit-photo', $result, $data1);
         }else {
@@ -342,7 +344,6 @@ class PostController extends Controller
         $data = [
             'id' => $_POST['id'],
             'video' => $_POST['video'],
-            'error' =>''
         ];
 
         $result = $this->postModel->selectOneVideo($data);
@@ -355,6 +356,35 @@ class PostController extends Controller
         }
     }
 
+    // UPDATE VIDEO 
+    public function updateVideo() {
+        if (isset($_POST['submit'])) {
+            if (!empty($_POST['title']) && !empty($_FILES['new_video']) && !empty($_POST['description']) && !empty($_POST['tag'])) {
+                
+                $new_video = $_FILES['new_video']['tmp_name'];
+                $data = [
+                    'id' => $_POST['id'],
+                    'title' => $_POST['title'],
+                    'old_video' => $_POST['old_video'],
+                    'new_video' => $_FILES['new_video']['name'],
+                    'tag' => $_POST['tag'],
+                    'description' => $_POST['description'],
+                    'folder' => $_POST['folder'],
+                ];
+
+                $old_video = $data['old_video'];
+                $path = "C:\\xampp\htdocs\PFR\public\uploads/$old_video";
+                chown($path, 666);
+
+                if ($this->uploadVideo($new_video) === true) {
+                    $this->postModel->updateVideo($data);
+
+                    header('Location: ' . URLROOT . '/PostController/dashVideo');
+                }
+            }
+        }
+    }
+
 
     // FOLDER
     public function editFolder() {
@@ -362,15 +392,9 @@ class PostController extends Controller
             'id' => $_POST['id_folder'],
             'new_image' => $_POST['image']
         ];
-<<<<<<< Updated upstream
 
         $result = $this->postModel->getFolderById($data);
 
-=======
-
-        $result = $this->postModel->getFolderById($data);
-
->>>>>>> Stashed changes
         if ($result) {
             $this->view('admin/edit-folder', $result);
         }else {
@@ -443,8 +467,8 @@ class PostController extends Controller
     // UPLOAD VIDEO
     public function uploadVideo($video) {
         $dir = "C:\\xampp\htdocs\PFR\public\uploads";
-        $name = str_replace(' ','-',strtolower($_FILES["video"]["name"]));
-        $type = $_FILES["video"]["type"];
+        $name = str_replace(' ','-',strtolower($_FILES["new_video"]["name"]));
+        $type = $_FILES["new_video"]["type"];
         if(move_uploaded_file($video,$dir."/".$name))
         {
            return true;    

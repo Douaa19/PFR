@@ -3,9 +3,12 @@
 
 <main class="row m-0">
     <div class="container col-10">
-        <h1 class="m-3">Ajouter video</h1>
+        <h1 class="m-3 text-uppercase">Ajouter une video</h1>
         <div class="form footer-margin-bot">
             <form action="<?php echo URLROOT ?>/PostController/addVideo" method="POST" class="form-group container col-6" enctype="multipart/form-data">
+                <?php if(isset($data['error'])) :  ?>
+                <div class="errro"><?php echo $data['error']; ?></div>
+                <?php endif; ?>
                 <div class="mb-3">
                   <label for="formGroupExampleInput" class="form-label">Titre</label>
                   <input type="text" class="form-control" id="formGroupExampleInput" name="title">
@@ -14,7 +17,7 @@
                     <div class="image">
                         <div class="mb-3">
                             <label for="formFileMultiple" class="form-label">video</label>
-                            <input class="form-control" type="file" id="formFileMultiple" multiple name="video">
+                            <input class="form-control" type="file" id="formFileMultiple" multiple name="new_video">
                         </div>
                     </div>
                     <div class="folder">

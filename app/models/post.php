@@ -104,7 +104,6 @@ class post {
 
             if ($this->db->execute()) {
                 return true;
-                die();
             } else {
                 return false;
             }
@@ -126,7 +125,7 @@ class post {
         $this->db->query("INSERT INTO `videos`(`title`, `video`, `description`, `tag`, `id_folder`) VALUES (:title, :video, :description, :tag, :id_folder)");
         // BIND THE DATA
         $this->db->bind(':title', $data['title']);
-        $this->db->bind(':video', $data['video']);
+        $this->db->bind(':video', $data['new_video']);
         $this->db->bind(':description', $data['description']);
         $this->db->bind(':tag', $data['tag']);
         $this->db->bind(':id_folder', $id_folder);
@@ -181,13 +180,37 @@ class post {
         $this->db->query("SELECT * FROM videos WHERE id = :id");
         $this->db->bind(':id', $data['id']);
 
-        $result = $this->db->resultSet();
+        $result = $this->db->single();
         if ($result) {
             return $result;
         }else {
             return false;
         }
-    } 
+    }
+
+    // UPDATE VIDEO
+    public function updateVideo($data) {
+        $result = $this->folderByName($data);
+
+        if ($result) {
+            $this->db->query("UPDATE `videos` SET `title` = :title, `video`= :video, `description`= :description, `tag`= :tag, `id_folder`= :id_folder WHERE id = :id");
+            $this->db->bind(':title', $data['title']);
+            $this->db->bind(':video', $data['new_video']);
+            $this->db->bind(':description', $data['description']);
+            $this->db->bind(':tag', $data['tag']);
+            $this->db->bind(':id_folder', $result->id_folder);
+            $this->db->bind(':id', $data['id']);
+
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }else {
+            echo 'result is false!!';
+        }
+    }
 
 
 
