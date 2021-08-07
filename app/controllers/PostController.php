@@ -133,13 +133,13 @@ class PostController extends Controller
     // ADD PHOTO
     public function addPhoto() {
         if (isset($_POST['submit'])) {
-            if (!empty($_FILES['image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
+            if (!empty($_FILES['new_image']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['tag']) && !empty($_POST['folder'])) {
                 
                 
-                $image = $_FILES['image']['tmp_name'];
+                $image = $_FILES['new_image']['tmp_name'];
                 $data= [
                     'title' => $_POST['title'],
-                    'image' => $_FILES['image']['name'],
+                    'image' => $_FILES['new_image']['name'],
                     'description' => $_POST['description'],
                     'tag' => $_POST['tag'],
                     'folder' => $_POST['folder'] 
@@ -294,11 +294,8 @@ class PostController extends Controller
             'image' => $_POST['image']
         ];
 
-        $result = $this->postModel->selectOne($data);
-
+        $result = $this->postModel->selectOnePhoto($data);
         $data1 = $this->postModel->selectFolder();
-        
-
         
         if($result) {
             $this->view('admin/edit-photo', $result, $data1);
@@ -341,6 +338,22 @@ class PostController extends Controller
 
 
     // VIDEO
+    public function editVideo() {
+        $data = [
+            'id' => $_POST['id'],
+            'video' => $_POST['video'],
+            'error' =>''
+        ];
+
+        $result = $this->postModel->selectOneVideo($data);
+        $data1 = $this->postModel->selectFolder();
+        
+        if ($result) {
+            $this->view('admin/edit-video', $result, $data1);
+        }else {
+            return false;
+        }
+    }
 
 
     // FOLDER
@@ -349,9 +362,15 @@ class PostController extends Controller
             'id' => $_POST['id_folder'],
             'new_image' => $_POST['image']
         ];
+<<<<<<< Updated upstream
 
         $result = $this->postModel->getFolderById($data);
 
+=======
+
+        $result = $this->postModel->getFolderById($data);
+
+>>>>>>> Stashed changes
         if ($result) {
             $this->view('admin/edit-folder', $result);
         }else {

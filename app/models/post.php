@@ -77,7 +77,7 @@ class post {
     }
 
     // Select OneRow From Table Images Using ID
-    public function selectOne($data) {
+    public function selectOnePhoto($data) {
         $this->db->query("SELECT * FROM images WHERE id = :id");
         $this->db->bind(':id', $data['id']);
 
@@ -175,6 +175,21 @@ class post {
            return false;
         }
     }
+
+    // SELECT ONE VIDEO BY ID
+    public function selectOneVideo($data) {
+        $this->db->query("SELECT * FROM videos WHERE id = :id");
+        $this->db->bind(':id', $data['id']);
+
+        $result = $this->db->resultSet();
+        if ($result) {
+            return $result;
+        }else {
+            return false;
+        }
+    } 
+
+
 
     // Select All Data From Table Folders
     public function getFolders() {
