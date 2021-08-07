@@ -53,7 +53,20 @@ class PostController extends Controller
 
     // PAGE VIDEOS
     public function videos() {
-        $this->view('admin/videos');
+        if (isset($_POST['submit'])) {
+            $data = [
+                'id' => $_POST['id'],
+                'error' => ''
+            ];
+            $result = $this->postModel->getVideoByIdFolder($data);
+
+            if ($result) {
+                $this->view('admin/videos', $result);
+            }else {
+                $data['error'] = 'Le dossier est vide';
+                $this->view('admin/videos', $data);
+            }
+        }
     }
 
     // DASHBOARD PAGE

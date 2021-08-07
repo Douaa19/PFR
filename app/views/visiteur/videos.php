@@ -1,7 +1,7 @@
 <?php include_once APPROOT . '../views/inc/header-pvf.php'; ?>
 <!-- MAIN -->
     <main>
-        <div class="photos mt-5">
+        <div class="videos mt-5 footer-margin-bot">
             <h1>vidéos</h1>
                 <?php if (!isset($data['error'])) { ?>
             <div class="">

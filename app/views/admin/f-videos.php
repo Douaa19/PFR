@@ -8,7 +8,7 @@
             <?php foreach($data as $row) : ?>
             <div class="card">
                 <img src="<?= URLROOT ?>/uploads/<?php echo $row->image ?>" alt="">
-                <form action="<?php echo URLROOT ?>/PostController/videos" method="post">
+                <form action="<?php echo URLROOT ?>/PostController/videos" method="POST">
                     <div class="route strok">
                         <input type="hidden" name="id" value="<?php echo $row->id_folder; ?>">
                         <button name="submit"><h3><a><?php echo $row->name; ?></a></h3></button>
