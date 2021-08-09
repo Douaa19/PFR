@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Sail:400');
+
 
 *{
     margin: 0;
@@ -20,14 +20,12 @@ header .header .head .logo img {
     width: 275px;
 }
 
-main {
-    position: absolute;
-    top: 26%;
-    left: 40%;
-}
-
 main .login {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 6rem;
 }
 
 main .login form {
@@ -95,5 +93,49 @@ main .login form .button input[type="submit"]:hover{
   -webkit-transition: all 200ms ease-in-out;
           transition: all 200ms ease-in-out;
 }
+
+
+
+/* RESPONSIVE PAGE */
+@media screen and (min-width: 600px) and (max-width: 900px){
+    header .header .head {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    header .header .head .vide {
+        display: none;
+    }
+
+    header .header .head .logo {
+        text-align: center;
+    }
+
+    header .header .head .logo img {
+        width: 200px;
+    }
+}
+
+@media screen and (min-width: 350px) and (max-width: 600px){
+    header .header .head {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    header .header .head .vide {
+        display: none;
+    }
+
+    header .header .head .logo {
+        text-align: center;
+    }
+
+    header .header .head .logo img {
+        width: 150px;
+    }
+}
+
 
 
