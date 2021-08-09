@@ -19,7 +19,7 @@
 </head>
 <body>
     <header>
-        <div class="header bg-dark text-light pt-3">
+        <div class="header text-light pt-3">
             <div class="head">
                 <?php if(isset($_SESSION['name'])) { ?>
                 <div class="vide col-1"></div>
@@ -27,6 +27,7 @@
                     <a href="<?= URLROOT?>/PostController/index"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
                 </div>
                 <?php include_once APPROOT . '../views/inc/navbar-admin.php'; ?>
+                <div class="vid col-1"></div>
                 <?php }else{ ?>
                 <div class="vide col-1"></div>
                 <div class="logo col-5">

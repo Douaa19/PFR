@@ -14,6 +14,10 @@ body {
     min-height: 100vh;
 }
 
+header {
+  background-color: #212529;
+}
+
 header .header {
     margin: 0;
     display: grid;
@@ -41,6 +45,8 @@ header .header nav {
 }
 
 header .header nav ul li {
+    display: flex;
+    align-items: center;
     display: inline-block;
     cursor: pointer;
     list-style: none;
@@ -138,43 +144,116 @@ header .header .slogon {
 }
 
 
-/* Responsive Header */
-@media screen and (max-width:1412px){
-  header .header nav ul li {
-    font-size: 16px;
+/* RESPONSIVE HEADER */
+@media screen and (min-width: 1300px) and (max-width: 1456px) {
+  header .header nav ul {
+    display: flex;
+    align-items: center;
   }
-}
 
-/* @media screen and (min-width: 1290px) and (max-width: 1412px){
-
-} */
-
-@media screen and (max-width:1296px){
   header .header nav ul li {
-    font-size: 15px;
-  }
-}
-
-@media screen and (max-width:1237px){
-  header .header nav ul li {
-    padding: 0;
+    padding: 0 0.8rem;
     margin: 0;
   }
 }
 
-@media screen and (max-width:906px){
+@media screen and (min-width: 1117px) and (max-width: 1300px) {
+  header .header nav ul {
+    display: flex;
+    align-items: center;
+  }
+
   header .header nav ul li {
+    padding: 0 0.6rem;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 965px) and (max-width: 1117px) {
+  header .header nav ul {
+    display: flex;
+    align-items: center;
+  }
+
+  header .header nav ul li {
+    padding: 0 0.4rem;
     font-size: 12px;
   }
 }
 
-@media screen and (max-width:425px){
-  
+@media screen and (min-width: 750px) and (max-width: 965px){
+  header .header nav {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  header .header nav ul li {
+    padding: 0 0.6rem;
+    font-size: 12px;
+  }
+
+  header .header .head {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  header .header .head .logo {
+      text-align: center;
+  }
+
+  header .header .head .logo img {
+      width: 250px;
+  }
+
+  header .header .head nav ul form {
+    display: none;
+  }
 }
 
-@media screen and (max-width:375px){
+@media screen and (max-width: 750px){
+  header {
+    background: none;
+    height: max-content;
+  }
   
+  header .header {
+    background: none;
+    background-color: #212529;
+    height: fit-content;
+  }
+
+  header .header head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  header .header nav ul li {
+    padding: 0 0.6rem;
+    font-size: 12px;
+  }
+
+  .slogon {
+    display: none;
+  }
+
+  header .header .head nav ul form {
+    display: none;
+  }
+
+  header .header .head .logo img {
+      width: 220px;
+  }
 }
+
+
+
+
+
+
+
 
 
 
@@ -283,6 +362,10 @@ main .about .content img {
   h1 {
     font-size: 32px;
   }
+
+  main .container .photos, .videos a {
+    font-size: 12px;
+  }
 }
 
 
@@ -318,12 +401,12 @@ main .about .content img {
 
 @media screen and (max-width:1024px){
   main .about .content img {
-    width: 45%;
-    height: 45%;
+    max-width: 60%;
+    min-width: 45%;
   }
 
   main .about .content p {
-    font-size: 24px;
+    font-size: 20px;
     padding: 0 1rem;
     line-height: 1.5rem;
   }
@@ -332,11 +415,6 @@ main .about .content img {
 @media screen and (max-width:768px){
   main .about .content {
     column-count: 2;
-  }
-
-  main .about .content img {
-    width: 42%;
-    height: 42%;
   }
 
   main .about .content p {
@@ -353,18 +431,15 @@ main .about .content img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-
-  main .about .content img {
-    width: 35%;
-    height: 35%;
+    width: 22rem;
   }
   
   main .about .content p {
-    padding: 0 0.5rem;
-    font-size: 14px;
+    padding: 0.5 0.5rem;
+    font-size: 18px;
     text-align: center;
-    line-height: 1.5rem;
+    /* line-height: 0.5rem; */
+    width: auto;
   }
 }
 
@@ -375,15 +450,10 @@ main .about .content img {
     justify-content: center;
     align-items: center;
   }
-
-  main .about .content img {
-    width: 32%;
-    height: 32%;
-  }
   
   main .about .content p {
     padding: 0 0.2rem;
-    font-size: 12px;
+    font-size: 16px;
     text-align: center;
     line-height: 1.5rem;
   }

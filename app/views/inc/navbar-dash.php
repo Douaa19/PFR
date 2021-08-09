@@ -1,5 +1,5 @@
 <nav class="stroke col-5">
-    <ul class="row">
+    <ul class="row mb-0">
         <div class="vid col-1"></div>
         <li class="col-1"><a href="<?php echo URLROOT; ?>/PostController/index" class="hov text-light">Accueil</a></li>
         <li class="col-1"><a href="<?php echo URLROOT; ?>/PostController/foldersPhotos" class="hov text-light">Photos</a></li>

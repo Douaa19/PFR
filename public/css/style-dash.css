@@ -120,24 +120,9 @@ main .container .cards {
 }
 
 /* Style One Card */
-main .container .cards .card .card1 {
-    grid-area: 1/ 1 / 2 / 2 ;
-}
-
-main .container .cards .card .card2 {
-    grid-area: 1/ 2 / 2 / 3 ;
-}
-
-main .container .cards .card .card3 {
-    grid-area: 1/ 3 / 2 / 4 ;
-}
-
-main .container .cards .card .card4 {
-    grid-area: 1/ 4 / 2 / 5 ;
-}
-
 main .container .cards .card{
     width: 19rem;
+    height: max-content;
 }
 
 main .container .cards .card .route{
@@ -209,4 +194,11 @@ main .container .cards .card .route.fill a:hover:after {
 
 main .container .cards .card img:hover {
     filter: blur(3px);
+}
+
+/* RESPONSIVE DASHBOARD PAGE */
+@media (min-width: 1200px) and (max-width: 1497px) {
+    body {
+        background: cornflowerblue;
+    }
 }
