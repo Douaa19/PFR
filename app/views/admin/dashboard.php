@@ -3,7 +3,7 @@
         <main class="row m-0">
             <div class="container mt-5 col-10">
                 <h1 class="text-uppercase">Sections</h1>
-                <div class="container">
+                <div class="contain">
                     <div class="cards mt-3 mb-5">
                         <div class="card card1 col-3">
                             <img src="<?= URLROOT ?>/img/markus-spiske-EfhOW3cYqD8-unsplash.jpg" alt="">
