@@ -1,1 +1,0 @@
-<h1>Videos page</h1>
