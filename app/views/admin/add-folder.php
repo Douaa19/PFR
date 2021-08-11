@@ -3,7 +3,7 @@
 
 <main class="row m-0">
     <div class="container col-10">
-        <h1 class="m-3">Ajouter dossier</h1>
+        <h1 class="m-3 text-uppercase">Ajouter dossier</h1>
         <div class="form footer-margin-bot mt-3">
             <form action="<?php echo URLROOT ?>/PostController/insertFolder" method="POST" class="form-group container col-6" enctype="multipart/form-data">
             <div class="error text-center text-danger"><?php if (isset($data['error'])) { echo $data['error'] . '!'; } ?></div>

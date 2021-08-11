@@ -22,7 +22,7 @@
             <div class="head">
                 <div class="vide col-1"></div>
                 <div class="logo col-5">
-                    <a href="<?php echo URLROOT; ?>/AdminController/accueil"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
+                    <a href="<?= URLROOT?>/PostController/index"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
                 </div>
                 <?php include_once APPROOT . '../views/inc/navbar-dash.php'; ?>
             </div>

@@ -127,7 +127,7 @@ main .container .cards .card{
 
 main .container .cards .card .route{
     position: absolute;
-    top: 50%;
+    top: 0%;
     left: 50%;
     transform: translate(-50%, 200%);
 }
@@ -198,7 +198,5 @@ main .container .cards .card img:hover {
 
 /* RESPONSIVE DASHBOARD PAGE */
 @media (min-width: 1200px) and (max-width: 1497px) {
-    body {
-        background: cornflowerblue;
-    }
+    
 }

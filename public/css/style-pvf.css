@@ -33,7 +33,7 @@ header .header .logo img {
 }
 
 header .header nav {
-    padding-top: 1rem;
+    /* padding-top: 1rem; */
 }
 
 header .header nav ul li {
@@ -125,42 +125,112 @@ header .header .head nav ul form input {
     padding-left: 5px;
 }
 
-/* Responsive Header */
-@media screen and (max-width:1412px){
-  header .header nav ul li {
-    font-size: 16px;
+/* RESPONSIVE HEADER */
+@media screen and (min-width: 1300px) and (max-width: 1456px) {
+  header .header nav ul {
+    display: flex;
+    align-items: center;
   }
-}
 
-/* @media screen and (min-width: 1290px) and (max-width: 1412px){
-
-} */
-
-@media screen and (max-width:1296px){
   header .header nav ul li {
-    font-size: 15px;
-  }
-}
-
-@media screen and (max-width:1237px){
-  header .header nav ul li {
-    padding: 0;
+    padding: 0 0.8rem;
     margin: 0;
   }
 }
 
-@media screen and (max-width:906px){
+@media screen and (min-width: 1117px) and (max-width: 1300px) {
+  header .header nav ul {
+    display: flex;
+    align-items: center;
+  }
+
   header .header nav ul li {
+    padding: 0 0.6rem;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 965px) and (max-width: 1117px) {
+  header .header nav ul {
+    display: flex;
+    align-items: center;
+  }
+
+  header .header nav ul li {
+    padding: 0 0.4rem;
     font-size: 12px;
   }
 }
 
-@media screen and (max-width:425px){
-  
+@media screen and (min-width: 750px) and (max-width: 965px){
+  header .header nav {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  header .header nav ul li {
+    padding: 0 0.6rem;
+    font-size: 12px;
+  }
+
+  header .header .head {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  header .header .head .logo {
+      text-align: center;
+  }
+
+  header .header .head .logo img {
+      width: 250px;
+  }
+
+  header .header .head nav ul form {
+    display: none;
+  }
 }
 
-@media screen and (max-width:375px){
+@media screen and (max-width: 750px){
+  header {
+    background: none;
+    height: max-content;
+  }
   
+  header .header {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    background: none;
+    background-color: #212529;
+    height: fit-content;
+  }
+
+  header .header head {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 12vh;
+  }
+
+  header .header nav ul li {
+    padding: 0 0.6rem;
+    font-size: 12px;
+  }
+
+  .slogon {
+    display: none;
+  }
+
+  header .header .head nav ul form {
+    display: none;
+  }
+
+  header .header .head .logo img {
+      width: 220px;
+  }
 }
 
 /* Main style */

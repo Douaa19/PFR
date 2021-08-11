@@ -6,7 +6,7 @@
     <!-- SECTION PHOTOS -->
     <div class="photos mt-5 row">
         <h1 class="col-9">photos</h1>
-        <a href="<?= URLROOT ?>/VisiteurController/foldersPhotos" class="col-3 text-center text-primary d-flex justify-content-center text-uppercase">voir plus</a>
+        <a href="<?= URLROOT ?>/PostController/foldersPhotos" class="col-3 text-center text-primary d-flex justify-content-center text-uppercase" aria-label="folders photos">voir plus</a>
         <div class="galery">
             <?php foreach($data as $rows) : ?>
             <div class="img">
@@ -20,13 +20,21 @@
     <!-- SECTION VIDEOS -->
     <div class="videos row mt-1">
         <h1 class="col-9">vidéos</h1>
-        <a href="<?= URLROOT ?>/VisiteurController/foldersVideos" class="col-3 text-center text-primary d-flex justify-content-center text-uppercase">voir plus</a>
+        <a href="<?= URLROOT ?>/PostController/foldersVideos" class="col-3 text-center text-primary d-flex justify-content-center text-uppercase" aria-label="folders videos">voir plus</a>
         <div id="carouselExampleControls" class="carousel slide mt-5" >
             <div class="carousel-inner">
             <?php foreach($data1 as $row) : ?>
               <div class="carousel-item active">
 
-                <video controls="controls" src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>" video="web/mp4" class="d-block w-100" type="video/mp4"></video>
+                <!-- <video controls="controls" src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>" video="web/mp4" class="d-block w-100" type="video/mp4"></video> -->
+
+                <video controls class="d-block w-100" src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>">
+                <track default
+                    type="video/mp4"
+                    kind="captions"
+                    srclang="en"
+                    src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>"/>
+                </video>
 
               </div>
               <?php endforeach; ?>

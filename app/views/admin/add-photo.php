@@ -3,7 +3,7 @@
 
 <main class="row m-0">
     <div class="container col-10">
-        <h1 class="mt-4">Ajouter photo</h1>
+        <h1 class="mt-4 text-uppercase">Ajouter photo</h1>
         <div class="form footer-margin-bot mt-3">
             <!-- FORM -->
             <form action="<?php echo URLROOT ?>/PostController/addPhoto" method="POST" class="form-group container col-6" enctype="multipart/form-data">

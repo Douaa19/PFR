@@ -218,6 +218,9 @@ header .header .slogon {
   }
   
   header .header {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     background: none;
     background-color: #212529;
     height: fit-content;
@@ -225,9 +228,10 @@ header .header .slogon {
 
   header .header head {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 12vh;
   }
 
   header .header nav ul li {
@@ -397,7 +401,7 @@ main .about .content img {
   }
 }
 
-/* Responsive ABOUT */
+/* RESPONSIVE ABOUT */
 
 @media screen and (max-width:1024px){
   main .about .content img {
@@ -406,7 +410,7 @@ main .about .content img {
   }
 
   main .about .content p {
-    font-size: 20px;
+    font-size: 18px;
     padding: 0 1rem;
     line-height: 1.5rem;
   }
@@ -419,7 +423,7 @@ main .about .content img {
 
   main .about .content p {
     padding: 0 1rem;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 1.2rem;
   }
 }
@@ -436,7 +440,7 @@ main .about .content img {
   
   main .about .content p {
     padding: 0.5 0.5rem;
-    font-size: 18px;
+    font-size: 8px;
     text-align: center;
     /* line-height: 0.5rem; */
     width: auto;
@@ -453,8 +457,8 @@ main .about .content img {
   
   main .about .content p {
     padding: 0 0.2rem;
-    font-size: 16px;
+    font-size: 8px;
     text-align: center;
-    line-height: 1.5rem;
+    line-height: 1rem;
   }
 }
