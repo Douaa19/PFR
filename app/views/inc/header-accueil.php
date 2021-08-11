@@ -19,7 +19,7 @@
 </head>
 <body>
     <header>
-        <div class="header text-light pt-3">
+        <div class="header text-light">
             <div class="head">
                 <?php if(isset($_SESSION['name'])) { ?>
                 <div class="vide col-1"></div>
