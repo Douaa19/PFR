@@ -10,6 +10,7 @@
     <!-- SECTION PHOTOS -->
     <div class="photos row m-0">
         <h1 class="col-10 mt-4">photos</h1>
+
         <a href="<?= URLROOT ?>/VisiteurController/foldersPhotos" aria-label="folders photos" class="col-2 text-center text-primary mt-4 d-flex justify-content-center text-uppercase p-0">voir plus</a>
         <div class="galery">
             <?php foreach($data as $rows) : ?>
