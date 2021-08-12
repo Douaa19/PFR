@@ -6,6 +6,7 @@
 <!-- FORM LOGIN -->
     <div class="login">
     <form action="<?php echo URLROOT ?>/AdminController/login" method="post">
+        <h1 class="text-uppercase pt-1">login</h1>
         <div class="email">
             <label for="email">Adresse email</label>
             <input type="text" name="email" id="email" value="<?php if(isset($data['email'])) { echo $data['email']; }?>">
