@@ -236,6 +236,9 @@ header .header .slogon {
 
   header .header .head {
     padding-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
   
   header .header {
@@ -245,6 +248,10 @@ header .header .slogon {
     align-items: center;
     height: 12vh;
     padding: 0 !important;
+  }
+
+  header .header nav ul {
+    padding: 0;
   }
 
   header .header nav ul li {
@@ -311,6 +318,9 @@ header .header .slogon {
 
   header .header .head nav ul {
     padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -483,6 +493,8 @@ main .about .content img {
   }
 
   main .container .photos, .videos a {
+    align-items: center;
+    padding: 0;
     font-size: 12px;
   }
 }
@@ -511,6 +523,21 @@ main .about .content img {
 
   main .photos, .videos, .about h1 {
     padding: 0;
+  }
+
+  main .container .photos, .videos a {
+    align-items: center;
+    padding: 0;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 541px){
+  main .container .photos, .videos a {
+    align-items: center;
+    padding: 0;
+    font-size: 10px;
+    width: auto;
   }
 }
 
@@ -541,6 +568,12 @@ main .about .content img {
   h1 {
     font-size: 20px;
   }
+  main .container .photos, .videos a {
+    align-items: center;
+    padding: 0;
+    font-size: 8px;
+    width: auto;
+  }
 }
 
 /* RESPONSIVE ABOUT */
@@ -567,6 +600,10 @@ main .about .content img {
     padding: 0 1rem;
     font-size: 12px;
     line-height: 1.2rem;
+  }
+
+  main .date form {
+    width: auto;
   }
 }
 
@@ -620,5 +657,59 @@ main .about .content img {
     text-align: center;
     line-height: 1rem;
     width: auto;
+  }
+}
+
+/* DATE FORM */
+main .container .date {
+  font-size: 24px;
+}
+
+main .container .date form {
+  border: #d5d5d5 2px solid;
+  border-radius: 10px;
+}
+
+main .container .date form .button {
+  display: flex;
+  justify-content: center;
+}
+
+main .container .date form .button input[type="submit"] {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: wrap;
+}
+
+/* RESPONSIVE DATE FORM */
+@media screen and (min-width: 1000px) and (max-width: 1400px){
+  main .container .date {
+    font-size: 18px;
+  }
+
+  main .container .date form .button input[type="submit"] {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 765px) and (max-width: 1000px){
+  main .container .date {
+    font-size: 14px;
+  }
+
+  main .container .date form .button input[type="submit"] {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 765px){
+  main .container .date {
+    font-size: 12px;
+  }
+
+  main .container .date form .button input[type="submit"] {
+    font-size: 12px;
   }
 }

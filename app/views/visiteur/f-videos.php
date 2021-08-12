@@ -10,7 +10,7 @@
                 <form action="<?php echo URLROOT ?>/VisiteurController/videos" method="post">
                     <div class="route strok">
                         <input type="hidden" name="id" value="<?php echo $row->id_folder; ?>">
-                        <button name="submit"><h3><a><?php echo $row->name; ?></a></h3></button>
+                        <button name="submit"><h2><a><?php echo $row->name; ?></a></h2></button>
                     </div>
                 </form>
             </div>

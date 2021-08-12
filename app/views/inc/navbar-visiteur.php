@@ -1,5 +1,5 @@
 <nav class="stroke col-5">
-    <ul class="row">
+    <ul class="row mb-0">
         <li class="col-1"><a href="<?php echo URLROOT; ?>/VisiteurController/index" aria-label="accueil" class="hov text-light">Accueil</a></li>
         <li class="col-1"><a href="<?php echo URLROOT; ?>/VisiteurController/foldersPhotos" aria-label="folders photos" class="hov text-light">Photos</a></li>
         <li class="col-1"><a href="<?php echo URLROOT; ?>/VisiteurController/foldersVideos" aria-label="folders videos" class="hov text-light">Vidéos</a></li>
