@@ -19,16 +19,8 @@
                 <th scope="row"><?php echo $value->id ?></th>
                 <td><?php echo $value->email?></td>
                 <td><?php echo $value->phone ?></td>
-                <td>
-                  <?php foreach($value->gender as $gender) : ?>
-                  <?= $gender; ?>
-                  <?php endforeach; ?>
-                </td>
-                <td>
-                  <?php foreach($value->occasion as $occasion) : ?>
-                  <?= $occasion . ' '; ?>
-                  <?php endforeach; ?>
-                </td>
+                <td><?php echo $value->gender ?></td>
+                <td><?php echo $value->occasion ?></td>
               </tr>
               <?php endforeach; ?>
             </tbody>
@@ -36,6 +28,3 @@
     </div>
 </main>
 <!-- MAIN -->
-<!-- SECTION FOOTER -->
-<?php include_once APPROOT . '../views/inc/footer.php'; ?>
-<!-- SECTION FOOTER -->
