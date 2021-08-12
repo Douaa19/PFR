@@ -17,13 +17,14 @@
 <body class="vh-100">
 
     <header>
-        <div class="header bg-dark text-light pt-3">
+        <div class="header bg-dark text-light">
             <div class="head">
                 <div class="vide col-1"></div>
                 <div class="logo col-5">
                     <a href="<?= URLROOT?>/PostController/index"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
                 </div>
                 <?php include_once APPROOT . '../views/inc/navbar-dash.php'; ?>
+                <div class="vide col-1"></div>
             </div>
         </div>
     </header>
