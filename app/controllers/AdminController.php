@@ -117,7 +117,7 @@ class AdminController extends Controller
                 }
 
             } else {
-                $this->view('admin/accueil');
+                header('Location: ' . URLROOT . '/PostController/index');
             }
         }
     }

@@ -20,6 +20,10 @@ header .header .head .logo img {
     width: 275px;
 }
 
+header .header .head {
+    padding-top: 1rem;
+}
+
 main .login {
     text-align: center;
     display: flex;
@@ -99,6 +103,7 @@ main .login form .button input[type="submit"]:hover{
 /* RESPONSIVE PAGE */
 @media screen and (min-width: 600px) and (max-width: 900px){
     header .header .head {
+        padding-top: 1rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -119,6 +124,7 @@ main .login form .button input[type="submit"]:hover{
 
 @media screen and (min-width: 350px) and (max-width: 600px){
     header .header .head {
+        padding-top: 0;
         display: flex;
         align-items: center;
         justify-content: center;

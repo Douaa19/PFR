@@ -21,6 +21,7 @@ header .header {
 }
 
 header .header .head {
+  padding-top: 1rem;
     display: flex;
     align-items: center;
     height: max-content;
@@ -205,13 +206,13 @@ main .container .container-fluid .card img:hover {
 
 
 /* RESPONSIVE HEADER */
-@media screen and (min-width: 1300px) and (max-width: 1456px) {
+@media screen and (min-width: 1300px) and (max-width: 1455px) {
   header .header {
       align-items: center;
   }
 
   header .header .head {
-    padding-top: 0rem;
+    padding-top: 1rem;
   }
 
   header .header nav ul {
@@ -220,7 +221,7 @@ main .container .container-fluid .card img:hover {
   }
 
   header .header nav ul li {
-    padding: 0 0.8rem;
+    padding: 0 1rem;
     margin: 0;
   }
 
@@ -239,7 +240,7 @@ main .container .container-fluid .card img:hover {
   }
 
   header .header .head {
-    padding-top: 0rem;
+    padding-top: 1rem;
   }
 
   header .header nav ul {

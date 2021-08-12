@@ -18,7 +18,7 @@
 <body>
 
     <header>
-        <div class="header bg-dark text-light pt-3">
+        <div class="header bg-dark text-light">
             <div class="head">
                 <div class="vide col-1"></div>
                 <div class="logo col-5">
