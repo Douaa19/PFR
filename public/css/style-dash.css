@@ -293,7 +293,7 @@ main .container .container-fluid .card img:hover {
       padding: 0;
   }
 
-  header .header nav ul .vid {
+  header .header nav .vid {
       display: none;
   }
 
@@ -360,7 +360,7 @@ main .container .container-fluid .card img:hover {
       padding: 0;
       width: max-content;
   }
-  header .header nav ul .vid {
+  header .header nav .vid {
       display: none;
   }
 
@@ -425,7 +425,7 @@ main .container .container-fluid .card img:hover {
     padding: 0;
     width: max-content;
   }
-  header .header nav ul .vid {
+  header .header nav .vid {
       display: none;
   }
 
@@ -472,7 +472,7 @@ main .container .container-fluid .card img:hover {
     padding: 0;
     width: max-content;
   }
-  header .header nav ul .vid {
+  header .header nav .vid {
       display: none;
   }
 
@@ -493,7 +493,7 @@ main .container .container-fluid .card img:hover {
   header .header .head .logo {
     width: auto;
   }
-  header .header nav ul .vid {
+  header .header nav .vid {
       display: none;
   }
 

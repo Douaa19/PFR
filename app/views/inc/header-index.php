@@ -21,7 +21,7 @@
             <div class="head">
                 <div class="vide col-1"></div>
                 <div class="logo col-4">
-                    <a href="<?php echo URLROOT; ?>/AdminController/index"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
+                    <a href="<?php echo URLROOT; ?>/AdminController/index" aria-label="index"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
                 </div>
             </div>
         </div>
