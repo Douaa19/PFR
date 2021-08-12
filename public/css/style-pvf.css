@@ -125,8 +125,13 @@ header .header .head nav ul form input {
     padding-left: 5px;
 }
 
+
 /* RESPONSIVE HEADER */
 @media screen and (min-width: 1300px) and (max-width: 1456px) {
+  header .header .head {
+    padding-top: 0rem;
+  }
+
   header .header nav ul {
     display: flex;
     align-items: center;
@@ -139,6 +144,10 @@ header .header .head nav ul form input {
 }
 
 @media screen and (min-width: 1117px) and (max-width: 1300px) {
+  header .header .head {
+    padding-top: 1rem;
+  }
+
   header .header nav ul {
     display: flex;
     align-items: center;
@@ -151,6 +160,10 @@ header .header .head nav ul form input {
 }
 
 @media screen and (min-width: 965px) and (max-width: 1117px) {
+  header .header .head {
+    padding-top: 1rem;
+  }
+
   header .header nav ul {
     display: flex;
     align-items: center;
@@ -174,6 +187,7 @@ header .header .head nav ul form input {
   }
 
   header .header .head {
+      padding-top: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -192,27 +206,21 @@ header .header .head nav ul form input {
   }
 }
 
-@media screen and (max-width: 750px){
+@media screen and (min-width: 683px) and (max-width: 750px){
   header {
     background: none;
     height: max-content;
   }
-  
-  header .header {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    background: none;
-    background-color: #212529;
-    height: fit-content;
-  }
 
-  header .header head {
+  header .header .head {
+    padding-top: 0;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 12vh;
+    justify-content: flex-end;
+  }
+
+  header .header nav ul {
+    padding: 0;
   }
 
   header .header nav ul li {
@@ -232,6 +240,111 @@ header .header .head nav ul form input {
       width: 220px;
   }
 }
+
+@media screen and (max-width: 683px){
+  header {
+    background: none;
+    height: max-content;
+  }
+
+  header .header nav ul li {
+    padding: 0 0.6rem;
+    font-size: 12px;
+  }
+
+  .slogon {
+    display: none;
+  }
+
+  header .header .head nav ul form {
+    display: none;
+  }
+
+  header .header .head .logo {
+    width: auto;
+  }
+
+  header .header .head .logo img {
+      width: 220px;
+  }
+
+  header .header {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    height: 16vh;
+    align-items: center;
+    padding: 0 !important;
+  }
+
+  header .header .head {
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  header .header .head nav ul {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 619px){
+  header {
+    background: none;
+    height: max-content;
+  }
+
+  header .header nav ul li {
+    padding: 0 0.5rem;
+    font-size: 12px;
+  }
+
+  .slogon {
+    display: none;
+  }
+
+  header .header .head nav ul form {
+    display: none;
+  }
+
+  header .header .head .logo img {
+      width: 180px;
+  }
+
+  header .header .head {
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  header .header .head nav ul {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width:587px){
+  header .header .head {
+    padding-top: 0;
+  }
+
+  header .header .head nav {
+    width: auto;
+  }
+
+  header .header .head .logo {
+    width: auto;
+  }
+}
+
+
+
+
 
 /* Main style */
 main {
@@ -295,8 +408,8 @@ main .photos .galery .img:hover h3 {
 
 /* Responsive Photos Section */
 @media screen and (max-width:1024px){
-  h3 {
-    font-size: 18px;
+  main .folders .fold .card h3 {
+    font-size: 12px;
   }
 }
 

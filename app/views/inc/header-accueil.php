@@ -34,6 +34,7 @@
                     <a href="<?= URLROOT?>/VisiteurController/index" aria-label="index"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
                 </div>
                 <?php include_once APPROOT . '../views/inc/navbar-visiteur.php'; ?>
+                <div class="vid col-1"></div>
                 <?php } ?>
             </div>
             <div class="slogon">
