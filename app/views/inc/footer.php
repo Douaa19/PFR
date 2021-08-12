@@ -3,7 +3,7 @@
         <div class="container row col-12 text-light">
         <div class="container text-center">
             <ul class="foote_bottom_ul_amrc">
-            <li><a href="<?= URLROOT ?>/PostController/index" aria-label="accueil">Accueil</a></li>
+            <li><a href="<?= URLROOT ?>/PostController/index" aria-label="accueil visiteur">Accueil</a></li>
             <li><a href="<?= URLROOT ?>/PostController/foldersPhotos" aria-label="photos">Photos</a></li>
             <li><a href="<?= URLROOT ?>/PostController/foldersVideos" aria-label="videos">Vidéos</a></li>
             <li><a href="#about" aria-label="apropos">Apropos</a></li>
