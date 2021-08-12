@@ -323,7 +323,6 @@ header .header .slogon {
     grid-template-rows: 1fr;
     align-items: center;
     height: 16vh;
-    align-items: center;
     padding: 0 !important;
   }
 

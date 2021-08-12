@@ -20,7 +20,7 @@
 </head>
 <body>
     <header>
-        <div class="header bg-dark text-light pt-3">
+        <div class="header bg-dark text-light">
             <div class="head">
                 <?php if(isset($_SESSION['name'])) { ?>
                 <div class="vide col-1"></div>
@@ -28,12 +28,14 @@
                     <a href="<?php echo URLROOT; ?>/AdminController/accueil" aria-label="index"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
                 </div>
                 <?php include_once APPROOT . '../views/inc/navbar-admin.php'; ?>
+                <div class="vid col-1"></div>
                 <?php }else{ ?>
                 <div class="vide col-1"></div>
                 <div class="logo col-5">
                     <a href="<?php echo URLROOT; ?>/VisiteurController/index" aria-label="index"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
                 </div>
                 <?php include_once APPROOT . '../views/inc/navbar-visiteur.php'; ?>
+                <div class="vid col-1"></div>
                 <?php } ?>
             </div>
         </div>
