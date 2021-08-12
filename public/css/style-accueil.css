@@ -574,6 +574,10 @@ main .about .content img {
   main .about .content {
     padding: 0rem;
   }
+
+  main .date form {
+    padding: 0 !important;
+  }
 }
 
 @media screen and (max-width:619px){
