@@ -43,6 +43,8 @@ header .header .logo img {
 
 header .header nav {
     padding-top: 0rem !important;
+    display: flex;
+    justify-content: center;
 }
 
 header .header nav ul li {
@@ -146,7 +148,7 @@ header .header .slogon {
 
 
 /* RESPONSIVE HEADER */
-@media screen and (min-width: 1300px) and (max-width: 1456px) {
+@media screen and (min-width: 1300px) and (max-width: 1455px) {
   header .header .head {
     padding-top: 1rem;
   }
@@ -157,7 +159,7 @@ header .header .slogon {
   }
 
   header .header nav ul li {
-    padding: 0 0.8rem;
+    padding: 0 1rem;
     margin: 0;
   }
 }
@@ -168,6 +170,7 @@ header .header .slogon {
   }
 
   header .header nav ul {
+    padding: 0;
     display: flex;
     align-items: center;
   }
@@ -184,6 +187,7 @@ header .header .slogon {
   }
 
   header .header nav ul {
+    padding: 0;
     display: flex;
     align-items: center;
   }
@@ -216,7 +220,7 @@ header .header .slogon {
   }
 
   header .header .head .logo {
-      text-align: center;
+      text-align: start;
   }
 
   header .header .head .logo img {
@@ -225,6 +229,12 @@ header .header .slogon {
 
   header .header .head nav ul form {
     display: none;
+  }
+
+  header .header nav ul {
+    padding: 0;
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -250,6 +260,10 @@ header .header .slogon {
     padding: 0 !important;
   }
 
+  header .header nav {
+    justify-content: flex-end;
+  }
+
   header .header nav ul {
     padding: 0;
   }
@@ -270,6 +284,10 @@ header .header .slogon {
   header .header .head .logo img {
       width: 220px;
   }
+
+  header .header .head .logo {
+    text-align: center;
+}
 }
 
 @media screen and (max-width: 683px){
@@ -711,5 +729,25 @@ main .container .date form .button input[type="submit"] {
 
   main .container .date form .button input[type="submit"] {
     font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 350px) and (max-width: 500px){
+  main .container .date {
+    font-size: 10px;
+  }
+
+  main .container .date form .button input[type="submit"] {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width:350px) {
+  main .container .date {
+    font-size: 10px;
+  }
+
+  main .container .date form .button input[type="submit"] {
+    font-size: 10px;
   }
 }
