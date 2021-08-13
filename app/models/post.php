@@ -37,7 +37,7 @@ class post {
 
     // GET ALL PHOTOS
     public function getPhotos() {
-        $this->db->query("SELECT * FROM images");
+        $this->db->query("SELECT * FROM images ORDER BY id DESC");
         $result = $this->db->resultSet();
 
         return $result;
@@ -58,7 +58,7 @@ class post {
 
     // GET 6 PHOTOS
     public function sexPhotos() {
-        $this->db->query("SELECT * FROM images LIMIT 7");
+        $this->db->query("SELECT * FROM images ORDER BY id DESC LIMIT 7");
         $result = $this->db->resultSet();
 
         return $result;
@@ -89,6 +89,8 @@ class post {
         }
     }
 
+
+
     // Update Photo
     public function updatePhoto($data) {
         $result = $this->folderByName($data);
@@ -113,6 +115,8 @@ class post {
         }
  
     }
+
+     
 
     // Add videos to database
     public function addVideo($data) {

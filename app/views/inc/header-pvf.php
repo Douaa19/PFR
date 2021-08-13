@@ -25,7 +25,7 @@
                 <?php if(isset($_SESSION['name'])) { ?>
                 <div class="vide col-1"></div>
                 <div class="logo col-4">
-                    <a href="<?php echo URLROOT; ?>/AdminController/accueil" aria-label="index"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
+                    <a href="<?php echo URLROOT; ?>/PostController/index" aria-label="index"><img src="<?= URLROOT ?>/img/white-logo.png" alt="STUDYOU"></a>
                 </div>
                 <?php include_once APPROOT . '../views/inc/navbar-admin.php'; ?>
                 <div class="vid col-1"></div>
