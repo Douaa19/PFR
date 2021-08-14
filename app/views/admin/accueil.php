@@ -28,7 +28,7 @@
 
                 <!-- <video controls="controls" src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>" video="web/mp4" class="d-block w-100" type="video/mp4"></video> -->
 
-                <video controls class="d-block w-100" src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>">
+                <video controls class="d-block w-100" src="<?= URLROOT ?>/uploads<?php echo $row->video ?>">
                 <track default
                     type="video/mp4"
                     kind="captions"

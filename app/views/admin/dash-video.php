@@ -10,7 +10,7 @@
             <!-- Foreache loop -->
             <?php foreach ($data as $row) : ?>
             <div class="card">
-              <video src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>" controls type="videos/mp4"></video>
+              <video src="<?= URLROOT ?>/uploads<?php echo $row->video ?>" controls type="videos/mp4"></video>
               <div class="card-body">
                 <h5 class="card-title"><?php echo $row->title ?></h5>
                 <p class="card-text"><?php echo $row->description ?></p>

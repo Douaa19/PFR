@@ -276,11 +276,11 @@ class PostController extends Controller
               $path = "C:\\xampp\htdocs\PFR\public\uploads/$video";
               chown($path, 666);
 
-              if (unlink($path)) {
+            //   if (unlink($path)) {
                 header('location:' . URLROOT . '/' . 'PostController/dashVideo');
-              }else {
-                  $data['error'] = ["Le poste ne être pas supprimé"];
-              }
+            //   }else {
+            //       $data['error'] = ["Le poste ne être pas supprimé"];
+            //   }
         }else {
             echo "Post not deleted";
         }
@@ -479,50 +479,23 @@ class PostController extends Controller
 
     // UPLOAD VIDEO
     public function uploadVideo($video) {
+        
         $dir = "C:\\xampp\htdocs\PFR\public\uploads";
         $name = str_replace(' ','-',strtolower($_FILES["new_video"]["name"]));
-        $type = $_FILES["new_video"]["type"];
-        if(move_uploaded_file($video,$dir."/".$name))
-        {
-           return true;    
-        }else{
-          return false;
+        $position = strpos($name, ".");
+        $extension = substr($name, $position + 1);
+        if ($extension == "mp4" || $extension == "mkv" || $extension == "ogg" || $extension == "webm") {
+            if(move_uploaded_file($video,$dir.$name))
+            {
+               return true;    
+            }else{
+              return false;
+            }
         }
+        
+        
     }
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-    
-
-
-
-
-
-
-
-
-
-
-    
-
-     
-    
-
-    
 
     // Update The Data Selected 
     public function datePhoto() {

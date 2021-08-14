@@ -30,13 +30,7 @@
               <?php foreach($data1 as $row) : ?>
               <div class="carousel-item active">
 
-              <video controls class="d-block w-100" src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>">
-                <track default
-                    type="video/mp4"
-                    kind="captions"
-                    srclang="en"
-                    src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>"/>
-                </video>
+                <video src="<?= URLROOT ?>/uploads<?php echo $row->video ?>" class="d-block w-100" controls type="videos/mp4"></video>
 
               </div>
               <?php endforeach; ?>

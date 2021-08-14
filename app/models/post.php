@@ -234,7 +234,7 @@ class post {
 
     // Select All Data From Table Folders
     public function getFolders() {
-        $this->db->query("SELECT * FROM folders");
+        $this->db->query("SELECT * FROM folders ORDER BY id_folder DESC");
 
         $result = $this->db->resultSet();
         if ($result) {

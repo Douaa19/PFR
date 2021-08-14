@@ -7,9 +7,9 @@
             <div class="videos row m-0">
                 <?php foreach($data as $row) : ?>
                 <div class="video col-6">
-                    <video controls="controls" src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>" video="web/mp4" class="d-block w-100" type="video/mp4"></video>
+                    <video controls="controls" src="<?= URLROOT ?>/uploads/<?php echo $row->video ?>" class="d-block w-100" type="video/mp4"></video>
                     <h3><?php echo $row->title ?></h3>
-                    <p><?php echo $row->description; ?></p>
+                    <span><?php echo $row->description; ?></span><br/>
                     <span><?php echo $row->tag; ?></span>
                 </div>
                 <?php endforeach; ?>
